@@ -1,0 +1,61 @@
+/* 插件 */
+apply plugin: 'java'
+
+/*全局配置*/
+allprojects {
+    /*坐标*/
+    group 'own.jadezhang.learning'
+    version '0.0.1-SNAPSHOT'
+    /*自带插件*/
+    apply plugin: 'java'
+    /*1.7环境*/
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+    /*UTF-8 很重要*/
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.warnings = false
+    }
+
+}
+
+/** 子项目配置 */
+subprojects {
+    configurations {
+        provided
+        compile.extendsFrom provided
+        all*.exclude group: 'org.springframework', module: 'spring'
+        all*.exclude group: 'asm', module: 'asm'
+        all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+    /*类库配置*/
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        // 加载libs目录下所有的jar
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+    }
+
+    artifacts {
+        archives jar
+        archives sourcesJar
+        archives javadocJar
+    }
+
+}
+
+/*生成学生成长档案子系统javadoc*/
+def exportedProjects = [
+        ":qky-grow-api",
+        ":qky-grow-domain"
+]
+
+task alljavadoc(type: Javadoc) {
+    options.charSet = 'UTF-8'
+    options.memberLevel = JavadocMemberLevel.PRIVATE
+    source exportedProjects.collect { project(it).sourceSets.main.allJava }
+    classpath = files(exportedProjects.collect { project(it).sourceSets.main.compileClasspath })
+    destinationDir = file("${buildDir}/docs/javadoc")
+}
