@@ -1,309 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f605e75-cc6d-475f-9a8f-ddc82161d7fd" name="Default" comment="添加事物操作">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/icon-ext.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/loading-0.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/loading-1.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/loading-2.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/avalon cookbook.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/structure.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/谁在用avalon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_fastjson_1_2_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_pool_commons_pool_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/dao/base/IArticleDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/domain/base/Article.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/ArticleServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IArticleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/resources/mybatis/data/ArticleDAO.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/resources/mybatis/data/UserExDAO.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/html/JavaScript.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/html/avalon.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/html/echarts/map.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/html/layer/msg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/html/layer/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/html/qtips/qtips.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/js/layer/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/js/qtips/qtipTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/layer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/layer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/avalon1与avalon2的异同.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/button/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/list/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/loading/外面包一个专门loading的组件.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/pager/component形式.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/pager/非component形式.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/panel/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/panel/template.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/select/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/1.4.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/2.1.8.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.next.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/eslintrc.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/issue_template.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/component/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/active.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/attr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/class.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/css.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/duplex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/expr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/for.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/hover.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/if.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/important.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/on.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/rules.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/text.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/validate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/visible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/widget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/dom/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/filters/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/reconcile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/cache.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/lang.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/strategy/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/vdom/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/vmodel/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/ENV.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/bb.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/grid组件.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/onViewChange的触发.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/onViewChange的触发2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/simplegrid.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/soleSlot的使用.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/不带ms-的自定义标签.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/与duplex联动.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/使用slot做切换卡.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/单个按钮.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/多个slot.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/弹出层(组件套组件).html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/循环生成必须加id.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/按钮组件的不同声明方式.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/树(组件形式).html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/树.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/生命周期.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/生命周期2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/组件容器与组件模板的属性的优先级.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/组件容器的属性.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/组件的VM.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/路由组件.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/controller/controller.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/controller/important.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/duplex/duplex.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/duplex/duplex2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/duplex/duplex3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/effect/stagger.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/effect/动画系统.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/event/on.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/event/on2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/event/swipe.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/for/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-ko.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-ng.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-react.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-vue.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index1.4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/memory-stats.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/mithril.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/monitor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repaint.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for5.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for_duplex.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/商品促销截止期变化例子.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index0.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index1.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index10.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index11.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index12.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index13.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index5.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index6.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index7.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index8.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index9.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/重点问题.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/rollup.config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/__test__.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.next.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/component/dispose.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/component/init.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/component/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/_update.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/attr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/attr.modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/class.hover.active.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/css.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/addValidateField.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelByEvent.compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelByEvent.modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelByValue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelHandle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelMethods.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateView.compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateView.modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/expr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/for.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/if.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/important.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/on.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/rules.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/text.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/validate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/visible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/widget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/__test__.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/isVML.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/propMap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/class/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/class/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/css/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/css/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/event/canBubbleUp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/event/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/event/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/html/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/ready/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/ready/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/ready/scan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/shim/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/shim/fixCloneNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/shim/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/val/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/val/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/effect/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/__test__.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/date.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/escape.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/number.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/sanitize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/drag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/pinch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/press.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/recognizer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/rotate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/swipe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/tap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/cache.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.fix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.share.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/server/serverRender.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/addTbody.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/batch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/clearString.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/diff.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/dom2vdom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/extractBindings.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/parseExpr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/parser/parseExpr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/parser/stringify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/text2vdom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/variantCommon.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/variantSpecial.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/vdom2body.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/voidTag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VComment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VElement.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VElement.modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VFragment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VText.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/next.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/canHideProperty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/compact.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/createViewModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/dispatch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/modern.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/share.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/skipArray.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/test" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/webpack.config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/手机上特殊处理.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon1.5.8.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/echarts/china.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/echarts/china.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/echarts/echarts.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.min.map" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_pool_commons_pool_1_5_4.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___own_jade_learning_apple___apple_1_0_SNAPSHOT_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___own_jade_learning_apple___apple_1_0_SNAPSHOT_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___own_jade_learning_apple___apple_1_0_SNAPSHOT_war__exploded_.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___own_jade_learning_apple___apple_1_0_SNAPSHOT_war__exploded_.xml" />
+    <list default="true" id="6f605e75-cc6d-475f-9a8f-ddc82161d7fd" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/avalon cookbook.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/avalon1与avalon2的异同.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/button/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/list/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/loading/外面包一个专门loading的组件.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/pager/component形式.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/pager/非component形式.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/panel/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/panel/template.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/components/select/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/1.4.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/2.1.8.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.next.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/eslintrc.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/issue_template.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma.conf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/component/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/active.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/attr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/class.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/duplex.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/effect.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/expr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/for.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/hover.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/if.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/important.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/on.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/rules.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/text.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/validate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/visible.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/directives/widget.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/dom/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/filters/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/reconcile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/browser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/cache.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/seed/lang.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/strategy/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/vdom/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/karma/vmodel/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/ENV.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/bb.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/grid组件.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/onViewChange的触发.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/onViewChange的触发2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/simplegrid.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/soleSlot的使用.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/不带ms-的自定义标签.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/与duplex联动.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/使用slot做切换卡.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/单个按钮.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/多个slot.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/弹出层(组件套组件).html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/循环生成必须加id.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/按钮组件的不同声明方式.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/树(组件形式).html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/树.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/生命周期.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/生命周期2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/组件容器与组件模板的属性的优先级.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/组件容器的属性.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/组件的VM.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/component/路由组件.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/controller/controller.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/controller/important.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/duplex/duplex.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/duplex/duplex2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/duplex/duplex3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/effect/stagger.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/effect/动画系统.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/event/on.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/event/on2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/event/swipe.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/for/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-ko.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-ng.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-react.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index-vue.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/index1.4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/memory-stats.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/mithril.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/monitor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repaint.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for5.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/for_duplex.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/repeat/商品促销截止期变化例子.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index0.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index10.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index11.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index12.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index13.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index5.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index6.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index7.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index8.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/widget/index9.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/perf/重点问题.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/rollup.config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/__test__.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.next.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/avalon.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/component/dispose.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/component/init.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/component/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/_update.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/attr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/attr.modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/class.hover.active.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/addValidateField.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelByEvent.compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelByEvent.modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelByValue.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelHandle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateModelMethods.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateView.compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/duplex/updateView.modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/effect.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/expr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/for.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/if.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/important.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/on.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/rules.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/text.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/validate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/visible.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/directives/widget.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/__test__.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/isVML.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/attr/propMap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/class/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/class/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/css/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/css/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/event/canBubbleUp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/event/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/event/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/html/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/ready/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/ready/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/ready/scan.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/shim/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/shim/fixCloneNode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/shim/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/val/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/dom/val/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/effect/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/__test__.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/array.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/date.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/escape.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/event.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/number.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/filters/sanitize.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/drag.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/pinch.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/press.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/recognizer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/rotate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/swipe.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/gesture/tap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/browser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/cache.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.fix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/lang.share.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/seed/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/server/serverRender.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/addTbody.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/batch.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/clearString.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/diff.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/dom2vdom.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/extractBindings.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/parseExpr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/parser/parseExpr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/parser/stringify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/text2vdom.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/variantCommon.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/variantSpecial.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/vdom2body.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/strategy/voidTag.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VComment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VElement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VElement.modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VFragment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/VText.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vdom/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/next.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/canHideProperty.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/compact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/createViewModel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/dispatch.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/modern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/share.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/src/vmodel/parts/skipArray.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/structure.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/webpack.config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/手机上特殊处理.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/谁在用avalon.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/apple.iml" afterPath="$PROJECT_DIR$/apple/apple.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/build.gradle" afterPath="$PROJECT_DIR$/apple/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/controller/base/UserController.java" afterPath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/controller/base/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IUserService.java" afterPath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/UserServiceImpl.java" afterPath="$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/apple/src/main/resources/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/resources/mybatis/data/UserDAO.xml" afterPath="$PROJECT_DIR$/apple/src/main/resources/mybatis/data/UserDAO.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/resources/spring-mybatis.xml" afterPath="$PROJECT_DIR$/apple/src/main/resources/spring-mybatis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml" afterPath="$PROJECT_DIR$/apple/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/apple/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apple/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/apple/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/dao/IBaseDAO.java" afterPath="$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/dao/IBaseDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/service/BaseServiceImpl.java" afterPath="$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/service/BaseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/service/IBaseService.java" afterPath="$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/service/IBaseService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/html/JavaScript.html" afterPath="$PROJECT_DIR$/apple/src/main/webapp/html/JavaScript.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/html/avalon.html" afterPath="$PROJECT_DIR$/apple/src/main/webapp/html/avalon.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/html/echarts/map.html" afterPath="$PROJECT_DIR$/apple/src/main/webapp/html/echarts/map.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/html/layer/msg.html" afterPath="$PROJECT_DIR$/apple/src/main/webapp/html/layer/msg.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/html/layer/test.html" afterPath="$PROJECT_DIR$/apple/src/main/webapp/html/layer/test.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/html/qtips/qtips.html" afterPath="$PROJECT_DIR$/apple/src/main/webapp/html/qtips/qtips.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/js/layer/test.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/js/layer/test.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/js/qtips/qtipTest.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/js/qtips/qtipTest.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/layer.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/layer/layer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/icon-ext.png" afterPath="$PROJECT_DIR$/apple/src/main/webapp/layer/skin/default/icon-ext.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/icon.png" afterPath="$PROJECT_DIR$/apple/src/main/webapp/layer/skin/default/icon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/loading-0.gif" afterPath="$PROJECT_DIR$/apple/src/main/webapp/layer/skin/default/loading-0.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/loading-1.gif" afterPath="$PROJECT_DIR$/apple/src/main/webapp/layer/skin/default/loading-1.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/loading-2.gif" afterPath="$PROJECT_DIR$/apple/src/main/webapp/layer/skin/default/loading-2.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/layer.css" afterPath="$PROJECT_DIR$/apple/src/main/webapp/layer/skin/layer.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/dist/avalon.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/avalon2.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/avalon.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon1.5.8.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/avalon1.5.8.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/echarts/china.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/echarts/china.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/echarts/china.json" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/echarts/china.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/echarts/echarts.min.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/echarts/echarts.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/jquery.min.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/jquery.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.css" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/qtips/jquery.qtip.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/qtips/jquery.qtip.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.min.css" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/qtips/jquery.qtip.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.min.js" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/qtips/jquery.qtip.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apple/src/main/webapp/work/libs/qtips/jquery.qtip.min.map" afterPath="$PROJECT_DIR$/apple/src/main/webapp/libs/qtips/jquery.qtip.min.map" />
     </list>
     <ignored path="learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -363,104 +338,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="dispatcherServlet-servlet.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml">
+      <file leaf-file-name="JavaScript.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/html/JavaScript.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.322581">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/controller/base/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IArticleService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IArticleService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="123" selection-start-line="10" selection-start-column="123" selection-end-line="10" selection-end-column="123" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring-mybatis.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/resources/spring-mybatis.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.387097">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/resources/applicationContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8736844">
-              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArticleServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/ArticleServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#568#569#0" expanded="true" />
-                <element signature="e#601#602#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7976608">
-              <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-              <folding>
-                <element signature="e#1016#1017#0" expanded="true" />
-                <element signature="e#1046#1047#0" expanded="true" />
-                <element signature="e#1156#1456#0" expanded="true" />
-                <element signature="e#1455#1456#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionDefinition.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.5.RELEASE/424b0f6388fd0778648b67deeeb9250f84e1fbb8/spring-tx-4.2.5.RELEASE-sources.jar!/org/springframework/transaction/TransactionDefinition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IUserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IUserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.74757284">
+              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -1257,148 +1139,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="apple" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1418,424 +1158,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="work" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="work" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="work" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1858,6 +1180,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitHubRepository\learning\apple\src\main\webapp" />
       <recent name="F:\GitHubRepository\learning\apple\src\main\webapp\work" />
       <recent name="F:\GitHubRepository\learning\apple\src\main\resources\mybatis" />
     </key>
@@ -1865,11 +1188,11 @@
       <recent name="own.jadezhang.common.domain" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GitHubRepository\learning\apple\src\main\webapp\work\libs" />
       <recent name="F:\GitHubRepository\learning\apple\src\main\resources\mybatis\data" />
       <recent name="F:\GitHubRepository\learning\apple\src\main\webapp" />
       <recent name="F:\GitHubRepository\learning\apple\src\main\resources" />
       <recent name="F:\GitHubRepository\learning\apple\src\main\webapp\WEB-INF" />
-      <recent name="F:\GitHubRepository\learning\common\src\main\java\own\jadezhang\common\domain\common" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.apple">
@@ -2327,7 +1650,7 @@
       <workItem from="1476585956751" duration="8477000" />
       <workItem from="1476594481365" duration="450000" />
       <workItem from="1476598624811" duration="9989000" />
-      <workItem from="1476623803731" duration="8509000" />
+      <workItem from="1476623803731" duration="8946000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1476546943765</created>
@@ -2365,15 +1688,21 @@
       <option name="project" value="LOCAL" />
       <updated>1476612357571</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="添加事物操作">
+      <created>1476632418250</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1476632418250</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33606000" />
+    <option name="totallyTimeSpent" value="34043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2393,7 +1722,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22126746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30880773" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -2458,42 +1787,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apple/apple.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/domain/common/ResultDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/domain/common/ErrorCodeEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/domain/common/ReturnCodeEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/resources/log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2506,14 +1799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2531,14 +1816,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/dao/base/IUserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon1.5.8.js">
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/libs/avalon1.5.8.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36023393">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
@@ -2578,64 +1856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/icon-ext.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/layer/skin/default/icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/js/qtips/qtipTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/js/layer/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/html/echarts/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/html/qtips/qtips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5859564">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/html/layer/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/html/layer/msg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apple/src/main/resources/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.064516">
@@ -2660,26 +1880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/domain/common/SexEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/domain/BizData4Page.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/html/avalon.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.032259">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2708,43 +1912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/domain/base/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/domain/base/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="e#300#301#0" expanded="false" />
-            <element signature="e#327#328#0" expanded="false" />
-            <element signature="e#367#368#0" expanded="false" />
-            <element signature="e#399#400#0" expanded="false" />
-            <element signature="e#433#434#0" expanded="false" />
-            <element signature="e#463#464#0" expanded="false" />
-            <element signature="e#509#510#0" expanded="false" />
-            <element signature="e#547#548#0" expanded="false" />
-            <element signature="e#575#576#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#637#638#0" expanded="false" />
-            <element signature="e#667#668#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/html/JavaScript.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.234375">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apple/src/main/resources/mybatis/data/UserDAO.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="49.903225">
@@ -2763,46 +1930,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/resources/mybatis/data/UserExDAO.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8387096">
-          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/resources/mybatis/data/ArticleDAO.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="18.451612">
-          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
-          <folding>
-            <marker date="1476630694794" expanded="true" signature="392:460" placeholder="INSERT INTO user... " />
-            <marker date="1476630694794" expanded="true" signature="538:567" placeholder="SELECT LAST_... " />
-            <marker date="1476630694794" expanded="true" signature="1013:1206" placeholder="UPDATE user " />
-            <marker date="1476630694794" expanded="true" signature="1258:1667" placeholder="UPDATE user " />
-            <marker date="1476630694794" expanded="true" signature="1970:2092" placeholder="DELETE FROM " />
-            <marker date="1476630694794" expanded="true" signature="2638:2694" placeholder="DELETE FROM " />
-            <marker date="1476630694794" expanded="true" signature="3168:3385" placeholder="SELECT FROM grow_honor_degree" />
-            <marker date="1476630694794" expanded="true" signature="5776:6421" placeholder="SELECT FROM user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/own/jadezhang/common/dao/IBaseDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/dao/base/IArticleDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2813,24 +1945,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IArticleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="123" selection-start-line="10" selection-start-column="123" selection-end-line="10" selection-end-column="123" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2858,18 +1972,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/ArticleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apple/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8736844">
@@ -2878,24 +1980,221 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/work/libs/avalon-master/rollup.config.js">
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/domain/base/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28304094">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/domain/common/SexEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7976608">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
             <element signature="e#1016#1017#0" expanded="true" />
             <element signature="e#1046#1047#0" expanded="true" />
             <element signature="e#1156#1456#0" expanded="true" />
             <element signature="e#1455#1456#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/IArticleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="123" selection-start-line="10" selection-start-column="123" selection-end-line="10" selection-end-column="123" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/service/base/ArticleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/domain/base/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/dao/base/IUserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/java/own/jadezhang/learning/apple/dao/base/IArticleDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/resources/mybatis/data/UserExDAO.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8387096">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/resources/mybatis/data/ArticleDAO.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.548387">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding>
+            <marker date="1476630694794" expanded="true" signature="392:460" placeholder="INSERT INTO user... " />
+            <marker date="1476630694794" expanded="true" signature="538:567" placeholder="SELECT LAST_... " />
+            <marker date="1476630694794" expanded="true" signature="1013:1206" placeholder="UPDATE user " />
+            <marker date="1476630694794" expanded="true" signature="1258:1667" placeholder="UPDATE user " />
+            <marker date="1476630694794" expanded="true" signature="1970:2092" placeholder="DELETE FROM " />
+            <marker date="1476630694794" expanded="true" signature="2638:2694" placeholder="DELETE FROM " />
+            <marker date="1476630694794" expanded="true" signature="3168:3385" placeholder="SELECT FROM grow_honor_degree" />
+            <marker date="1476630694794" expanded="true" signature="5776:6421" placeholder="SELECT FROM user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learning.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/libs/avalon2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/html/layer/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/html/qtips/qtips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/html/echarts/map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/layer/skin/default/icon-ext.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/layer/skin/default/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/js/qtips/qtipTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33450294">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/js/layer/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/html/avalon.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6407767">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/html/layer/msg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apple/src/main/webapp/html/JavaScript.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74757284">
+          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
