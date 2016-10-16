@@ -13,5 +13,4 @@
 	<!--使 @RequestMapping, @ExceptionHandler等其他注解（有关数据格式转换的）起作用的-->
 	<mvc:annotation-driven />
 
-
 </beans>

@@ -25,23 +25,23 @@
     </listener> 
     <!-- 配置处理静态资源 -->
 	<servlet-mapping>
-     <servlet-name>default</servlet-name>
-        <url-pattern>*.jpg</url-pattern>
-    	<url-pattern>*.js</url-pattern>
-    	<url-pattern>*.css</url-pattern>
-    	<url-pattern>*.swf</url-pattern>
-    	<url-pattern>*.png</url-pattern>
-    	<url-pattern>*.html</url-pattern>
-    	<url-pattern>*.gif</url-pattern>
-    	<url-pattern>*.ico</url-pattern>
-    </servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+		<url-pattern>*.swf</url-pattern>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.jpg</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.ico</url-pattern>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcherServlet</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 

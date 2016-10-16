@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../dist/avalon.js"></script>
+        <script>
+            var vm = avalon.define({
+                $id: 'avalon',
+                header: ['name', 'age', 'sex'],
+                list: []
+            })
+            var sexMap = {
+                'true': "男",
+                'false': "女"
+            }
+            avalon.config.debug = false
+            function genData(n) {
+                var ret = []
+                for (var i = 0; i < n; i++) {
+                    ret.push({
+                        name: Math.random(),
+                        age: 3 + Math.ceil((Math.random() * 30)),
+                        sex: sexMap[1 - Math.random() > 0.5],
+                        desc: Math.random()
+                    })
+                }
+                return ret
+            }
+            var time = 0
+            var array = []
+            var id = setInterval(function () {
+                var t1 = Date.now()
+                vm.list = genData(1000)
+                var cost = Date.now() - t1
+                array.push(cost)
+
+                console.log('total ' + (cost) + ' ms', time++)
+                if (array.length > 60) {
+                    console.log('平均耗时 ' + (array.reduce(function (a, b) {
+                        return a + b
+                    }, 0)) / array.length + ' ms!!!')
+                    array.shift()
+                    console.log('更新平均耗时', array.reduce(function (a, b) {
+                        return a + b
+                    }, 0) / array.length, 'ms')
+                    clearInterval(id)
+                }
+            }, 50)
+
+        </script>
+    </head>
+
+    <body>
+
+
+        <div ms-controller='avalon' >
+            <table border="1">
+                <tr><th ms-for='el in @header'>{{el}}</th></tr>
+                <tr ms-for='tr in @list'>
+                    <td ms-for='td in tr | selectBy(["name","age","sex"])' ms-attr="{align:td === 'age' ?'left':'right'}">{{td}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
+</html>

@@ -11,8 +11,8 @@
         <property name="url" value="${dbcp.url}" />
         <property name="password" value="${dbcp.password}"/>
         <property name="username" value="${dbcp.username}"/>
-        <property name="maxActive" value="${dbcp.maxActive}"/>
         <property name="initialSize" value="${dbcp.initialSize}"/>
+        <property name="maxActive" value="${dbcp.maxActive}"/>
         <property name="maxWait" value="${dbcp.maxWait}"/>
         <property name="defaultAutoCommit" value="${dbcp.defaultAutoCommit}"/>
     </bean>

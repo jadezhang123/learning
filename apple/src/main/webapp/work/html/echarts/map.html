@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>地图</title>
+	<script type="text/javascript" src="../../libs/jquery.min.js"></script>
+	<script type="text/javascript" src="../../libs/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="../../libs/echarts/china.js"></script>
+	<script type="text/javascript" src="../../libs/avalon.js"></script>
+</head>
+<body>
+<div id="chinaMap" style="height:500px;width:600px"></div>
+<script type="text/javascript">
+	var chart = echarts.init(document.getElementById('chinaMap'));
+	chart.setOption({
+	    series: [{
+	        type: 'map',
+	        map: 'china'
+	    }]
+	});
+</script>
+</body>
+</html>

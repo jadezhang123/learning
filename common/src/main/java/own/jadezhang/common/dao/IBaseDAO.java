@@ -10,7 +10,10 @@ import java.util.Map;
  * Created by Zhang Junwei on 2016/10/16.
  */
 public interface IBaseDAO<T extends BaseDomain> {
+
     int insert(T entity);
+
+    int batchInsert(List<T> entities);
 
     int update(T entity);
 

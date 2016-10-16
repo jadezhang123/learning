@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>avalon</title>
+	<script type="text/javascript" src="../libs/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="../../libs/avalon-master/dist/avalon.js"></script> -->
+	<script type="text/javascript" src="../libs/avalon1.5.8.js"></script>
+	<script type="text/javascript">
+	var vm = null;
+	avalon.ready(function(){
+		vm = avalon.define({
+			$id:"test",
+			str:""
+		});
+		avalon.scan($("#test")[0], vm);
+	});
+		
+	</script>
+</head>
+<body ms-controller="test" id="test">
+	
+
+	<input type="text" ms-duplex="str">{{str}}
+
+</body>
+</html>

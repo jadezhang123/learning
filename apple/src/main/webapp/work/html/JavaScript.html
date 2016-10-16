@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>JavaScript</title>
+	<script src="../libs/jquery.min.js"></script>
+	<style type="text/css">
+		a{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	$(function () {
+
+		$('#addUsers').click(function () {
+			$.ajax({
+				url:'/apple/base/user/batchAdd1',
+				type:'post',
+				data:{
+					usersJSONStr:JSON.stringify([{name:'bob',sex:0},{name:'linda',sex:1},{name:'jack',sex:1}])
+				},
+				dataType:'json',
+				success: function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#findAll').click(function () {
+			$.ajax({
+				url:'/apple/base/user/findAll',
+				type:'post',
+				dataType:'json',
+
+				success: function (result) {
+					console.log(result);
+				}
+			});
+		});
+		$('#deleteUser').click(function () {
+			$.ajax({
+				url:'/apple/base/user/deleteUser',
+				type:'post',
+				dataType:'json',
+				data:{
+					id:1
+				},
+				success: function (result) {
+					console.log(result);
+				}
+			});
+		});
+	});
+</script>
+<a id="addUsers">addUsers</a>
+<a id="findAll">findAll</a>
+<a id="deleteUser">deleteUser</a>
+</body>
+</html>

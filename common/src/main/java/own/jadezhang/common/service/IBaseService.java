@@ -14,6 +14,8 @@ public interface IBaseService<D extends IBaseDAO, T extends BaseDomain> {
 
     int add(T entity);
 
+    int batchAdd(List<T> entities);
+
     int update(T entity);
 
     int updateMap(Map<String, Object> entityMap);

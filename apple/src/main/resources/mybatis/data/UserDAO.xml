@@ -14,6 +14,14 @@
         </selectKey>
     </insert>
 
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO user (name,sex) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.name}
+            ,#{item.sex})
+        </foreach>
+    </insert>
+
     <!-- 更新 -->
     <update id="update" parameterType="own.jadezhang.learning.apple.domain.base.User">
         UPDATE user
@@ -87,7 +95,7 @@
     <select id="findOne" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.User">
         SELECT
         <include refid="Base_Column_List" />
-        FROM grow_honor_degree WHERE
+        FROM user WHERE
         ${property} = #{value}
         <if test="orderBy!=null">
             ORDER BY ${orderBy} ${sortBy}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>first example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+        <script src="../../dist/avalon.js"></script>
+    </head>
+    <body>
+
+
+
+        <script>
+            var vm = avalon.define({
+                $id: 'test',
+                calcTime: function (el) {
+                    var cur = new Date(el.curDate)//还原为时间
+                    var end = new Date(el.endDate)
+                    var h = Math.abs(end.getHours() - cur.getHours())
+                    var m = Math.abs(end.getMinutes() - cur.getMinutes())
+                    var s = Math.abs(end.getSeconds() - cur.getSeconds())
+                    h = h < 10 ? '0' + h : h
+                    m = m < 10 ? '0' + m : m
+                    s = s < 10 ? '0' + s : s
+                    return (h + ":" + m + ":" + ":" + s).replace(/\d/g, function (d) {
+                        return '<span class="redbox">' + d + "</span>"
+                    })
+
+                },
+                array: [
+                    {curDate: new Date - 0, endDate: new Date(2016, 6, 7, 12, 44, 88) - 0, name: "商品1"},
+                    {curDate: new Date - 0, endDate: new Date(2016, 6, 7, 7, 40, 88) - 0, name: "商品2"},
+                    {curDate: new Date - 0, endDate: new Date(2016, 6, 7, 8, 44, 88) - 0, name: "商品3"}
+                ]
+            })
+            setInterval(function () {
+                var now = new Date - 0
+                vm.array.forEach(function (el) {
+                    el.curDate = now
+                })
+            }, 1000)
+        </script>
+        <style>
+            .redbox{
+                width:20px;
+                height:20px;
+                line-height: 20px;
+                display: inline-block;
+                border:1px solid #fff;
+                color:#fff;
+                text-align: center;
+                background: red
+            }
+        </style>
+        <div id="box" ms-controller='test'>        
+            <div ms-for="el in @array">
+                <div>{{el.name}}</div>
+                <p ms-html="@calcTime(el)"></p>
+            </div>
+        </div>
+    </body>
+</html>  

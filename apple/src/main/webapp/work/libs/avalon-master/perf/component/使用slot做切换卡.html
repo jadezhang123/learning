@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='../../dist/avalon.js'></script>
+        <script>
+            function heredoc(fn) {
+                return fn.toString().replace(/^[^\/]+\/\*!?\s?/, '').
+                        replace(/\*\/[^\/]+$/, '').trim().replace(/>\s*</g, '><')
+            }
+            avalon.component('ms-tabs', {
+                template: heredoc(function () {
+                    /*
+                     <div>
+                     <div><slot name="btn"/></div>
+                     <div><slot name="tab"/></div>
+                     </div>
+                     */
+                }),
+                defaults: {
+                    buttons: [],
+                    tabs: [],
+                    active: function (index) {
+                        this.activeIndex = index
+                    },
+                    activeIndex: 0,
+                }
+
+            })
+            var vm = avalon.define({
+                $id: 'widget1',
+                buttons: [111, 222, 333],
+                aa: '动态内容',
+                ddd: function () {
+                    console.log('xxxx')
+                },
+                change: function () {
+                    vm.aa = '更新内容'+(new Date -0)
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <h1>slot的使用</h1>
+        <div ms-controller='widget1' >
+            <xmp :widget="{is:'ms-tabs',buttons: @buttons}">
+                <button ms-for='(index,button) in @buttons'
+                    ms-click='@active(index)'
+                    type='button'
+                    slot='btn'
+                    >{{button}}</button>
+                <div slot="tab" ms-visible="0 == @activeIndex">
+                    <p>这是面板1</p>
+                        
+                </div>
+                 <div slot="tab" ms-visible="1 == @activeIndex">
+                    {{@aa}} <button ms-click="@change" type="button">change</button>
+
+                </div>
+                 <div slot="tab" ms-visible="2 == @activeIndex">
+                    这是面板3
+                </div>
+            </xmp>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../dist/avalon.js"></script>
+        <style>
+            .dialog{
+                width:300px;
+                height:200px;
+                background: #f4f4f4;
+            }
+            .title{
+                height:40px;
+                line-height: 40px;                
+            }
+        </style>
+        <script>
+
+            function heredoc(fn) {
+                return fn.toString().replace(/^[^\/]+\/\*!?\s?/, '').
+                        replace(/\*\/[^\/]+$/, '').trim().replace(/>\s*</g, '><')
+            }
+            avalon.component('ms-button', {
+                template: '<button type="button"><span><slot /></span></button>',
+                defaults: {
+                    buttonText: "button"
+                },
+                soleSlot: 'buttonText'
+            })
+            avalon.component('ms-title', {
+                template: '<strong class="title"><slot /><span style="float:right">X</span></strong>',
+                defaults: {
+                    title: "标题"
+                },
+                soleSlot: 'title'
+            })
+            avalon.component('ms-dialog', {
+                template: heredoc(function () {
+                    /*
+                     <div class="dialog" :attr="{a:@isShow}" ms-visible="@isShow">
+                     <slot name="title"/>
+                     <div class="body"><slot name="content"/></div>
+                     <div class="footer">
+                     <ms-button :click="@cbProxy(true)" :widget="@okButton" />
+                     <ms-button :click="@cbProxy(false)" :widget="@ngButton" />
+                     </div>
+                     </div>
+                     */
+                }),
+                defaults: {
+                    okButton: {
+                        buttonText: 'ok'
+                    },
+                    ngButton: {
+                        buttonText: 'cancel'
+                    },
+                    onConfirm: function () {
+                        avalon.log('ok')
+                    },
+                    onClose: function () {
+                        avalon.log('close')
+                    },
+                    cbProxy: function (ok) {
+                        var cbName = ok ? 'onConfirm' : 'onClose'
+                        if (this.hasOwnProperty(cbName)) {
+                            var ret = this[cbName]()
+                            if (ret !== false || (ret && typeof ret.next === 'function')) {
+                                this.isShow = false
+                            }
+                        } else {
+                            this.isShow = false
+                        }
+                    },
+                    isShow: false,
+                    onReady: function () {
+                        var el = this.$element
+                        el.style.display = 'none'//强制阻止动画发生
+                        this.$watch('isShow', function (a) {
+                            avalon.log('isShow change', a)
+                            if (a) {
+                                document.body.style.overflow = 'hidden'
+                            } else {
+                                document.body.style.overflow = ''
+                            }
+                        })
+                    }
+                }
+            })
+
+
+            var vm = avalon.define({
+                $id: 'widget2',
+                aaa: {
+                    isShow: false
+                },
+                title: '标题!',
+                click: function () {
+                    vm.aaa.isShow = !vm.aaa.isShow
+                },
+                click2: function () {
+                    vm.title = new Date - 0
+                }
+
+            })
+
+        </script>
+    </head>
+    <body ms-controller='widget2'>
+        <h1>ms-dialog里面包括两个ms-button</h1>
+        <p>为了方便外面操作里面的button,dialog组件最好指定它们的配置对象</p>
+    <xmp ms-widget="[{is:'ms-dialog',id:'d'},@aaa]">
+        <ms-title slot='title'>这是{{@title}}</ms-title>
+        <div slot='content'>这是内容</div>
+    </xmp>
+    <button :click="@click" type="button" >点我</button>
+    <button :click="@click2" type="button" >更换标题</button>
+</body>
+
+</html>

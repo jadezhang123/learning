@@ -16,6 +16,15 @@ public abstract class BaseServiceImpl<D extends IBaseDAO, T extends BaseDomain> 
     }
 
     @Override
+    public int batchAdd(List<T> entities) {
+        if (entities.size() > 0) {
+            return getDao().batchInsert(entities);
+        }
+        return 0;
+    }
+
+    @Override
+
     public int update(T entity) {
         return getDao().update(entity);
     }
@@ -39,6 +48,7 @@ public abstract class BaseServiceImpl<D extends IBaseDAO, T extends BaseDomain> 
     public int deleteByProperty(String property, Object value) {
         return getDao().deleteByProperty(property, value);
     }
+
     @Override
     public int deleteByCondition(Map<String, Object> condition) {
         return getDao().deleteByCondition(condition);
@@ -46,7 +56,7 @@ public abstract class BaseServiceImpl<D extends IBaseDAO, T extends BaseDomain> 
 
     @Override
     public T fetch(Object id) {
-        return (T)getDao().fetch(id);
+        return (T) getDao().fetch(id);
     }
 
     @Override

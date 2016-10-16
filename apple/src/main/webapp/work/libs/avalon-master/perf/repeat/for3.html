@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../dist/avalon.js"></script>
+        <script>
+            var vm = avalon.define({
+                $id: 'for',
+                buttonText: "点我",
+                array: ['11', 22, 33],
+                arr: [[111, 222, 333], [444, 555, 666]],
+                aa: function (a) {
+                    console.log(a)
+                },
+                a: 1,
+                click: function () {
+                    //  vm.a = '3'
+                    vm.array = [new Date - 0, (Math.random() + "").slice(-8), (Math.random() * Math.random() + "").slice(-8)]
+                    vm.arr = [[111, 22, 33], [333, 555, 888]]
+                }
+            })
+
+ 
+        </script>
+    </head>
+    <body>
+        <div :controller='for'>
+            <ul>
+                <li :for="el in @array">{{el}}</li>
+            </ul>
+            <table>
+                <tr :for="el in @arr">
+                    <td :for="elem in el" :attr="{title:elem}" :text="elem"></td>         
+                </tr>
+            </table> 
+            <p><button type="button" :click="@click" >{{@buttonText}}</button></p>
+        </div>
+    </body>
+
+</html>

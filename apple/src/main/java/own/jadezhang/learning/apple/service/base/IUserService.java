@@ -9,4 +9,5 @@ import own.jadezhang.common.service.IPagingService;
  * Created by Zhang Junwei on 2016/10/16.
  */
 public interface IUserService<D extends IBaseDAO, T extends BaseDomain> extends IBaseService<D, T>, IPagingService<D, T> {
+    int deleteUser(Long id);
 }
