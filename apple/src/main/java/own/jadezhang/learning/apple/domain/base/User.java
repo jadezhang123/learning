@@ -5,7 +5,7 @@ import own.jadezhang.common.domain.BaseDomain;
 /**
  * Created by Zhang Junwei on 2016/10/16.
  */
-public class User extends BaseDomain{
+public class User extends BaseDomain<Long>{
     private String name;
     private int sex;
 
