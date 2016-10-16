@@ -41,6 +41,8 @@
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.26" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.3.0" />
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-dbcp/commons-dbcp/1.4/30be73c965cc990b153a100aaaaafcf239f82d39/commons-dbcp-1.4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-pool/commons-pool/1.5.4/75b6e20c596ed2945a259cea26d7fadd298398e6/commons-pool-1.5.4.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">
