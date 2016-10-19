@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="repeatJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="own.jadezhang.learning.apple.domain.quartz.RepeatJobBean"></property>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="timeout">
+                    <value>10</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean name="cronJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="own.jadezhang.learning.apple.domain.quartz.CronJobBean"/>
+    </bean>
+
+    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="repeatJob" />
+        <!-- 1 seconds -->
+        <property name="startDelay" value="1000" />
+        <!-- repeat every 5 seconds -->
+        <property name="repeatInterval" value="5000" />
+    </bean>
+
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="cronJob" />
+        <!-- run every morning at 6 AM -->
+        <property name="cronExpression" value="0 0 6 * * ?" />
+    </bean>
+
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="simpleTrigger"></ref>
+                <ref bean="cronTrigger"></ref>
+            </list>
+        </property>
+    </bean>
+
+</beans>
