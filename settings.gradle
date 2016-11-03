@@ -1,4 +1,5 @@
 rootProject.name = 'learning'
 include 'apple'
 include 'common'
+include 'local'
 

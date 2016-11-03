@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webUploader</title>
+    <link href="../../libs/webUploader/webuploader.css" rel="stylesheet" type="text/css">
+    <style>
+        progress {
+            display: inline-block;
+            width: 160px;
+            height: 20px;
+            border: 1px solid #0064B4;
+            background-color: #e6e6e6;
+            color: #0064B4; /*IE10*/
+        }
+
+        /*ie6-ie9*/
+        progress ie {
+            display: block;
+            height: 100%;
+            background: #0064B4;
+        }
+
+        progress::-moz-progress-bar {
+            background: #0064B4;
+        }
+
+        progress::-webkit-progress-bar {
+            background: #e6e6e6;
+        }
+
+        progress::-webkit-progress-value {
+            background: #0064B4;
+        }
+    </style>
+    <script src="../../libs/jquery.min.js"></script>
+    <script type="text/javascript" src="../../libs/layer/layer.js"></script>
+    <script type="text/javascript" src="../../libs/webUploader/webuploader.min.js"></script>
+</head>
+<body>
+<div id="uploader" class="wu-example">
+    <!--用来存放文件信息-->
+    <div id="thelist" class="uploader-list"></div>
+    <div class="btns">
+        <div id="picker">选择文件</div>
+        <div id="fileList"></div>
+        <button id="uploadBtn" class="btn btn-default">开始上传</button>
+    </div>
+
+    <a href="/file/upload/download">下载</a>
+</div>
+<script>
+
+    var uploaderListener = (function () {
+        if (true) {
+            document.createElement("progress");
+            document.createElement("ie");
+            return {
+                fileQueued:function(file){
+                    var fileItemHTML = '<div id="' + file.id + '"><span>' + file.name + '</span><progress><ie style="width: 0%"></ie></progress></div>';
+                    $('#fileList').append(fileItemHTML);
+                },
+                uploadProgress: function (file, percentage) {
+                    $('#' + file.id + ' progress ie').css('width', percentage*100 + '%');
+                }
+            };
+        } else {
+            return {
+                fileQueued: function (file) {
+                    var fileItemHTML = '<div id="' + file.id + '"><span>' + file.name + '</span><progress max="1" value="0"></progress></div>';
+                    $('#fileList').append(fileItemHTML);
+                },
+                uploadProgress:function (file, percentage) {
+                    $('#' + file.id + ' progress').val(percentage);
+                }
+            };
+        }
+    })();
+    var uploader = WebUploader.create({
+        swf: '../../libs/webUploader/Uploader.swf',
+        server: '/file/upload/webUploader',
+        pick: {
+            id: '#picker',
+            multiple: false
+        },
+        auto: false
+    });
+
+    uploader.on('fileQueued',uploaderListener.fileQueued);
+
+    uploader.on('uploadProgress', uploaderListener.uploadProgress);
+
+    $('#uploadBtn').click(function () {
+        uploader.upload();
+    });
+</script>
+</body>
+</html>

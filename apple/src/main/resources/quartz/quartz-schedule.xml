@@ -9,12 +9,22 @@
                 <entry key="timeout">
                     <value>10</value>
                 </entry>
+                <entry key="logFile">
+                    <value>D:\\log.txt</value>
+                </entry>
             </map>
         </property>
     </bean>
 
     <bean name="cronJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
         <property name="jobClass" value="own.jadezhang.learning.apple.domain.quartz.CronJobBean"/>
+    </bean>
+
+    <bean id="exampleBusinessJob" class="own.jadezhang.learning.apple.domain.quartz.ExampleBusinessJob"/>
+
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="exampleBusinessJob" />
+        <property name="targetMethod" value="executeJob" />
     </bean>
 
     <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
@@ -39,5 +49,7 @@
             </list>
         </property>
     </bean>
+
+
 
 </beans>

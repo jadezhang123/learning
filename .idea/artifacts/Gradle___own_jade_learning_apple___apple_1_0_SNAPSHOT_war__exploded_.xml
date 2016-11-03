@@ -44,9 +44,26 @@
           <element id="library" level="project" name="Gradle: commons-dbcp:commons-dbcp:1.4" />
           <element id="library" level="project" name="Gradle: commons-pool:commons-pool:1.6" />
           <element id="library" level="project" name="Gradle: com.alibaba:fastjson:1.2.7" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.quartz-scheduler/quartz/2.2.1/2bd17ec0c66d0370a932e225f52c23f3dc7cc4ce/quartz-2.2.1.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.6.6/ce53b0a0e2cfbb27e8a59d38f79a18a5c6a8d2b0/slf4j-api-1.6.6.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/c3p0/c3p0/0.9.1.1/302704f30c6e7abb7a0457f7771739e03c973e80/c3p0-0.9.1.1.jar" />
+          <element id="library" level="project" name="Gradle: org.quartz-scheduler:quartz:2.2.1" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.6.6" />
+          <element id="library" level="project" name="Gradle: c3p0:c3p0:0.9.1.1" />
+          <element id="library" level="project" name="Gradle: com.lowagie:itext-rups:2.1.7" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:poi:3.14" />
+          <element id="library" level="project" name="Gradle: com.itextpdf:itextpdf:5.5.9" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Gradle: org.bouncycastle:bctsp-jdk14:1.38" />
+          <element id="library" level="project" name="Gradle: bouncycastle:bcprov-jdk14:138" />
+          <element id="library" level="project" name="Gradle: bouncycastle:bcmail-jdk14:138" />
+          <element id="library" level="project" name="Gradle: org.bouncycastle:bcmail-jdk14:1.38" />
+          <element id="library" level="project" name="Gradle: org.bouncycastle:bcprov-jdk14:1.38" />
+          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Gradle: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-compress:1.9" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-email/1.4/3b3c527990f7f288a3a9b23a8c7307bbf7e75965/commons-email-1.4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/javax.mail/1.5.2/ad1027a3d832bb7f34b4b9afeed760ca8eaa12f/javax.mail-1.5.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1.1/485de3a253e23f645037828c07f1d7f1af40763a/activation-1.1.1.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">
