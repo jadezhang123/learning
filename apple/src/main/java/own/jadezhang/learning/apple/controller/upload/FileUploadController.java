@@ -327,7 +327,9 @@ public class FileUploadController {
 
         File[] files = new File[]{
                 new File("F:\\document\\杂件\\社保名单汇总-张俊伟.xlsx"),
-                new File("F:\\document\\杂件\\十九楼平面布置图.pdf"),
+                new File("F:\\document\\杂件\\十九楼平面布置图1027.pdf"),
+                new File("F:\\document\\杂件\\s"),
+                new File("F:\\document\\杂件\\test"),
                 new File("F:\\document\\杂件\\2016 九州驿站新介绍.doc")};
         DownloadUtil.downloadAfterCompress(request, response, files);
     }
