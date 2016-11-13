@@ -24,20 +24,20 @@ public class UserController {
 
     @RequestMapping("/findAll")
     @ResponseBody
-    public List<User> findAll(){
+    public List<User> findAll() {
         return userService.findAll();
     }
 
     @RequestMapping("/batchAdd")
     @ResponseBody
-    public ResultDTO addUsers(@RequestBody List<User> users){
+    public ResultDTO addUsers(@RequestBody List<User> users) {
         userService.batchAdd(users);
         return new ResultDTO(true, ReturnCodeEnum.ADD_COMPLETE.getMessage());
     }
 
     @RequestMapping("/batchAdd1")
     @ResponseBody
-    public ResultDTO addUsers(String usersJSONStr){
+    public ResultDTO addUsers(String usersJSONStr) {
         List<User> users = JSON.parseArray(usersJSONStr, User.class);
         System.out.println(userService.batchAdd(users));
         return new ResultDTO(true, ReturnCodeEnum.ADD_COMPLETE.getMessage());
@@ -45,11 +45,22 @@ public class UserController {
 
     @RequestMapping("/deleteUser")
     @ResponseBody
-    public ResultDTO deleteUser(Long id){
+    public ResultDTO deleteUser(Long id) {
         int count = userService.deleteUser(id);
-        if (count >0){
+        if (count > 0) {
             return new ResultDTO(true, ReturnCodeEnum.DELETE_COMPLETE.getMessage());
-        }else {
+        } else {
+            return new ResultDTO(false, ReturnCodeEnum.ACTION_FAILURE.getMessage());
+        }
+    }
+
+    @RequestMapping("/postUser")
+    @ResponseBody
+    public ResultDTO post(User user) {
+        int count = user.getName().equals("jack") ? 1 : 0;
+        if (count > 0) {
+            return new ResultDTO(true, ReturnCodeEnum.DELETE_COMPLETE.getMessage());
+        } else {
             return new ResultDTO(false, ReturnCodeEnum.ACTION_FAILURE.getMessage());
         }
     }

@@ -1,6 +1,5 @@
 package own.jadezhang.learning.apple.utils;
 
-import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.io.IOUtils;
 import own.jadezhang.common.exception.BizException;
 import own.jadezhang.learning.apple.config.Configurations;
@@ -22,7 +21,6 @@ import java.util.zip.ZipOutputStream;
  */
 public class DownloadUtil {
 
-    private static final ArchiveStreamFactory archiveStreamFactory = null;
 
     /**
      * @param request
@@ -138,8 +136,8 @@ public class DownloadUtil {
         FileInputStream in = null;
         try {
             out = new ZipOutputStream(new FileOutputStream(compressedFilePath));
-            List<File> allFiles = traverseFile(files);
-            for (File file : allFiles) {
+            //List<File> allFiles = traverseFile(files);
+            for (File file : files) {
                 if (file == null || !file.exists()) {
                     throw new DownloadException(DownloadException.FILE_NOT_EXIST_CODE, DownloadException.FILE_NOT_EXIST_STR);
                 }
