@@ -49,6 +49,7 @@ dependencies {
     compile 'commons-dbcp:commons-dbcp:1.4'
 
     compile 'org.quartz-scheduler:quartz:2.2.1'
+    compile "com.taobao.pamirs.schedule:tbschedule:3.2.14"
 
     compile 'org.apache.poi:poi:3.14'
     compile 'com.lowagie:itext-rups:2.1.7'

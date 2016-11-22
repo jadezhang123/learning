@@ -6,12 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import own.jadezhang.common.domain.common.ResultDTO;
 import own.jadezhang.common.domain.common.ReturnCodeEnum;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.service.base.IUserService;
+import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Zhang Junwei on 2016/10/16.
@@ -63,6 +67,14 @@ public class UserController {
         } else {
             return new ResultDTO(false, ReturnCodeEnum.ACTION_FAILURE.getMessage());
         }
+    }
+
+    @RequestMapping("/exportUsers")
+    @ResponseBody
+    public ModelAndView exportUsers(Map<String, Object> model) {
+        List<User> allUsers = userService.findAll();
+        model.put("users", allUsers);
+        return new ModelAndView(new DetailExcelView(), model);
     }
 
 }

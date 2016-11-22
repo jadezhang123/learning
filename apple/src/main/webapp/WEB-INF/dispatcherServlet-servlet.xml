@@ -11,7 +11,26 @@
 	</context:component-scan>
 
 	<!--使 @RequestMapping, @ExceptionHandler等其他注解（有关数据格式转换的）起作用的-->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper">
+						<property name="dateFormat">
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg>
+									<value>yyyy-MM-dd HH:mm:ss</value>
+								</constructor-arg>
+							</bean>
+						</property>
+						<property name="serializationInclusion">
+							<value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="utf-8"/>

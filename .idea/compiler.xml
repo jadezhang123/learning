@@ -18,5 +18,17 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="apple_main" target="1.7" />
+      <module name="apple_test" target="1.7" />
+      <module name="common_main" target="1.7" />
+      <module name="common_test" target="1.7" />
+      <module name="devTester_main" target="1.5" />
+      <module name="devTester_test" target="1.5" />
+      <module name="learning_main" target="1.7" />
+      <module name="learning_test" target="1.7" />
+      <module name="local_main" target="1.7" />
+      <module name="local_test" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
