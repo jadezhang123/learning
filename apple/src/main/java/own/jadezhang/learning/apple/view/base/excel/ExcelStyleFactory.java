@@ -5,8 +5,8 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.IndexedColors;
 
 /**
  * Created by Zhang Junwei on 2016/11/21.
@@ -53,8 +53,10 @@ public class ExcelStyleFactory {
         return viceTitleStyle;
     }
 
-    public static HSSFCellStyle headerStyle(HSSFWorkbook workbook) {
+    public static HSSFCellStyle headerStyle(HSSFWorkbook workbook, short colorIndex) {
         HSSFCellStyle headerStyle = defaultStyle(workbook);
+        headerStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        headerStyle.setFillForegroundColor(colorIndex);
         HSSFFont font = workbook.createFont();
         font.setColor(HSSFColor.BLACK.index);
         font.setFontHeightInPoints((short) 10);
@@ -64,16 +66,15 @@ public class ExcelStyleFactory {
         return headerStyle;
     }
 
-    public static HSSFCellStyle dateCellStyle(HSSFWorkbook workbook, CreationHelper createHelper, String dateFormatStr) {
+    public static HSSFCellStyle dateCellStyle(HSSFWorkbook workbook, String dateFormatStr) {
         HSSFCellStyle style = defaultStyle(workbook);
-        short dateFormat = createHelper.createDataFormat().getFormat(dateFormatStr);
+        short dateFormat = workbook.createDataFormat().getFormat(dateFormatStr);
         style.setDataFormat(dateFormat);
         return style;
     }
 
     public static HSSFCellStyle defaultStyle(HSSFWorkbook workbook) {
         HSSFCellStyle style = workbook.createCellStyle();
-        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
         style.setBorderBottom(CellStyle.BORDER_THIN);
         style.setBorderLeft(CellStyle.BORDER_THIN);
         style.setBorderRight(CellStyle.BORDER_THIN);

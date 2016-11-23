@@ -2,6 +2,7 @@ package own.jadezhang.learning.apple.view.base;
 
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 import own.jadezhang.learning.apple.domain.base.User;
@@ -11,6 +12,7 @@ import own.jadezhang.learning.apple.view.base.excel.ExcelUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +33,7 @@ public class DetailExcelView extends AbstractExcelView {
         HSSFSheet sheet = workbook.createSheet(fileName);
         sheet.setDefaultColumnWidth((short) 10);
         sheet.setDefaultRowHeightInPoints(ExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
-        String[] header = {"序号", "姓名", "性别"};
+        String[] header = {"序号", "姓名", "性别", "生日"};
 
         int colCount = header.length;
         int rowCount = users.size() + HEADLINE_ROW;
@@ -59,7 +61,7 @@ public class DetailExcelView extends AbstractExcelView {
         titleCell.setCellValue(fileName);
 
         //创建头部
-        HSSFCellStyle headerStyle = ExcelStyleFactory.headerStyle(workbook);
+        HSSFCellStyle headerStyle = ExcelStyleFactory.headerStyle(workbook, IndexedColors.GREY_40_PERCENT.getIndex());
         HSSFRow headerRow = sheet.createRow(2);
         headerRow.setHeightInPoints(ExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
         for (int i = 0; i < colCount; i++) {
@@ -71,6 +73,7 @@ public class DetailExcelView extends AbstractExcelView {
         sheet.createFreezePane(0, HEADLINE_ROW);
 
         HSSFCellStyle cellStyle = ExcelStyleFactory.defaultStyle(workbook);
+        HSSFCellStyle dateStyle = ExcelStyleFactory.dateCellStyle(workbook, "yyyy-MM");
         User user;
         int dataContentRow = users.size();
         HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
@@ -88,6 +91,9 @@ public class DetailExcelView extends AbstractExcelView {
                 if (j == 1) {
                     cell.setCellValue(user.getName());
                     ExcelUtil.commentForCell("姓名\r\n15671569027", commentRegion, patriarch, cell);
+                }
+                if (j == 3) {
+                    cell.setCellStyle(dateStyle);
                 }
             }
         }
