@@ -1,6 +1,7 @@
 package own.jadezhang.learning.apple.utils;
 
 import org.apache.commons.io.IOUtils;
+import own.jadezhang.common.domain.BaseDomain;
 import own.jadezhang.common.exception.BizException;
 import own.jadezhang.learning.apple.config.Configurations;
 import own.jadezhang.learning.apple.exception.DownloadException;
@@ -58,7 +59,7 @@ public class DownloadUtil {
      */
     public static void downloadAfterCompress(HttpServletRequest request, HttpServletResponse response, File[] files) {
         try {
-            String compressedFilePath = compressFiles(files);
+            String compressedFilePath = compressFiles(files, null);
             File compressedFile = new File(compressedFilePath);
 
             download(request, response, compressedFile);
@@ -71,8 +72,7 @@ public class DownloadUtil {
 
     public static void downloadAfterCompress(HttpServletRequest request, HttpServletResponse response, File[] files, FilenameGenerator fileNameGenerator) {
         try {
-
-            String compressedFilePath = compressFiles(files);
+            String compressedFilePath = compressFiles(files, fileNameGenerator);
 
             File compressedFile = new File(compressedFilePath);
 
@@ -130,28 +130,34 @@ public class DownloadUtil {
         }
     }
 
-    private static String compressFiles(File[] files) throws DownloadException {
+    private static String compressFiles(File[] files, FilenameGenerator fileNameGenerator) throws DownloadException {
         String compressedFilePath = Configurations.getTempPath() + File.separator + System.currentTimeMillis() + "-temp.zip";
         ZipOutputStream out = null;
         FileInputStream in = null;
         try {
             out = new ZipOutputStream(new FileOutputStream(compressedFilePath));
-            //List<File> allFiles = traverseFile(files);
-            for (File file : files) {
+            for (int index = 0; index < files.length; index++) {
+                File file = files[index];
                 if (file == null || !file.exists()) {
                     throw new DownloadException(DownloadException.FILE_NOT_EXIST_CODE, DownloadException.FILE_NOT_EXIST_STR);
                 }
                 if (!file.isFile()) {
                     continue;
                 }
-                out.putNextEntry(new ZipEntry(file.getName()));
+                String filename ;
+                if (fileNameGenerator != null) {
+                    filename = fileNameGenerator.generateFilename(file, index);
+                } else {
+                    filename = file.getName();
+                }
+
+                out.putNextEntry(new ZipEntry(filename));
                 in = new FileInputStream(file);
                 IOUtils.copy(in, out);
                 out.closeEntry();
                 IOUtils.closeQuietly(in);
             }
             IOUtils.closeQuietly(out);
-
         } catch (IOException e) {
             e.printStackTrace();
             throw new DownloadException(DownloadException.COMPRESS_ERROR_CODE, DownloadException.COMPRESS_ERROR_STR);
@@ -161,6 +167,29 @@ public class DownloadUtil {
         }
         return compressedFilePath;
     }
+
+    /*private static final void zip(File directory, File base, ZipOutputStream out) throws IOException {
+        File[] files;
+        if (directory.isDirectory()) {
+            files = directory.listFiles();
+        } else {
+            files = new File[1];
+            files[0] = directory;
+        }
+
+        for (int i = 0, n = files.length; i < n; i++) {
+            if (files[i].isDirectory()) {
+                zip(files[i], base, out);
+            } else {
+                FileInputStream in = new FileInputStream(files[i]);
+                ZipEntry entry = new ZipEntry(files[i].getPath().substring(
+                        base.getPath().lastIndexOf("/") + 1));
+                out.putNextEntry(entry);
+                IOUtils.copy(in, out);
+                IOUtils.closeQuietly(in);
+            }
+        }
+    }*/
 
     private static List<File> traverseFile(File[] files) {
         List<File> allFiles = new ArrayList<File>();
@@ -179,11 +208,32 @@ public class DownloadUtil {
      */
     public static abstract class FilenameGenerator {
         /**
-         * 生成下载的文件在前端显示的名称
-         *
+         * 生成下载的文件显示的名称
          * @param file 当前待下载的文件
          * @return
          */
         public abstract String generateFilename(File file);
+
+        /**
+         * 生成下载的文件显示的名称，用于打包文件中内部各文件
+         * @param file  当前待打包的文件
+         * @param index 打包文件中的索引
+         * @return
+         */
+        public abstract String generateFilename(File file, int index);
     }
+
+    public static class FileNameGeneratorAdapter extends FilenameGenerator{
+
+        @Override
+        public String generateFilename(File file) {
+            return file.getName();
+        }
+
+        @Override
+        public String generateFilename(File file, int index) {
+            return file.getName();
+        }
+    }
+
 }

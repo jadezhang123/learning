@@ -331,6 +331,16 @@ public class FileUploadController {
                 new File("F:\\document\\杂件\\s"),
                 new File("F:\\document\\杂件\\test"),
                 new File("F:\\document\\杂件\\2016 九州驿站新介绍.doc")};
-        DownloadUtil.downloadAfterCompress(request, response, files);
+        DownloadUtil.downloadAfterCompress(request, response, files, new DownloadUtil.FilenameGenerator() {
+            @Override
+            public String generateFilename(File file) {
+                return null;
+            }
+
+            @Override
+            public String generateFilename(File file, int index) {
+                return null;
+            }
+        });
     }
 }
