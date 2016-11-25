@@ -1,10 +1,8 @@
 package own.jadezhang.learning.apple.view.base.chart;
 
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.general.Dataset;
 
-import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.Map;
 
 /**

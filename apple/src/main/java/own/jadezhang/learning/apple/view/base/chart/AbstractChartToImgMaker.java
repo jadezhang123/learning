@@ -1,7 +1,6 @@
 package own.jadezhang.learning.apple.view.base.chart;
 
 import org.jfree.chart.*;
-import org.jfree.data.general.Dataset;
 
 import java.awt.*;
 import java.io.FileOutputStream;
