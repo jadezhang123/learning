@@ -1,11 +1,13 @@
 package own.jadezhang.learning.apple.view.base;
 
+import org.apache.poi.hssf.record.chart.ObjectLinkRecord;
 import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 import own.jadezhang.learning.apple.domain.base.User;
+import own.jadezhang.learning.apple.view.base.chart.ChartToImgUtil;
+import own.jadezhang.learning.apple.view.base.chart.PieCharToImg;
 import own.jadezhang.learning.apple.view.base.excel.ExcelStyleFactory;
 import own.jadezhang.learning.apple.view.base.excel.ExcelUtil;
 
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -99,6 +102,28 @@ public class DetailExcelView extends AbstractExcelView {
         }
         String[] sexConstraint = {"男", "女"};
         ExcelUtil.explicitListConstraint(sexConstraint, new int[]{HEADLINE_ROW, rowCount - 1, 2, 2}, sheet);
+
+        ExcelUtil.pictureToPosition("D:\\logo.jpg", new int[]{}, patriarch, workbook);
+
+        Drawing drawing = sheet.createDrawingPatriarch();
+        CreationHelper helper = workbook.getCreationHelper();
+        int[] pictureCell = new int[]{15, 0};
+        ExcelUtil.pictureToCell("D:\\77.gif", pictureCell, drawing, helper, workbook);
+        pictureCell[0] = 20;
+        ExcelUtil.pictureToCell("D:\\logo.jpg", pictureCell, drawing, helper, workbook);
+        pictureCell[0] = 30;
+        ExcelUtil.pictureToCell("D:\\te.png", pictureCell, drawing, helper, workbook);
+
+        String pieImgPath = "D:\\imgPath.png";
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("正常", 23);
+        data.put("偏胖", 3);
+        data.put("偏瘦", 5);
+        data.put("肥胖", 2);
+        pieImgPath = ChartToImgUtil.trans(new PieCharToImg(), data, pieImgPath, 500, 500);
+        pictureCell[0] = 40;
+        ExcelUtil.pictureToCell(pieImgPath, pictureCell, drawing, helper, workbook);
+
     }
 
     private void setResponse(HttpServletRequest request, HttpServletResponse response, String fileName) throws Exception {

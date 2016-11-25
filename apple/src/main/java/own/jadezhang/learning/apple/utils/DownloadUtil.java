@@ -215,14 +215,17 @@ public class DownloadUtil {
         public abstract String generateFilename(File file);
 
         /**
-         * 生成下载的文件显示的名称，用于打包文件中内部各文件
+         * 生成下载的文件显示的名称，用于生成打包文件子文件名
          * @param file  当前待打包的文件
-         * @param index 打包文件中的索引
+         * @param index 打包文件中子文件的索引
          * @return
          */
         public abstract String generateFilename(File file, int index);
     }
 
+    /**
+     * 文件名生成适配器，选择需要方法进行覆写，主要适用于单文件下载，此时需要覆写第一个方法
+     */
     public static class FileNameGeneratorAdapter extends FilenameGenerator{
 
         @Override

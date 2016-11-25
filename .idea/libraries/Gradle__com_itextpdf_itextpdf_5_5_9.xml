@@ -4,6 +4,8 @@
       <root url="jar://C:/devInstall/gradle-2.5/caches/modules-2/files-2.1/com.itextpdf/itextpdf/5.5.9/af7e24e11af3aeb7f25dfe342b050dd1618f2a54/itextpdf-5.5.9.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://C:/devInstall/gradle-2.5/caches/modules-2/files-2.1/com.itextpdf/itextpdf/5.5.9/287955811c52cf0218f3f5266e51f6b797b3164f/itextpdf-5.5.9-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
