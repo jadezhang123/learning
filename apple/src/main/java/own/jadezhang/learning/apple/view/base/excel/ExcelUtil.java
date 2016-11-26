@@ -56,13 +56,21 @@ public class ExcelUtil {
         cell.setCellComment(comment);
     }
 
-
+    /**
+     * 将图片插入到指定位置，并设定图片所占区域大小，以单元格为单位
+     * @param imgPath
+     * @param region  图片位置以及大小；
+     *                图片左上角所在单元格 => region[0]：col; region[1]: row;
+     *                图片大小,单位为一个单元格的宽或高 => region[2]: width; region[3]: height
+     * @param patriarch
+     * @param workbook
+     */
     public static void pictureToPosition(String imgPath, int[] region, HSSFPatriarch patriarch, Workbook workbook) {
         try {
             ByteArrayOutputStream byteArrayOut = new ByteArrayOutputStream();
             BufferedImage bufferImg = ImageIO.read(new File(imgPath));
             ImageIO.write(bufferImg, FilenameUtils.getExtension(imgPath), byteArrayOut);
-            HSSFClientAnchor anchor = new HSSFClientAnchor(0, 150, 1000, 210, (short) 0, 0, (short) 1, 1);
+            HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0, 0, 0, (short) region[0], region[1], (short) (region[0]+region[2]), region[1]+region[3]);
             patriarch.createPicture(anchor, workbook.addPicture(byteArrayOut.toByteArray(), HSSFWorkbook.PICTURE_TYPE_PNG));
             byteArrayOut.close();
         } catch (IOException e) {
@@ -70,27 +78,27 @@ public class ExcelUtil {
         }
     }
 
-    public static void pictureToCell(String imgPath, int[] cell, Drawing drawing, CreationHelper helper, Workbook workbook) {
-        pictureToCell(imgPath, cell, null, drawing, helper, workbook);
+    public static void pictureToPosition(String imgPath, int[] cell, Drawing drawing, CreationHelper helper, Workbook workbook) {
+        pictureToPosition(imgPath, cell, null, drawing, helper, workbook);
     }
 
     /**
      * 将图片添加到指定的单元格
      * @param imgPath
-     * @param cell   单元格位置 => cell[0] : row; cell[1]: col
-     * @param size  图片大小 => size[0]: width; size[1]: height
+     * @param cell   单元格位置 => cell[0] : col; cell[1]: row
+     * @param size  图片大小; 单位：像素 => size[0]: width; size[1]: height
      * @param drawing
      * @param helper
      * @param workbook
      */
-    public static void pictureToCell(String imgPath, int[] cell, double[] size, Drawing drawing, CreationHelper helper, Workbook workbook) {
+    public static void pictureToPosition(String imgPath, int[] cell, double[] size, Drawing drawing, CreationHelper helper, Workbook workbook) {
         try {
             InputStream is = new FileInputStream(imgPath);
             byte[] bytes = IOUtils.toByteArray(is);
             int pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_PNG);
             ClientAnchor anchor = helper.createClientAnchor();
-            anchor.setRow1(cell[0]);
-            anchor.setCol1(cell[1]);
+            anchor.setCol1(cell[0]);
+            anchor.setRow1(cell[1]);
             Picture picture = drawing.createPicture(anchor, pictureIdx);
             if (size == null || size.length == 0) {
                 picture.resize();

@@ -11,11 +11,17 @@ import java.util.Map;
  */
 public interface ChartToImgMaker {
 
+    String TITLE_KEY = "titleKey";
+
+    String X_AXIS_KEY = "xAxisKey";
+
+    String Y_AXIS_KEY = "yAxisKey";
+
     Dataset createDataset(Map<String, Object> data);
 
     ChartTheme setStandardChartThem();
 
-    JFreeChart createChart(Dataset dataset);
+    JFreeChart createChart(Map<String, String> nameOption, Dataset dataset);
 
     String transToImg(JFreeChart chart, String imgPath, int width, int height);
 }

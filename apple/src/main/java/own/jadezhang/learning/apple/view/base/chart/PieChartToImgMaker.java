@@ -15,10 +15,13 @@ import java.util.Map;
 /**
  * Created by Zhang Junwei on 2016/11/25.
  */
-public class PieCharToImg extends AbstractChartToImgMaker{
+public class PieChartToImgMaker extends AbstractChartToImgMaker {
+
+
+
     @Override
     public Dataset createDataset(Map<String, Object> data) {
-        DefaultPieDataset dpd=new DefaultPieDataset();
+        DefaultPieDataset dpd = new DefaultPieDataset();
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dpd.setValue(entry.getKey(), (Integer) entry.getValue());
         }
@@ -26,16 +29,16 @@ public class PieCharToImg extends AbstractChartToImgMaker{
     }
 
     @Override
-    public JFreeChart createChart(Dataset dataset) {
+    public JFreeChart createChart(Map<String, String> nameOption, Dataset dataset) {
         DefaultPieDataset dpd = (DefaultPieDataset) dataset;
-        JFreeChart chart= ChartFactory.createPieChart("BMI值",dpd,true,true,false);
-        PiePlot pieplot = (PiePlot)chart.getPlot();
+        JFreeChart chart = ChartFactory.createPieChart(nameOption.get(ChartToImgMaker.TITLE_KEY), dpd, true, true, false);
+        PiePlot pieplot = (PiePlot) chart.getPlot();
         pieplot.setLabelFont(new Font("宋体", 0, 12));
         pieplot.setNoDataMessage("无数据");
         pieplot.setCircular(true);
         pieplot.setLabelGap(0.02D);
         pieplot.setLabelGenerator(new StandardPieSectionLabelGenerator(
-                "{0}: ({1},{2})",
+                "{0}: {1} ({2})",
                 NumberFormat.getNumberInstance(),
                 new DecimalFormat("0.00%")));
         return chart;
