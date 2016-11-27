@@ -17,11 +17,8 @@ public interface ChartToImgMaker {
 
     String Y_AXIS_KEY = "yAxisKey";
 
-    Dataset createDataset(Map<String, Object> data);
+    String trans(Map<String, String> nameOption,Map<String, Object> data ,String imgPath);
 
-    ChartTheme setStandardChartThem();
+    String trans(Map<String, String> nameOption, Map<String, Object> data, String imgPath, int width, int height);
 
-    JFreeChart createChart(Map<String, String> nameOption, Dataset dataset);
-
-    String transToImg(JFreeChart chart, String imgPath, int width, int height);
 }

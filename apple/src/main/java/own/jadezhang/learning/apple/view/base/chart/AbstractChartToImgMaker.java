@@ -1,19 +1,24 @@
 package own.jadezhang.learning.apple.view.base.chart;
 
 import org.jfree.chart.*;
+import org.jfree.data.general.Dataset;
 
 import java.awt.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Map;
 
 /**
  * Created by Zhang Junwei on 2016/11/25.
  */
 public abstract class AbstractChartToImgMaker implements ChartToImgMaker{
 
-    @Override
-    public ChartTheme setStandardChartThem() {
+    protected abstract Dataset createDataset(Map<String, Object> data);
+
+    protected abstract JFreeChart createChart(Map<String, String> nameOption, Dataset dataset);
+
+    protected ChartTheme setStandardChartThem() {
         //创建主题样式
         StandardChartTheme standardChartTheme=new StandardChartTheme("CN");
         //设置标题字体
@@ -27,8 +32,7 @@ public abstract class AbstractChartToImgMaker implements ChartToImgMaker{
         return standardChartTheme;
     }
 
-    @Override
-    public String transToImg(JFreeChart chart, String imgPath, int width, int height) {
+    final protected String transToImg(JFreeChart chart, String imgPath, int width, int height) {
         try {
             OutputStream os = new FileOutputStream(imgPath);
             ChartUtilities.writeChartAsJPEG(os, chart, width, height);
@@ -38,5 +42,18 @@ public abstract class AbstractChartToImgMaker implements ChartToImgMaker{
             e.printStackTrace();
             return "";
         }
+    }
+
+    @Override
+    public String trans(Map<String, String> nameOption, Map<String, Object> data, String imgPath) {
+        return trans(nameOption, data, imgPath, 500, 500);
+    }
+
+    @Override
+    public String trans(Map<String, String> nameOption, Map<String, Object> data, String imgPath, int width, int height) {
+        Dataset dataset = createDataset(data);
+        setStandardChartThem();
+        JFreeChart jFreeChart = createChart(nameOption, dataset);
+        return transToImg(jFreeChart, imgPath, width, height);
     }
 }

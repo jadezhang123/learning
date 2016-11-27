@@ -6,7 +6,6 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.view.base.chart.ChartToImgMaker;
-import own.jadezhang.learning.apple.view.base.chart.ChartToImgUtil;
 import own.jadezhang.learning.apple.view.base.chart.LineChartToImgMaker;
 import own.jadezhang.learning.apple.view.base.chart.PieChartToImgMaker;
 import own.jadezhang.learning.apple.view.base.excel.ExcelStyleFactory;
@@ -104,17 +103,6 @@ public class DetailExcelView extends AbstractExcelView {
         String[] sexConstraint = {"男", "女"};
         ExcelUtil.explicitListConstraint(sexConstraint, new int[]{HEADLINE_ROW, rowCount - 1, 2, 2}, sheet);
 
-        //ExcelUtil.pictureToPosition("D:\\logo.jpg", new int[]{}, patriarch, workbook);
-
-        /* Drawing drawing = sheet.createDrawingPatriarch();
-        CreationHelper helper = workbook.getCreationHelper();
-        int[] pictureCell = new int[]{0, 15};
-        ExcelUtil.pictureToPosition("D:\\77.gif", pictureCell, drawing, helper, workbook);
-        pictureCell[1] = 20;
-        ExcelUtil.pictureToPosition("D:\\logo.jpg", pictureCell, drawing, helper, workbook);
-        pictureCell[1] = 30;
-        ExcelUtil.pictureToPosition("D:\\te.png", pictureCell, drawing, helper, workbook);*/
-
         String pieImgPath = "D:\\imgPath.png";
         Map<String, String> nameOption = new HashMap<String, String>();
         nameOption.put(ChartToImgMaker.TITLE_KEY, "BMI值");
@@ -123,10 +111,12 @@ public class DetailExcelView extends AbstractExcelView {
         data.put("偏胖", 3);
         data.put("偏瘦", 5);
         data.put("肥胖", 2);
-        pieImgPath = ChartToImgUtil.trans(new PieChartToImgMaker(), nameOption, data, pieImgPath, 500, 500);
+        PieChartToImgMaker pieChartToImgMaker = new PieChartToImgMaker();
+        pieChartToImgMaker.trans(nameOption, data, pieImgPath, 500,500);
         int[] chartImgPosition = {2, 15, 5, 10};
         ExcelUtil.pictureToPosition(pieImgPath, chartImgPosition, patriarch, workbook);
 
+        nameOption.put(ChartToImgMaker.TITLE_KEY, "第一季度温度情况");
         nameOption.put(ChartToImgMaker.X_AXIS_KEY, "月份");
         nameOption.put(ChartToImgMaker.Y_AXIS_KEY, "温度");
 
@@ -153,7 +143,8 @@ public class DetailExcelView extends AbstractExcelView {
         lineDate.put("平均",series3);
 
         String lineChartImgPath = "D:\\lineImg.jpg";
-        ChartToImgUtil.trans(new LineChartToImgMaker(), nameOption, lineDate, lineChartImgPath, 1000, 800);
+        LineChartToImgMaker lineChartToImgMaker = new LineChartToImgMaker();
+        lineChartToImgMaker.trans(nameOption, lineDate, lineChartImgPath, 1000, 800);
         chartImgPosition[1] = 30;
         chartImgPosition[2] = 10;
         chartImgPosition[3] = 20;

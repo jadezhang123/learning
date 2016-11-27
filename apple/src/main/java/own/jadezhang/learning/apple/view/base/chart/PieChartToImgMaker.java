@@ -17,10 +17,8 @@ import java.util.Map;
  */
 public class PieChartToImgMaker extends AbstractChartToImgMaker {
 
-
-
     @Override
-    public Dataset createDataset(Map<String, Object> data) {
+    protected Dataset createDataset(Map<String, Object> data) {
         DefaultPieDataset dpd = new DefaultPieDataset();
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dpd.setValue(entry.getKey(), (Integer) entry.getValue());
@@ -29,7 +27,7 @@ public class PieChartToImgMaker extends AbstractChartToImgMaker {
     }
 
     @Override
-    public JFreeChart createChart(Map<String, String> nameOption, Dataset dataset) {
+    protected JFreeChart createChart(Map<String, String> nameOption, Dataset dataset) {
         DefaultPieDataset dpd = (DefaultPieDataset) dataset;
         JFreeChart chart = ChartFactory.createPieChart(nameOption.get(ChartToImgMaker.TITLE_KEY), dpd, true, true, false);
         PiePlot pieplot = (PiePlot) chart.getPlot();

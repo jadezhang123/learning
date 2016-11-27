@@ -1,6 +1,7 @@
 package own.jadezhang.learning.apple.view.base.chart;
 
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartTheme;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
@@ -34,7 +35,7 @@ public class LineChartToImgMaker extends AbstractChartToImgMaker {
      * @return
      */
     @Override
-    public Dataset createDataset(Map<String, Object> data) {
+    protected Dataset createDataset(Map<String, Object> data) {
         DefaultCategoryDataset lineDataset = new DefaultCategoryDataset();
         List<String> xAxisData = (List<String>) data.get(SERIES_KEY_LIST);
         /*List<Map<String, Double>> seriesData;
@@ -60,7 +61,7 @@ public class LineChartToImgMaker extends AbstractChartToImgMaker {
     }
 
     @Override
-    public JFreeChart createChart(Map<String, String> nameOption, Dataset dataset) {
+    protected JFreeChart createChart(Map<String, String> nameOption, Dataset dataset) {
         DefaultCategoryDataset lineDataset = (DefaultCategoryDataset) dataset;
         JFreeChart chart = ChartFactory.createLineChart(nameOption.get(TITLE_KEY), nameOption.get(X_AXIS_KEY), nameOption.get(Y_AXIS_KEY),
                 lineDataset, PlotOrientation.VERTICAL, true, false, false
@@ -83,4 +84,5 @@ public class LineChartToImgMaker extends AbstractChartToImgMaker {
         plot.setRenderer(renderer);
         return chart;
     }
+
 }
