@@ -27,9 +27,9 @@ public class PieChartToImgMaker extends AbstractChartToImgMaker {
     }
 
     @Override
-    protected JFreeChart createChart(Map<String, String> nameOption, Dataset dataset) {
+    protected JFreeChart createChart(Map<String, String> option, Dataset dataset) {
         DefaultPieDataset dpd = (DefaultPieDataset) dataset;
-        JFreeChart chart = ChartFactory.createPieChart(nameOption.get(ChartToImgMaker.TITLE_KEY), dpd, true, true, false);
+        JFreeChart chart = ChartFactory.createPieChart(option.get(ChartToImgMaker.TITLE_KEY), dpd, true, true, false);
         PiePlot pieplot = (PiePlot) chart.getPlot();
         pieplot.setLabelFont(new Font("宋体", 0, 12));
         pieplot.setNoDataMessage("无数据");

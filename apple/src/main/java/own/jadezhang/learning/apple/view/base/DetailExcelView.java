@@ -1,12 +1,13 @@
 package own.jadezhang.learning.apple.view.base;
 
 import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 import own.jadezhang.learning.apple.domain.base.User;
+import own.jadezhang.learning.apple.view.base.chart.CategoryChartToImgMaker;
 import own.jadezhang.learning.apple.view.base.chart.ChartToImgMaker;
-import own.jadezhang.learning.apple.view.base.chart.LineChartToImgMaker;
 import own.jadezhang.learning.apple.view.base.chart.PieChartToImgMaker;
 import own.jadezhang.learning.apple.view.base.excel.ExcelStyleFactory;
 import own.jadezhang.learning.apple.view.base.excel.ExcelUtil;
@@ -104,28 +105,28 @@ public class DetailExcelView extends AbstractExcelView {
         ExcelUtil.explicitListConstraint(sexConstraint, new int[]{HEADLINE_ROW, rowCount - 1, 2, 2}, sheet);
 
         String pieImgPath = "D:\\imgPath.png";
-        Map<String, String> nameOption = new HashMap<String, String>();
-        nameOption.put(ChartToImgMaker.TITLE_KEY, "BMI值");
+        Map<String, String> option = new HashMap<String, String>();
+        option.put(ChartToImgMaker.TITLE_KEY, "BMI值");
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("正常", 23);
         data.put("偏胖", 3);
         data.put("偏瘦", 5);
         data.put("肥胖", 2);
         PieChartToImgMaker pieChartToImgMaker = new PieChartToImgMaker();
-        pieChartToImgMaker.trans(nameOption, data, pieImgPath, 500,500);
+        pieChartToImgMaker.trans(option, data, pieImgPath, 500,500);
         int[] chartImgPosition = {2, 15, 5, 10};
         ExcelUtil.pictureToPosition(pieImgPath, chartImgPosition, patriarch, workbook);
-
-        nameOption.put(ChartToImgMaker.TITLE_KEY, "第一季度温度情况");
-        nameOption.put(ChartToImgMaker.X_AXIS_KEY, "月份");
-        nameOption.put(ChartToImgMaker.Y_AXIS_KEY, "温度");
+        option.put(CategoryChartToImgMaker.CATEGORY_CHART_TYPE_KEY, CategoryChartToImgMaker.CATEGORY_CHART_TYPE_LINE);
+        option.put(ChartToImgMaker.TITLE_KEY, "第一季度温度情况");
+        option.put(ChartToImgMaker.X_AXIS_KEY, "月份");
+        option.put(ChartToImgMaker.Y_AXIS_KEY, "温度");
 
         Map<String, Object> lineDate = new HashMap<String, Object>();
         List<String> seriesKeys= new ArrayList<String>();
         seriesKeys.add("1月份");
         seriesKeys.add("2月份");
         seriesKeys.add("3月份");
-        lineDate.put(LineChartToImgMaker.SERIES_KEY_LIST, seriesKeys);
+        lineDate.put(CategoryChartToImgMaker.SERIES_KEY_LIST, seriesKeys);
         List<Double> series1= new ArrayList<Double>();
         series1.add(23D);
         series1.add(25D);
@@ -142,13 +143,20 @@ public class DetailExcelView extends AbstractExcelView {
         series3.add(13.0);
         lineDate.put("平均",series3);
 
-        String lineChartImgPath = "D:\\lineImg.jpg";
-        LineChartToImgMaker lineChartToImgMaker = new LineChartToImgMaker();
-        lineChartToImgMaker.trans(nameOption, lineDate, lineChartImgPath, 1000, 800);
+        String chartImgPath = "D:\\lineImg.jpg";
+        CategoryChartToImgMaker categoryChartToImgMaker = new CategoryChartToImgMaker();
+        categoryChartToImgMaker.trans(option, lineDate, chartImgPath, 1000, 800);
         chartImgPosition[1] = 30;
         chartImgPosition[2] = 10;
         chartImgPosition[3] = 20;
-        ExcelUtil.pictureToPosition(lineChartImgPath, chartImgPosition, patriarch, workbook);
+        ExcelUtil.pictureToPosition(chartImgPath, chartImgPosition, patriarch, workbook);
+
+        option.put(CategoryChartToImgMaker.CATEGORY_CHART_TYPE_KEY, CategoryChartToImgMaker.CATEGORY_CHART_TYPE_BAR);
+        categoryChartToImgMaker.trans(option, lineDate, chartImgPath, 1000, 800);
+        chartImgPosition[1] = 60;
+        chartImgPosition[2] = 10;
+        chartImgPosition[3] = 20;
+        ExcelUtil.pictureToPosition(chartImgPath, chartImgPosition, patriarch, workbook);
 
     }
 
