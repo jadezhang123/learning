@@ -31,8 +31,8 @@ public class CategoryChartToImgMaker extends AbstractChartToImgMaker {
     public static final String CATEGORY_CHART_TYPE_KEY = "categoryChartType";
 
     /**
-     *  CATEGORY_CHART_TYPE_* 的常量值指定生成表格的创建方法名，
-     *  作为trans()的第一个参数option的key为 CATEGORY_CHART_TYPE_KEY 的value值
+     * CATEGORY_CHART_TYPE_* 的常量值指定生成表格的创建方法名，
+     * 作为trans()的第一个参数option的key为 CATEGORY_CHART_TYPE_KEY 的value值
      */
     public static final String CATEGORY_CHART_TYPE_LINE = "createLineChart";
 
@@ -75,13 +75,15 @@ public class CategoryChartToImgMaker extends AbstractChartToImgMaker {
             }
         }*/
         List<Number> seriesData;
+        Number value;
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             if (SERIES_KEY_LIST.equals(entry.getKey())) {
                 continue;
             }
             seriesData = (List<Number>) entry.getValue();
             for (int index = 0, length = seriesData.size(); index < length; index++) {
-                lineDataset.addValue(seriesData.get(index), entry.getKey(), xAxisData.get(index));
+                value = seriesData.get(index);
+                lineDataset.addValue(value == null ? 0 : value, entry.getKey(), xAxisData.get(index));
             }
         }
         return lineDataset;
@@ -116,7 +118,7 @@ public class CategoryChartToImgMaker extends AbstractChartToImgMaker {
         plot.setDomainGridlinesVisible(true);  //设置背景网格线是否可见
         plot.setDomainGridlinePaint(Color.BLACK); //设置背景网格线颜色
         plot.setRangeGridlinePaint(Color.GRAY);
-
+        plot.setNoDataMessage("无数据");
         renderChartAsDefault(plot);
         return chart;
 

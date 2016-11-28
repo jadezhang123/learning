@@ -129,7 +129,7 @@ public class DetailExcelView extends AbstractExcelView {
         lineDate.put(CategoryChartToImgMaker.SERIES_KEY_LIST, seriesKeys);
         List<Double> series1= new ArrayList<Double>();
         series1.add(23D);
-        series1.add(25D);
+        series1.add(null);
         series1.add(21D);
         lineDate.put("最高",series1);
         List<Double> series2= new ArrayList<Double>();

@@ -35,7 +35,12 @@ public class PieChartToImgMaker extends AbstractChartToImgMaker {
         pieplot.setNoDataMessage("无数据");
         pieplot.setCircular(true);
         pieplot.setLabelGap(0.02D);
-        pieplot.setLabelGenerator(new StandardPieSectionLabelGenerator(
+/*        pieplot.setLabelGenerator(new StandardPieSectionLabelGenerator(
+                "{0}: {1} ({2})",
+                NumberFormat.getNumberInstance(),
+                new DecimalFormat("0.00%")));*/
+        pieplot.setLabelGenerator(new OwnLabelGenerator(
+                "偏胖",
                 "{0}: {1} ({2})",
                 NumberFormat.getNumberInstance(),
                 new DecimalFormat("0.00%")));
