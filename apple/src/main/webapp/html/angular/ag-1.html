@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>angularLearning</title>
+	<style type="text/css">
+		div {
+			transition: all linear 0.5s;
+			background-color: lightblue;
+			height: 100px;
+			width: 100%;
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+
+		.ng-hide {
+			height: 0;
+			width: 0;
+			background-color: transparent;
+			top:-200px;
+			left: 200px;
+		}
+	</style>
+	<script src="../../libs/angular/angular1.5/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="myCtrl">
+		{{name}}
+		<button ng-click="fork()">fork</button>
+		<div ng-controller="myCtrl1">
+			{{name}}
+			<button ng-click="fork()">fork</button>
+		</div>
+		名: <input type="text" ng-model="firstName"><br>
+		姓: <input type="text" ng-model="lastName"><br>
+		<br>
+		姓名: {{firstName + " " + lastName}} Hi : {{obj.name.str}}
+		<ul>
+			<li ng-repeat="x in sites">
+				{{ x.Name + ', ' + x.Country }}
+			</li>
+		</ul>
+
+		<select ng-model="selectedSite" ng-options="x.Name for x in sites"></select>
+		<h1>你选择的是: {{selectedSite.Name}}</h1>
+		<p>网址为: {{selectedSite.Url}}</p>
+		<a ng-click="log()">aii</a>
+		<h1>隐藏 DIV: <input type="checkbox" ng-model="myCheck"></h1>
+
+		<div ng-hide="myCheck"></div>
+		<div ng-include="'welcome.html'"></div>
+	</div>
+
+	<script>
+
+		var app = angular.module('myApp', []);
+
+		app.controller('myCtrl', function($scope, $http) {
+			$scope.firstName= "John";
+			$scope.lastName= "Doe";
+			$scope.obj = {};
+			$scope.selectedSite = null;
+			$http.get('../../mock/data.json').success(function (data) {
+				$scope.sites = data.sites;
+			});
+			$scope.log = function(){
+				console.log('aaa');
+				console.log($scope.selectedSite);
+			};
+			$scope.fork = function(){
+				console.log('myCtrl.fork');
+				$scope.obj.name = {};
+				$scope.obj.name.str = 'jackstr';
+			};
+		});
+
+		app.controller('myCtrl1', function($scope, $rootScope){
+			$scope.name = 'jack';
+			$rootScope.name = 'bob';
+		});
+
+	</script>
+</body>
+</html>

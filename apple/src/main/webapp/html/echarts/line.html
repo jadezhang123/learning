@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>pie</title>
+	<link rel="stylesheet" type="text/css" href="../../css/comm.css">
+	<script type="text/javascript" src="../../libs/jquery.min.js"></script>
+	<script type="text/javascript" src="../../libs/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="../../js/echarts/option.js"></script>
+	<script type="text/javascript" src="../../js/echarts/ownECharts.js"></script>
+</head>
+<body>
+	<div id="lineChart" style="height: 500px;width: 600px;"></div>
+	<div id="lineChart1" style="height: 500px;width: 600px;"></div>
+
+	<script type="text/javascript">
+		var lineChart = echarts.init(document.getElementById('lineChart'));
+		var option = {
+    title: {
+        text: '堆叠区域图'
+    },
+    tooltip : {
+        trigger: 'axis',
+    },
+    legend: {
+        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'邮件营销',
+            type:'line',
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'联盟广告',
+            type:'line',
+            data:[120, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'视频广告',
+            type:'line',
+            data:[120, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'直接访问',
+            type:'line',
+            data:[320, 332, 301, 334, 390, 330, 320]
+        }
+        
+    ]
+};
+	lineChart.setOption(option);
+	</script>
+
+	<!-- <script type="text/javascript">
+		var lineChart = echarts.init(document.getElementById('lineChart'));
+		var data =[{name:'c1', group:'B', value:4},{name:'c2',group:'B', value:7},{name:'c3',group:'B', value:2},{name:'c4',group:'B', value:5},
+			{name:'c1', group:'A', value:5},{name:'c2',group:'A', value:null},{name:'c3',group:'A', value:3},{name:'c4',group:'A', value:7}
+		];
+		var data = {
+			'A':[{name:'c1', value:4},{name:'c2', value:7},{name:'c3', value:2},{name:'c4', value:5}],
+			'B':[{name:'c1', value:5},{name:'c4', value:9},{name:'c3', value:6}],
+		};
+		var option = OWN_ECHARTS.chartOptionTemplates.line(data, '测试x', '测试y', true);
+		option.toolbox.feature.dataView.optionToContent = function(option){
+                    		console.log(option);
+                    		return "";
+         };
+		OWN_ECHARTS.renderChart(lineChart, option);
+		
+		/*var option = OWN_ECHARTS.chartOptionTemplates.pie(data, '测试', true, 'radius');
+		OWN_ECHARTS.renderChart(lineChart, option);
+*/
+		var lineChart1 = echarts.init(document.getElementById('lineChart1'));
+		var option = {
+			toolbox: {
+                show: true, //是否显示工具栏
+                feature: {
+                	mark: true,
+                    dataView: {
+                    	show:true,
+                    	readOnly: false
+                    	},//数据预览
+                    saveAsImage: true //是否保存图片
+                }
+            },
+            tooltip: {
+            	trigger: 'axis',
+            	formatter: '{b} : {c} ({d}/%)',
+            	show: true
+            },
+            legend: {
+            	x : 'center',
+            	y : 'top',
+            	data: ['c1','c2','c3','c4']
+            },
+            series: [
+            {
+            	name: "测试",
+            	type: 'pie',
+            	radius: ['50%', '70%'],
+            	center: ['50%', '50%'],
+            	data: [4,7,2,5]
+            }
+            ]
+        };
+        lineChart1.setOption(option);
+		/*function randomData() {
+			return Math.round(Math.random()*10);
+		}
+
+		function newSeriesData (){
+			var data = [];
+			for (var i = 0; i < 12; i++) {
+				data.push(randomData());
+			 }
+			return data;
+		}
+		var option = {
+			tooltip: {
+				trigger: 'item',
+			},
+			xAxis: [
+			{
+				type: 'category',
+				data: [01,02,03,04,05,06,07,08,09,10,11,12]
+			}
+			],
+			yAxis: [
+			{
+				name:'作业 / 次数',
+				type: 'value',
+				min: 0,
+			}
+			],
+			series: [
+			  {
+			  	type: "line",
+				data:newSeriesData()
+			  }
+			]
+		};
+	
+		lineChart.setOption(option);*/
+
+
+
+	</script> -->
+</body>
+</html>

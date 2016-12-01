@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>指令</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div my-directive my-url = "sss" my-text = "myTextss">
+	
+</div>
+<script type="text/javascript">
+	angular.module('myApp', [])
+	.directive('myDirective', function(){
+		return {
+			 restrict: 'A',
+			 replace: true,
+			 scope:{
+			 	myUrl:'@',
+			 	myText:'@'
+			 },
+			 template: '<a href="{{myUrl}}">{{myText}}</a>',
+		};
+	});
+	
+</script>
+</body>
+</html>

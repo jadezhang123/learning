@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>pie</title>
+	<link rel="stylesheet" type="text/css" href="../../css/comm.css">
+	<script type="text/javascript" src="../../libs/jquery.min.js"></script>
+	<script type="text/javascript" src="../../libs/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="../../js/echarts/option.js"></script>
+</head>
+<body>
+	<div id="piesChart" style="height: 500px;width: 600px;"></div>
+	<a onclick="changePie()">changePie</a>
+	<!-- <script type="text/javascript">
+		var piesChart = echarts.init(document.getElementById('piesChart'));
+		function randomData() {
+			return Math.round(Math.random()*100);
+		}
+
+		function newSeriesData (legendData){
+			var data = [];
+			for (var i = 0; i < legendData.length; i++) {
+				data.push({name:legendData[i], value:randomData()});
+			}
+			return data;
+		}
+
+
+		var subChartCount = 0, option; 
+
+		function getPiesOption(config){
+			console.log(config.subChart);
+			var option;
+			if (subChartCount !== config.subChart.chartNames.length) {
+				 console.log("not same count");
+				 option = EchartsOptionFactory.getCommOption(config);
+				 subChartCount = 4;
+			}else{
+				console.log("same count");
+				var subChartNmaes = config.subChart.chartNames;
+				var series = [];
+				for (var i = 0; i < subChartNmaes.length; i++) {
+					var name = subChartNmaes[i];
+					series.push({
+						name:name,
+						data: newSeriesData()
+					});
+				}
+				console.log(series);
+				option = {
+					series:series
+				};
+			}
+			return option;
+		}
+
+		option = getPiesOption({
+			type:'pie',
+			name:'南丁格尔图',
+			legendData:['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8'],
+			//roseType: 'area',
+			//radius: ['50%', '70%'],
+			subChart:{
+				chartNames:['南丁格尔图1', '南丁格尔图2', '南丁格尔图3', '南丁格尔图4'],
+				datas:[[],[],[],[]],
+				columnCount:2,
+				rowCount:1,
+			}
+		});
+		 
+		for (var i = 0; i < 4; i++) {
+			option.series[i].data = newSeriesData(['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8']);
+		}	
+
+		//option.series[0].data = newSeriesData();
+		piesChart.setOption(option);
+
+		function changePie(cCount) {
+			var option = EchartsOptionFactory.getCommOption({
+				type:'pie',
+				name:'南丁格尔图',
+				legendData:['rose1','rose2','rose3','rose4','rose5','rose6'],
+				//roseType: 'area',
+				//radius: ['50%', '70%'],
+				subChart:{
+					chartNames:['南丁格尔图11', '南丁格尔图12', '南丁格尔图13'],
+					columnCount:2,
+					rowCount:1,
+				}
+			});
+			for (var i = 0; i < 3; i++) {
+				option.series[i].data = newSeriesData(['rose1','rose2','rose3','rose4','rose5','rose6']);
+			}	
+			piesChart.setOption(option, true);
+		}
+	</script> -->
+	<script type="text/javascript">
+		var piesChart = echarts.init(document.getElementById('piesChart'));
+		console.log(Math.sin(Math.PI/6));
+		var seriesData = [{value:30, name:'直接访问'},
+			        {value:30, name:'邮件营销'},
+		            {value:24, name:'联盟广告'},
+		            {value:15, name:'视频广告'},
+		            {value:158, name:'搜索引擎'}];
+		 var sum = 0;
+		 for (var i = 0; i < seriesData.length; i++) {
+		 	sum += seriesData[i].value;
+		 }
+		 //计算占比弧度
+		var radian = Math.PI*(seriesData[0].value / sum);
+		var radius = 50/3, sin = Math.sin(radian), cos = Math.cos(radian);
+		var x1Offset = parseInt(radius*sin),
+			y1Offset = parseInt(radius*cos),
+			x2Offset = parseInt(2*radius*sin),
+			y2Offset = parseInt(2*radius*cos);
+		console.log('x1Offset:'+x1Offset);
+		console.log('y1Offset:'+y1Offset);
+		console.log('x2Offset:'+x2Offset);
+		console.log('y2Offset:'+y2Offset);
+		var x1 = 50 + x1Offset, y1 = 50 - y1Offset, x2 = 50 + x2Offset, y2 = 50 - y2Offset;
+		console.log('x1:'+x1);
+		console.log('y1:'+y1);
+		console.log('x2:'+x2);
+		console.log('y2:'+y2);
+	
+		var option = {
+			title : {
+			    text: '某站点用户访问来源',
+			    subtext: '纯属虚构',
+			    x:'center'
+			},
+			tooltip : {
+			    trigger: 'item',
+			    formatter: "{a} <br/>{b} : {c} ({d}%)"
+			},
+			legend: {
+			    orient: 'vertical',
+			    left: 'left',
+			    data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+			},
+			series : [
+			    {
+			        name: '访问来源',
+			        type: 'pie',
+			        radius : '50%',
+			        center: ['50%', '50%'],
+			        data:seriesData,
+			        markLine:{
+			            data: [[{x:x1+'%',y:y1+'%'},{name:'你在这',x:x2+'%',y:y2+'%',value:13.5}]],
+			            lineStyle:{
+			            	normal:{color:'#000'}
+			            }
+			    	}
+			    }
+			]
+		};
+		piesChart.setOption(option);
+	</script>
+</script>
+</body>
+</html>

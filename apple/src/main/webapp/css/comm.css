@@ -1,0 +1,4 @@
+a{display: block;}
+.header{position:fixed;width:100%; z-index:100; overflow:hidden; margin:0; left:0;top:0;background:#04acf7;text-align: center;height: 50px;}
+.content{width:100%; height:auto;margin:14px auto 0; padding-top:16px;}
+.footer{width:100%; background:#fff; padding:14px 0;}
