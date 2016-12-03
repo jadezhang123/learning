@@ -12,13 +12,6 @@ var avalonContainer = (function () {
             $vm['$' + injections[i]] = avalon.vmodels[injections[i]];
         }
     };
-    var copyProps = function ($vm, vmObj) {
-        for (var key in vmObj) {
-            if (vmObj.hasOwnProperty(key)) {
-                $vm[key] = vmObj[key];
-            }
-        }
-    }
     /**
      * 共有方法：注入依赖函数，两种调用方式
      * 1：avalonContainer.inject(id, injections)
@@ -36,8 +29,8 @@ var avalonContainer = (function () {
                 doInject($vm, arguments[1]);
             }
         } else if (arguments.length == 3) {
-            $vm = {$id: arguments[0]};
-            copyProps($vm, arguments[2]);
+            $vm = arguments[2];
+            $vm.$id = arguments[0];
             doInject($vm, arguments[1]);
             return avalon.define($vm);
         }
