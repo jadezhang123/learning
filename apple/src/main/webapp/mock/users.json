@@ -1,0 +1,17 @@
+[
+  {
+    "name": "小明",
+    "sex": "男",
+    "country": "CN"
+  },
+  {
+    "name": "Bob",
+    "sex": "男",
+    "country": "USA"
+  },
+  {
+    "name": "lily",
+    "sex": "女",
+    "country": "Eng"
+  }
+]

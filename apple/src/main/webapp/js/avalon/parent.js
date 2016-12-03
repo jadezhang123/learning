@@ -1,5 +1,6 @@
 	
 avalon.ready(function(){
+
 	var vm = avalon.define({
 		$id:"parent",
 		str:"",

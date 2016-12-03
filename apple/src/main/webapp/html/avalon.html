@@ -35,6 +35,15 @@
 		<input type="button" value="addProperty" ms-click="addProperty">
 		<div ms-if="sex === userService.SEX_MALE">男{{sex}}</div>
 		<div ms-if="sex === userService.SEX_FEMALE">女{{sex}}</div>
+		<div ms-controller="vm1">
+			<span>{{sex}}</span>
+			<a ms-click="fork">vm1.fork</a>
+		</div>
+
+		<div ms-controller="vm2">
+			<span>{{name}}</span>
+			<a ms-click="fork">vm2.fork</a>
+		</div>
 	</div>
 
 </body>

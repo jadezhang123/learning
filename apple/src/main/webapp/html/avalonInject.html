@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>avalonInject</title>
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../libs/avalon1.5.8.js"></script>
+    <script type="text/javascript" src=".././../../js/avalon/avalon-inject.js"></script>
+    <script type="text/javascript" src=".././../../js/avalon/avalonInjectTest.js"></script>
+</head>
+<body ms-controller="userCtrl" id="userCtrl">
+
+<div>
+    <ul>
+        <li ms-repeat="users">
+            <span>{{el.name}}</span>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
