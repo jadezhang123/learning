@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>paging</title>
+    <link rel="stylesheet" type="text/css" href="../../libs/qtips/jquery.qtip.min.css">
+    <!--[if lt IE 8]>
+    <script type="text/javascript" src="../../libs/json2.js"></script><![endif]-->
+    <script type="text/javascript" src="../../libs/jquery.min.js"></script>
+    <script type="text/javascript" src="../../libs/avalon1.5.8.js"></script>
+    <script type="text/javascript" src="../../libs/layer/layer.js"></script>
+    <script type="text/javascript" src="../../libs/qtips/jquery.qtip.min.js"></script>
+    <script type="text/javascript" src="../../js/avalon/common/common.js"></script>
+    <script type="text/javascript" src="../../js/avalon/common/paging.js"></script>
+</head>
+<body ms-controller="pagingTest" id="pagingTest">
+<div>
+    <input type="button" value="addTip" id="addTip">
+    <input type="radio" ms-duplex-string="sex" value="1">男
+    <input type="radio" ms-duplex-string="sex" value="2">女
+</div>
+<div>
+    <ul>
+        <li ms-repeat="users">
+            <span>{{el.name}}</span>
+        </li>
+    </ul>
+</div>
+<div ms-include-src="'./public/paging.html'" ></div>
+<script type="text/javascript">
+    avalon.ready(function () {
+        var pagingTestVM = avalon.define({
+            $id: 'pagingTest',
+            sex: 1,
+            users: [],
+            init: function () {
+                pagingTestVM.initPagingComponent();
+                pagingComponent.queryPage(1);
+            },
+            initPagingComponent: function () {
+                pagingComponent.configure({
+                    pagingURL: '/apple/base/user/pagingUsers',
+                    queryingParam: {sex: pagingTestVM.sex},
+                    noDataTip: '没有找到合适的用户',
+                    successCallback: function (data) {
+                        pagingTestVM.users = data.rows;
+                    }
+                });
+            }
+        });
+
+        pagingTestVM.$watch('sex', function () {
+            pagingTestVM.updateQueryingParam('sex', pagingTestVM.sex);
+            pagingComponent.queryPage(1);
+        });
+
+        avalon.scan(document.getElementById('pagingTest'), pagingTestVM);
+        pagingTestVM.init();
+    });
+
+    $(function () {
+        $('#addTip').click(function () {
+            createTip('#addTip', 'this');
+        });
+    });
+
+</script>
+</body>
+</html>

@@ -44,4 +44,11 @@ public interface IBaseService<D extends IBaseDAO, T extends BaseDomain> {
 
     List<T> like(Map<String, Object> condition, String orderBy, String sortBy);
 
+    int count(Map<String, Object> condition);
+
+    List<T> queryForPage(Map<String, Object> condition, Integer pageNo, Integer pageSize);
+
+    List<T> queryForPage(Map<String, Object> condition, String orderBy, String sortBy, Integer pageNo, Integer pageSize);
+
+
 }

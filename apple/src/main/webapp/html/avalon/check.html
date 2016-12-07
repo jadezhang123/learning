@@ -10,7 +10,7 @@
 			var model = avalon.define({
 				$id: "test",
 				data: [{checked: false}, {checked: false}, {checked: false}],
-				allchecked: false,
+				allChecked: false,
 				checkAll: function() {
 					var bool = this.checked;
 					model.data.forEach(function(el) {
@@ -22,9 +22,9 @@
 					console.log($(this).attr('index'));
 
 					if (!this.checked) {
-						model.allchecked = false;
-					} else {//avalon已经为数组添加了ecma262v5的一些新方法
-						model.allchecked = model.data.every(function(el) {
+						model.allChecked = false;
+					} else {
+						model.allChecked = model.data.every(function(el) {
 							return el.checked;
 						});
 					}
@@ -35,7 +35,7 @@
 	<body>
 		<table ms-controller="test" border="1">
 			<tr>
-				<td><input type="checkbox" ms-duplex-checked="allchecked" data-duplex-changed="checkAll"/>全选</td>
+				<td><input type="checkbox" ms-duplex-checked="allChecked" data-duplex-changed="checkAll"/>全选</td>
 			</tr>
 			<tr ms-repeat="data">
 				<td><input type="checkbox"  ms-duplex-checked="el.checked" ms-attr-index=$index data-duplex-changed="checkOne"/>xxxxxxxxxxxx</td>

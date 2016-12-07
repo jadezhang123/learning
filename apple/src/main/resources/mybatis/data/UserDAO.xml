@@ -185,4 +185,43 @@
         limit 0,1
     </select>
 
+    <select id="queryForPage" resultType="own.jadezhang.learning.apple.domain.base.User">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND id = #{condition.id}
+            </if>
+            <if test="condition.name!=null">
+                AND name = #{condition.name}
+            </if>
+            <if test="condition.sex!=null">
+                AND sex = #{condition.sex}
+            </if>
+        </trim>
+        <if test="orderBy!=null">
+            ORDER BY ${orderBy} ${sortBy}
+        </if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM user
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND id = #{condition.id}
+            </if>
+            <if test="condition.name!=null">
+                AND name = #{condition.name}
+            </if>
+            <if test="condition.sex!=null">
+                AND sex = #{condition.sex}
+            </if>
+        </trim>
+    </select>
+
 </mapper>

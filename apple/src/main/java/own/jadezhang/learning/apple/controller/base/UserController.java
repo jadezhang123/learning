@@ -5,15 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
 import own.jadezhang.common.domain.common.ReturnCodeEnum;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.service.base.IUserService;
 import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
-import javax.jws.soap.SOAPBinding;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,20 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private IUserService userService;
+
+    @ResponseBody
+    @RequestMapping(value = "/pagingUsers")
+    public BizData4Page<User> pagingUsers(int sex, @RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
+        Map<String, Object> condition = new HashMap<String, Object>();
+        condition.put("sex", sex);
+        int records = userService.count(condition);
+        if (records == 0){
+            return BizData4Page.forNoRecords(pageSize);
+        }
+        List<User> list = userService.queryForPage(condition, pageNo, pageSize);
+
+        return BizData4Page.page(list, records, pageNo, pageSize);
+    }
 
     @RequestMapping("/findAll")
     @ResponseBody

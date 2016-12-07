@@ -1,6 +1,7 @@
 package own.jadezhang.common.domain;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,8 +39,8 @@ public class BizData4Page<T> implements Serializable {
      */
     private Map<List, Object> extraData;
 
-    public BizData4Page() {
-
+    public BizData4Page(){
+        super();
     }
 
     public BizData4Page(List rows, int recordCount, int pageNo, int pageSize) {
@@ -53,7 +54,11 @@ public class BizData4Page<T> implements Serializable {
             total++;
         }
         this.totalPages = total == 0 ? 1 : total;
+    }
 
+    public BizData4Page(List rows, int recordCount, int pageNo, int pageSize, Map<List, Object> extraData) {
+        this(rows, recordCount, pageNo, pageSize);
+        this.extraData = extraData;
     }
 
     public int getPageNo() {
@@ -111,4 +116,18 @@ public class BizData4Page<T> implements Serializable {
     public void setExtraData(Map<List, Object> extraData) {
         this.extraData = extraData;
     }
+
+    public static BizData4Page page(List rows, int recordCount, int pageNo, int pageSize) {
+        return new BizData4Page(rows, recordCount, pageNo, pageSize);
+    }
+
+    public static BizData4Page pageWithExtraData(List rows, int recordCount, int pageNo, int pageSize, Map<List, Object> extraData) {
+        return new BizData4Page(rows, recordCount, pageNo, pageSize, extraData);
+    }
+
+    public static BizData4Page forNoRecords(int pageSize) {
+        return new BizData4Page(Collections.emptyList(), 0, 0, pageSize);
+    }
+
+
 }

@@ -8,7 +8,7 @@
 var avalonContainer = (function () {
     var doInject = function ($vm, injections) {
         for (var i = 0; i < injections.length; i++) {
-            $vm['$' + injections[i]] = avalon.vmodels[injections[i]];
+            $vm['$' + injections[i]] = avalon.vmodels[injections[i]].$model;
         }
     };
     /**

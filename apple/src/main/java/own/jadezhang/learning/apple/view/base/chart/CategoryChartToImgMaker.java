@@ -24,6 +24,7 @@ import java.util.Map;
  */
 public class CategoryChartToImgMaker extends AbstractChartToImgMaker {
 
+
     //用于配置X轴的类目列表， 作为trans()的第一个参数option的key
     public static final String SERIES_KEY_LIST = "series_key_list";
 
@@ -41,6 +42,9 @@ public class CategoryChartToImgMaker extends AbstractChartToImgMaker {
     public static final String CATEGORY_CHART_TYPE_BAR = "createBarChart";
 
     public static final String CATEGORY_CHART_TYPE_BAR_3D = "createBarChart3D";
+
+
+    protected CategoryItemLabelGenerator itemLabelGenerator;
 
     public CategoryChartToImgMaker() {
         super();
@@ -134,6 +138,10 @@ public class CategoryChartToImgMaker extends AbstractChartToImgMaker {
         categoryItemRenderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BASELINE_LEFT));
         categoryItemRenderer.setBaseItemLabelFont(new Font("Dialog", 1, 14));
         plot.setRenderer(categoryItemRenderer);
+    }
+
+    public void setItemLabelGenerator(CategoryItemLabelGenerator itemLabelGenerator) {
+        this.itemLabelGenerator = itemLabelGenerator;
     }
 
 }

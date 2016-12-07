@@ -2,6 +2,8 @@ package own.jadezhang.learning.apple.view.base;
 
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Drawing;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
@@ -158,6 +160,10 @@ public class DetailExcelView extends AbstractExcelView {
         chartImgPosition[3] = 20;
         ExcelUtil.pictureToPosition(chartImgPath, chartImgPosition, patriarch, workbook);
 
+        CreationHelper helper = workbook.getCreationHelper();
+        Drawing drawing = sheet.createDrawingPatriarch();
+
+        ExcelUtil.pictureToPosition(chartImgPath, new int[]{10,0}, new double[]{500, 700}, drawing, helper, workbook);
     }
 
     private void setResponse(HttpServletRequest request, HttpServletResponse response, String fileName) throws Exception {

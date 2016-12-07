@@ -93,4 +93,19 @@ public abstract class BaseServiceImpl<D extends IBaseDAO, T extends BaseDomain> 
     public List<T> like(Map<String, Object> condition, String orderBy, String sortBy) {
         return getDao().like(condition, orderBy, sortBy);
     }
+
+    @Override
+    public int count(Map<String, Object> condition) {
+        return getDao().count(condition);
+    }
+
+    @Override
+    public List<T> queryForPage(Map<String, Object> condition, Integer pageNo, Integer pageSize) {
+        return getDao().queryForPage(condition, null, null, (pageNo - 1) * pageSize, pageSize);
+    }
+
+    @Override
+    public List<T> queryForPage(Map<String, Object> condition, String orderBy, String sortBy, Integer pageNo, Integer pageSize) {
+        return getDao().queryForPage(condition, orderBy, sortBy, (pageNo - 1) * pageSize, pageSize);
+    }
 }

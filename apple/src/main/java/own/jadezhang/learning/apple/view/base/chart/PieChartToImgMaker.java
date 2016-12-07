@@ -2,6 +2,7 @@ package own.jadezhang.learning.apple.view.base.chart;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.PieSectionLabelGenerator;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.Dataset;
@@ -16,6 +17,16 @@ import java.util.Map;
  * Created by Zhang Junwei on 2016/11/25.
  */
 public class PieChartToImgMaker extends AbstractChartToImgMaker {
+
+    protected PieSectionLabelGenerator pieSectionLabelGenerator;
+
+    public PieChartToImgMaker(){
+        super();
+    }
+
+    public PieChartToImgMaker(PieSectionLabelGenerator pieSectionLabelGenerator){
+        this.pieSectionLabelGenerator = pieSectionLabelGenerator;
+    }
 
     @Override
     protected Dataset createDataset(Map<String, Object> data) {
@@ -35,15 +46,17 @@ public class PieChartToImgMaker extends AbstractChartToImgMaker {
         pieplot.setNoDataMessage("无数据");
         pieplot.setCircular(true);
         pieplot.setLabelGap(0.02D);
-/*        pieplot.setLabelGenerator(new StandardPieSectionLabelGenerator(
-                "{0}: {1} ({2})",
-                NumberFormat.getNumberInstance(),
-                new DecimalFormat("0.00%")));*/
-        pieplot.setLabelGenerator(new OwnLabelGenerator(
-                "偏胖",
-                "{0}: {1} ({2})",
-                NumberFormat.getNumberInstance(),
-                new DecimalFormat("0.00%")));
+        if (pieSectionLabelGenerator == null){
+            pieSectionLabelGenerator = new StandardPieSectionLabelGenerator(
+                    "{0}: {1} ({2})",
+                    NumberFormat.getNumberInstance(),
+                    new DecimalFormat("0.00%"));
+        }
+        pieplot.setLabelGenerator(pieSectionLabelGenerator);
         return chart;
+    }
+
+    public void setPieSectionLabelGenerator(PieSectionLabelGenerator pieSectionLabelGenerator) {
+        this.pieSectionLabelGenerator = pieSectionLabelGenerator;
     }
 }

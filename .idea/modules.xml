@@ -8,9 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common.iml" group="common" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common_main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common_main.iml" group="common" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common_test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common_test.iml" group="common" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devTester.iml" filepath="$PROJECT_DIR$/.idea/modules/devTester.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devTester_main.iml" filepath="$PROJECT_DIR$/.idea/modules/devTester_main.iml" group="devTester" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devTester_test.iml" filepath="$PROJECT_DIR$/.idea/modules/devTester_test.iml" group="devTester" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/learning.iml" filepath="$PROJECT_DIR$/.idea/modules/learning.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/learning_main.iml" filepath="$PROJECT_DIR$/.idea/modules/learning_main.iml" group="learning" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/learning_test.iml" filepath="$PROJECT_DIR$/.idea/modules/learning_test.iml" group="learning" />
