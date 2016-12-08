@@ -1,21 +1,25 @@
-var layerTesterVm = null;
 avalon.ready(function() {
-	layerTesterVm = avalon.define({
+	//添加公共模块的依赖
+	var layerModule = COMMON.layer;
+
+	var layerTesterVm = avalon.define({
 		$id: "layerTester",
 
 		openLayer: function() {
 			var content = "";
-			$.get("msg.html", function(result) {
-				content = result;
-				layer.open({
-					type: 1,
-					title: "弹出层",
-					area: '100px',
-					content: content,
-					success: function() {
-						avalon.scan($('#layerTester')[0], layerTesterVm);
-					}
-				});
+			layerModule.openLayer({
+                url:'msg.html',
+                title:'好东西',
+                data:{name:'jack', sex:1},
+                success:function () {
+                    avalon.scan($('#layerTester')[0], layerTesterVm);
+                },
+                cancel:function () {
+                    console.log('cancel');
+                },
+                end:function () {
+                    console.log('end');
+                }
 			});
 		},
 		

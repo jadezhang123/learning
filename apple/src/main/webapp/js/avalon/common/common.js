@@ -2,27 +2,6 @@
  *                    通用命名空间的创建                                 *
  **********************************************************************/
 
-
-/**
- * 创建提示
- * @param selector 显示提示的选择器
- * @param msg   提示信息
- */
-var createTip = (function () {
-    var tipConfig = {
-        overwrite: true,
-        content: {text: ""},
-        show: {event: false, ready: true},
-        style: {classes: 'qtip-cream qtip-shadow qtip-rounded'},
-        position: {my: 'top left', at: 'bottom right'}
-    };
-    return function (selector, msg) {
-        tipConfig.content.text = msg;
-        avalon.log($(selector));
-        $(selector).qtip(tipConfig);
-    }
-})();
-
 var COMMON = COMMON || {};
 COMMON.namespace = function (ns_string) {
     var parts = ns_string.split('.'),
@@ -122,6 +101,7 @@ COMMON.layer = (function () {
      * @param param
      * {
      *    url:'',
+     *    title:'',
      *    width:'',
      *    height:'',
      *    data: {} / [],
@@ -140,7 +120,7 @@ COMMON.layer = (function () {
         $.get(param.url, function (html) {
             layer.open({
                 type: 1,
-                title: title,
+                title: param.title,
                 shift: 2,
                 moveEnd: function () {
                     qtips.closeAllTips();
@@ -207,10 +187,10 @@ COMMON.layer = (function () {
     };
 
     return {
-        open: layerOpen,
+        openLayer: layerOpen,
         getExtraData: getExtraData,
-        close: layerClose,
-        cancel: layerCancel,
+        closeLayer: layerClose,
+        cancelLayer: layerCancel,
         closeAllMsg: layerCloseAllMsg,
         openLoading: openLoading,
         closeLoading: closeLoading
