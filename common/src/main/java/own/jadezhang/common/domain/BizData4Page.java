@@ -126,7 +126,7 @@ public class BizData4Page<T> implements Serializable {
     }
 
     public static BizData4Page forNoRecords(int pageSize) {
-        return new BizData4Page(Collections.emptyList(), 0, 0, pageSize);
+        return new BizData4Page(Collections.emptyList(), 0, 1, pageSize);
     }
 
 

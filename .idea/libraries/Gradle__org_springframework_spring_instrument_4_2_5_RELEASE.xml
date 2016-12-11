@@ -2,6 +2,7 @@
   <library name="Gradle: org.springframework:spring-instrument:4.2.5.RELEASE">
     <CLASSES>
       <root url="jar://D:/devInstall/gradle-2.5/caches/modules-2/files-2.1/org.springframework/spring-instrument/4.2.5.RELEASE/a8c46177e3a0e057d228981aff60967c38c8bbf5/spring-instrument-4.2.5.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-instrument/4.2.5.RELEASE/spring-instrument-4.2.5.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -2,6 +2,7 @@
   <library name="Gradle: bouncycastle:bcmail-jdk14:138">
     <CLASSES>
       <root url="jar://D:/devInstall/gradle-2.5/caches/modules-2/files-2.1/bouncycastle/bcmail-jdk14/138/14ff2dfec8578f5f6838c4d6a77a86789afe5382/bcmail-jdk14-138.jar!/" />
+      <root url="jar://C:/devInstall/gradle-2.5/caches/modules-2/files-2.1/bouncycastle/bcmail-jdk14/138/14ff2dfec8578f5f6838c4d6a77a86789afe5382/bcmail-jdk14-138.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -2,6 +2,7 @@
   <library name="Gradle: com.lowagie:itext-rups:2.1.7">
     <CLASSES>
       <root url="jar://D:/devInstall/gradle-2.5/caches/modules-2/files-2.1/com.lowagie/itext-rups/2.1.7/a2393cd888517614777f08f5da84ccc172400493/itext-rups-2.1.7.jar!/" />
+      <root url="jar://C:/devInstall/gradle-2.5/caches/modules-2/files-2.1/com.lowagie/itext-rups/2.1.7/a2393cd888517614777f08f5da84ccc172400493/itext-rups-2.1.7.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

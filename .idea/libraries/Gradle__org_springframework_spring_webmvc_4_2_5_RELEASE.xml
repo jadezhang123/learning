@@ -2,6 +2,7 @@
   <library name="Gradle: org.springframework:spring-webmvc:4.2.5.RELEASE">
     <CLASSES>
       <root url="jar://D:/devInstall/gradle-2.5/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.5.RELEASE/cf463cce3e4453eb4b9a69de2dcdfd60c3c57e0/spring-webmvc-4.2.5.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

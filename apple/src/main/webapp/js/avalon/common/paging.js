@@ -74,17 +74,32 @@ avalon.ready(function () {
          */
         updateQueryingParam: function () {
             if (arguments.length == 0) {
-                pagingComponent.queryingParam = arguments[0];
+                var param = arguments[0];
+                for (var key in param) {
+                    if (param.hasOwnProperty(key) && param[key]) {
+                        pagingComponent.queryingParam[key] = param[key];
+                    }
+                }
             } else if (arguments.length == 2) {
                 pagingComponent.queryingParam[arguments[0]] = arguments[1];
             }
         },
 
+        /**
+         * 分页方法，三种调用方式
+         * 1：
+         * @param pageNo
+         */
         queryPage: function (pageNo) {
             if (pageNo > pagingComponent.total || pageNo < 1) {
                 return;
             }
             pagingComponent.pageNo = pageNo;
+            if (arguments.length === 2){
+                pagingComponent.updateQueryingParam(arguments[1]);
+            }else if (arguments.length === 3){
+                pagingComponent.updateQueryingParam(arguments[1], arguments[2]);
+            }
             executePaging();
         }
 

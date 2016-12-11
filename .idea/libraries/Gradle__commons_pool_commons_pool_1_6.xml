@@ -2,6 +2,7 @@
   <library name="Gradle: commons-pool:commons-pool:1.6">
     <CLASSES>
       <root url="jar://D:/devInstall/gradle-2.5/caches/modules-2/files-2.1/commons-pool/commons-pool/1.6/4572d589699f09d866a226a14b7f4323c6d8f040/commons-pool-1.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-pool/commons-pool/1.6/commons-pool-1.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
