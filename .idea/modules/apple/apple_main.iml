@@ -8,6 +8,7 @@
           <file>file://$MODULE_DIR$/../../../apple/src/main/resources/quartz/quartz-schedule.xml</file>
           <file>file://$MODULE_DIR$/../../../apple/src/main/resources/spring-mybatis.xml</file>
           <file>file://$MODULE_DIR$/../../../apple/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml</file>
+          <file>file://$MODULE_DIR$/../../../apple/src/main/resources/quartz/spring-quartz.xml</file>
         </fileset>
       </configuration>
     </facet>

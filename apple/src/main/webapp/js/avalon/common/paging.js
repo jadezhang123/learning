@@ -3,12 +3,10 @@
  */
 var pagingComponent = null;
 avalon.ready(function () {
-    //添加公共模块的依赖
-    var layerModule = COMMON.layer;
 
     //执行分页查询，为私有方法
     var executePaging = function () {
-        layerModule.openLoading();
+        var index = layer.load(0,{time: 5000});
         pagingComponent.queryingParam.pageNo = pagingComponent.pageNo;
         $.ajaxFun({
             url: pagingComponent.pagingURL,
@@ -25,7 +23,7 @@ avalon.ready(function () {
                 } else {
                     $("#paging_noDataTip").hide();
                 }
-                layerModule.closeLoading();
+                layer.close(index);
             }
         });
     };

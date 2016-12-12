@@ -28,8 +28,8 @@ COMMON.constant.system = {
 };
 
 //qtips模块
-COMMON.namespace('COMMON.qtips');
-COMMON.qtips = (function () {
+COMMON.namespace('COMMON.qtipsModule');
+COMMON.qtipsModule = (function () {
     var constant = COMMON.constant.system;
     if (jQuery.qtip) {
         //qtip最顶部
@@ -91,10 +91,10 @@ COMMON.qtips = (function () {
 })();
 
 //layer模块
-COMMON.namespace('COMMON.layer');
-COMMON.layer = (function () {
+COMMON.namespace('COMMON.layerModule');
+COMMON.layerModule = (function () {
     //统一添加公共模块的依赖
-    var qtips = COMMON.qtips;
+    var qtipsModule = COMMON.qtipsModule;
     /**
      * 公共弹框
      * @param param
@@ -122,7 +122,7 @@ COMMON.layer = (function () {
                 title: param.title,
                 shift: 2,
                 moveEnd: function () {
-                    qtips.closeAllTips();
+                    qtipsModule.closeAllTips();
                 },
                 //层弹出后的成功回调方法,success会携带两个参数，分别是当前层DOM当前层索引
                 success: function (layero, index) {
@@ -138,7 +138,7 @@ COMMON.layer = (function () {
                 },
                 // 层销毁后触发的回调,无论是确认还是取消，只要层被销毁了，end都会执行，不携带任何参数
                 end: function () {
-                    qtips.closeAllTips();
+                    qtipsModule.closeAllTips();
                     param.end && param.end();
                 },
                 shadeClose: false,
@@ -197,8 +197,8 @@ COMMON.layer = (function () {
 })();
 
 //缓存模块
-COMMON.namespace('COMMON.storage');
-COMMON.storage = (function () {
+COMMON.namespace('COMMON.storageModule');
+COMMON.storageModule = (function () {
     //设置本地存储
     var setLocalValue = function (itemName, itemValue) {
         //存储，IE6~7 cookie 其他浏览器HTML5本地存储
@@ -235,8 +235,8 @@ COMMON.storage = (function () {
 })();
 
 //http模块
-COMMON.namespace('COMMON.http');
-COMMON.http = (function () {
+COMMON.namespace('COMMON.httpModule');
+COMMON.httpModule = (function () {
     //获取url地址栏参数
     var getQueryString = function (name) {
         if ($.isNull(name)) {
@@ -253,8 +253,8 @@ COMMON.http = (function () {
 })();
 
 //time模块
-COMMON.namespace('COMMON.time');
-COMMON.time = (function () {
+COMMON.namespace('COMMON.timeModule');
+COMMON.timeModule = (function () {
 
     // 对Date的扩展，将 Date 转化为指定格式的String
     // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
