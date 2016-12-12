@@ -11,8 +11,8 @@ import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.view.base.chart.CategoryChartToImgMaker;
 import own.jadezhang.learning.apple.view.base.chart.ChartToImgMaker;
 import own.jadezhang.learning.apple.view.base.chart.PieChartToImgMaker;
-import own.jadezhang.learning.apple.view.base.excel.ExcelStyleFactory;
-import own.jadezhang.learning.apple.view.base.excel.ExcelUtil;
+import own.jadezhang.learning.apple.view.base.excel.POIExcelStyleFactory;
+import own.jadezhang.learning.apple.view.base.excel.POIExcelUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +38,7 @@ public class DetailExcelView extends AbstractExcelView {
         // 生成一个表格
         HSSFSheet sheet = workbook.createSheet(fileName);
         sheet.setDefaultColumnWidth((short) 10);
-        sheet.setDefaultRowHeightInPoints(ExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
+        sheet.setDefaultRowHeightInPoints(POIExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
         String[] header = {"序号", "姓名", "性别", "生日"};
 
         int colCount = header.length;
@@ -46,8 +46,8 @@ public class DetailExcelView extends AbstractExcelView {
         //创建说明部分
         CellRangeAddress commentRangeAddress = new CellRangeAddress(0, 0, 0, colCount - 1);
         sheet.addMergedRegion(commentRangeAddress);
-        ExcelUtil.setBorderForRegion(CellStyle.BORDER_THIN, commentRangeAddress, sheet, workbook);
-        HSSFCellStyle commentStyle = ExcelStyleFactory.commentStyle(workbook);
+        POIExcelUtil.setBorderForRegion(CellStyle.BORDER_THIN, commentRangeAddress, sheet, workbook);
+        HSSFCellStyle commentStyle = POIExcelStyleFactory.commentStyle(workbook);
         HSSFRow commentRow = sheet.createRow(0);
         commentRow.setHeightInPoints(100);
         HSSFCell commentCell = commentRow.createCell(0);
@@ -57,19 +57,19 @@ public class DetailExcelView extends AbstractExcelView {
         //创建标题
         CellRangeAddress titleRangeAddress = new CellRangeAddress(1, 1, 0, colCount - 1);
         sheet.addMergedRegion(titleRangeAddress);
-        ExcelUtil.setBorderForRegion(CellStyle.BORDER_THIN, titleRangeAddress, sheet, workbook);
+        POIExcelUtil.setBorderForRegion(CellStyle.BORDER_THIN, titleRangeAddress, sheet, workbook);
 
-        HSSFCellStyle titleStyleStyle = ExcelStyleFactory.titleStyle(workbook);
+        HSSFCellStyle titleStyleStyle = POIExcelStyleFactory.titleStyle(workbook);
         HSSFRow titleRow = sheet.createRow(1);
-        titleRow.setHeightInPoints(ExcelStyleFactory.TITLE_HEIGHT_iN_POINTS);
+        titleRow.setHeightInPoints(POIExcelStyleFactory.TITLE_HEIGHT_iN_POINTS);
         HSSFCell titleCell = titleRow.createCell(0);
         titleCell.setCellStyle(titleStyleStyle);
         titleCell.setCellValue(fileName);
 
         //创建头部
-        HSSFCellStyle headerStyle = ExcelStyleFactory.headerStyle(workbook, IndexedColors.GREY_40_PERCENT.getIndex());
+        HSSFCellStyle headerStyle = POIExcelStyleFactory.headerStyle(workbook, IndexedColors.GREY_40_PERCENT.getIndex());
         HSSFRow headerRow = sheet.createRow(2);
-        headerRow.setHeightInPoints(ExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
+        headerRow.setHeightInPoints(POIExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
         for (int i = 0; i < colCount; i++) {
             HSSFCell cell = headerRow.createCell(i);
             cell.setCellStyle(headerStyle);
@@ -78,15 +78,15 @@ public class DetailExcelView extends AbstractExcelView {
         //锁定标题和头部
         //sheet.createFreezePane(0, HEADLINE_ROW);
 
-        HSSFCellStyle cellStyle = ExcelStyleFactory.defaultStyle(workbook);
-        HSSFCellStyle dateStyle = ExcelStyleFactory.dateCellStyle(workbook, "yyyy-MM");
+        HSSFCellStyle cellStyle = POIExcelStyleFactory.defaultStyle(workbook);
+        HSSFCellStyle dateStyle = POIExcelStyleFactory.dateCellStyle(workbook, "yyyy-MM");
         User user;
         int dataContentRow = users.size();
         HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
         int[] commentRegion = {2, 2};
         for (int i = 0; i < dataContentRow; i++) {
             HSSFRow row = sheet.createRow(i + HEADLINE_ROW);
-            row.setHeightInPoints(ExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
+            row.setHeightInPoints(POIExcelStyleFactory.ROW_HEIGHT_iN_POINTS);
             for (int j = 0; j < colCount; j++) {
                 HSSFCell cell = row.createCell(j);
                 cell.setCellStyle(cellStyle);
@@ -96,7 +96,7 @@ public class DetailExcelView extends AbstractExcelView {
                 }
                 if (j == 1) {
                     cell.setCellValue(user.getName());
-                    ExcelUtil.commentForCell("姓名\r\n15671569027", commentRegion, patriarch, cell);
+                    POIExcelUtil.commentForCell("姓名\r\n15671569027", commentRegion, patriarch, cell);
                 }
                 if (j == 3) {
                     cell.setCellStyle(dateStyle);
@@ -104,7 +104,7 @@ public class DetailExcelView extends AbstractExcelView {
             }
         }
         String[] sexConstraint = {"男", "女"};
-        ExcelUtil.explicitListConstraint(sexConstraint, new int[]{HEADLINE_ROW, rowCount - 1, 2, 2}, sheet);
+        POIExcelUtil.explicitListConstraint(sexConstraint, new int[]{HEADLINE_ROW, rowCount - 1, 2, 2}, sheet);
 
         String pieImgPath = "D:\\imgPath.png";
         Map<String, String> option = new HashMap<String, String>();
@@ -117,7 +117,7 @@ public class DetailExcelView extends AbstractExcelView {
         PieChartToImgMaker pieChartToImgMaker = new PieChartToImgMaker();
         pieChartToImgMaker.trans(option, data, pieImgPath, 500,500);
         int[] chartImgPosition = {2, 15, 5, 10};
-        ExcelUtil.pictureToPosition(pieImgPath, chartImgPosition, patriarch, workbook);
+        POIExcelUtil.pictureToPosition(pieImgPath, chartImgPosition, patriarch, workbook);
         option.put(CategoryChartToImgMaker.CATEGORY_CHART_TYPE_KEY, CategoryChartToImgMaker.CATEGORY_CHART_TYPE_LINE);
         option.put(ChartToImgMaker.TITLE_KEY, "第一季度温度情况");
         option.put(ChartToImgMaker.X_AXIS_KEY, "月份");
@@ -151,19 +151,15 @@ public class DetailExcelView extends AbstractExcelView {
         chartImgPosition[1] = 30;
         chartImgPosition[2] = 10;
         chartImgPosition[3] = 20;
-        ExcelUtil.pictureToPosition(chartImgPath, chartImgPosition, patriarch, workbook);
+        POIExcelUtil.pictureToPosition(chartImgPath, chartImgPosition, patriarch, workbook);
 
         option.put(CategoryChartToImgMaker.CATEGORY_CHART_TYPE_KEY, CategoryChartToImgMaker.CATEGORY_CHART_TYPE_BAR);
         categoryChartToImgMaker.trans(option, lineDate, chartImgPath, 1000, 800);
         chartImgPosition[1] = 60;
         chartImgPosition[2] = 10;
         chartImgPosition[3] = 20;
-        ExcelUtil.pictureToPosition(chartImgPath, chartImgPosition, patriarch, workbook);
+        POIExcelUtil.pictureToPosition(chartImgPath, chartImgPosition, patriarch, workbook);
 
-        CreationHelper helper = workbook.getCreationHelper();
-        Drawing drawing = sheet.createDrawingPatriarch();
-
-        ExcelUtil.pictureToPosition(chartImgPath, new int[]{10,0}, new double[]{500, 700}, drawing, helper, workbook);
     }
 
     private void setResponse(HttpServletRequest request, HttpServletResponse response, String fileName) throws Exception {

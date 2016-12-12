@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.IndexedColors;
 /**
  * Created by Zhang Junwei on 2016/11/21.
  */
-public class ExcelStyleFactory {
+public class POIExcelStyleFactory {
 
     public static int ROW_HEIGHT_iN_POINTS = 25;
 

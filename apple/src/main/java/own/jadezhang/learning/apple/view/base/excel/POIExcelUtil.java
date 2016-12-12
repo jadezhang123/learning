@@ -17,7 +17,7 @@ import java.io.*;
 /**
  * Created by Zhang Junwei on 2016/11/22.
  */
-public class ExcelUtil {
+public class POIExcelUtil {
     /**
      * 为表格的特定区域绑定下拉框约束
      *
@@ -28,7 +28,7 @@ public class ExcelUtil {
     public static void explicitListConstraint(String[] list, int[] region, HSSFSheet sheet) {
 
         if (region.length != 4) {
-            throw new BizException(ErrorCodeEnum.PARAM_ERROR.getCode(), "下拉框区域数据必须设置完全");
+            throw new IllegalArgumentException("下拉框区域数据必须设置完全");
         }
 
         CellRangeAddressList cellRegions = new CellRangeAddressList(region[0], region[1], region[2], region[3]);
@@ -67,46 +67,15 @@ public class ExcelUtil {
      */
     public static void pictureToPosition(String imgPath, int[] region, HSSFPatriarch patriarch, Workbook workbook) {
         try {
+            if (region.length != 4){
+                throw new IllegalArgumentException("the region should have 4 items which are col, row, width, height for image");
+            }
             ByteArrayOutputStream byteArrayOut = new ByteArrayOutputStream();
             BufferedImage bufferImg = ImageIO.read(new File(imgPath));
             ImageIO.write(bufferImg, FilenameUtils.getExtension(imgPath), byteArrayOut);
             HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0, 0, 0, (short) region[0], region[1], (short) (region[0]+region[2]), region[1]+region[3]);
             patriarch.createPicture(anchor, workbook.addPicture(byteArrayOut.toByteArray(), HSSFWorkbook.PICTURE_TYPE_PNG));
             byteArrayOut.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void pictureToPosition(String imgPath, int[] cell, Drawing drawing, CreationHelper helper, Workbook workbook) {
-        pictureToPosition(imgPath, cell, null, drawing, helper, workbook);
-    }
-
-    /**
-     * 将图片添加到指定的单元格
-     * @param imgPath
-     * @param cell   单元格位置 => cell[0] : col; cell[1]: row
-     * @param size  图片大小; 单位：像素 => size[0]: width; size[1]: height
-     * @param drawing
-     * @param helper
-     * @param workbook
-     */
-    public static void pictureToPosition(String imgPath, int[] cell, double[] size, Drawing drawing, CreationHelper helper, Workbook workbook) {
-        try {
-            InputStream is = new FileInputStream(imgPath);
-            byte[] bytes = IOUtils.toByteArray(is);
-            int pictureIdx = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_PNG);
-            ClientAnchor anchor = helper.createClientAnchor();
-            anchor.setCol1(cell[0]);
-            anchor.setRow1(cell[1]);
-            Picture picture = drawing.createPicture(anchor, pictureIdx);
-            if (size == null || size.length == 0) {
-                picture.resize();
-            } else if (size.length == 1){
-                picture.resize(size[0]);
-            }else if (size.length == 2){
-                picture.resize(size[0], size[1]);
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
