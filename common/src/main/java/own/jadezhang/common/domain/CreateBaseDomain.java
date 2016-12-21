@@ -7,7 +7,7 @@ import own.jadezhang.common.domain.BaseDomain;
  */
 public class CreateBaseDomain<T> extends BaseDomain<T>{
     private Object creator;
-    private Long createDate = System.currentTimeMillis();;
+    private Long createDate = System.currentTimeMillis();
     private Object lastModifier;
     private Long lastModDate = System.currentTimeMillis();
     private Integer status;

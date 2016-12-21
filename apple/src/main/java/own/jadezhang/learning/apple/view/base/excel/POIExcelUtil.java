@@ -30,7 +30,7 @@ public class POIExcelUtil {
         if (region.length != 4) {
             throw new IllegalArgumentException("下拉框区域数据必须设置完全");
         }
-
+        //DVConstraint constraint = DVConstraint.createFormulaListConstraint(formulaString);
         CellRangeAddressList cellRegions = new CellRangeAddressList(region[0], region[1], region[2], region[3]);
         DVConstraint constraint = DVConstraint.createExplicitListConstraint(list);
         HSSFDataValidation dataValidation = new HSSFDataValidation(cellRegions, constraint);

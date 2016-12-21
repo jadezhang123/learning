@@ -14,9 +14,21 @@
 </head>
 <body>
 	<div id="chinaMap" style="height:500px;width:600px"></div>
-	<!-- <div id="hubeiMap" style="height:500px;width:600px"></div> -->
 	<div id="provinceMap" style="height:500px;width:600px"></div>
-	<script type="text/javascript">
+	<script>
+		$.get('../../data/asset/geo/china.json', function (chinaJson) {
+			echarts.registerMap('china', chinaJson);
+			var chart = echarts.init(document.getElementById('chinaMap'));
+			chart.setOption({
+				series: [{
+					type: 'map',
+					map: 'china'
+				}]
+			});
+		});
+	</script>
+
+	<!--<script type="text/javascript">
 		var iphoneChart = echarts.init(document.getElementById('chinaMap'));
 		var provinceChart = echarts.init(document.getElementById('provinceMap'));
 		function randomData() {
@@ -271,6 +283,6 @@
 		provinceChart.setOption(option);
 	});
 
-</script>
+</script>-->
 </body>
 </html>

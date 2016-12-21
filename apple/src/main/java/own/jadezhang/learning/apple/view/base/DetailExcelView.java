@@ -108,7 +108,7 @@ public class DetailExcelView extends AbstractExcelView {
 
         String pieImgPath = "D:\\imgPath.png";
         Map<String, String> option = new HashMap<String, String>();
-        option.put(ChartToImgMaker.TITLE_KEY, "BMI值");
+        option.put(ChartToImgMaker.TITLE_KEY, new String ("BMI值".getBytes("gbk"), "utf-8"));
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("正常", 23);
         data.put("偏胖", 3);
@@ -118,9 +118,10 @@ public class DetailExcelView extends AbstractExcelView {
         pieChartToImgMaker.trans(option, data, pieImgPath, 500,500);
         int[] chartImgPosition = {2, 15, 5, 10};
         POIExcelUtil.pictureToPosition(pieImgPath, chartImgPosition, patriarch, workbook);
+
         option.put(CategoryChartToImgMaker.CATEGORY_CHART_TYPE_KEY, CategoryChartToImgMaker.CATEGORY_CHART_TYPE_LINE);
-        option.put(ChartToImgMaker.TITLE_KEY, "第一季度温度情况");
-        option.put(ChartToImgMaker.X_AXIS_KEY, "月份");
+        option.put(ChartToImgMaker.TITLE_KEY, new String ("第一季度温度情况".getBytes("utf-8"), "gb2312"));
+        option.put(ChartToImgMaker.X_AXIS_KEY, new String("月份".getBytes()));
         option.put(ChartToImgMaker.Y_AXIS_KEY, "温度");
 
         Map<String, Object> lineDate = new HashMap<String, Object>();
