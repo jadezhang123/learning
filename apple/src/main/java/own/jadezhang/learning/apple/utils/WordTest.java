@@ -1,11 +1,6 @@
 package own.jadezhang.learning.apple.utils;
 
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTRPr;
-
-import java.io.FileInputStream;
+import org.apache.poi.xwpf.usermodel.*;
 
 /**
  * Created by Zhang Junwei on 2016/12/22 0022.
@@ -23,17 +18,24 @@ public class WordTest {
 
         XWPFDocument document = new XWPFDocument();
         XWPFParagraph paragraph = document.createParagraph();
-        WordUtil.CTRStyleBuilder ctrStyleBuilder = new WordUtil.CTRStyleBuilder();
+        WordUtil.RunStyleBuilder ctrStyleBuilder = new WordUtil.RunStyleBuilder();
+        WordUtil.ParagraphStyleBuilder ctpStyleBuilder = new WordUtil.ParagraphStyleBuilder();
+        ctpStyleBuilder.init(paragraph).align(ParagraphAlignment.CENTER, TextAlignment.AUTO)
+                .initSpacing().spaceInPound(2, 2);
+
         XWPFRun run1 = paragraph.createRun();
-        System.out.println(run1.getCTR());
-        ctrStyleBuilder.init(run1).content("阿斯蒂芬好难过11").font("宋体","Times New Roman","20");
-        System.out.println(run1.getCTR());
-        CTRPr rPr = run1.getCTR().getRPr();
-        System.out.println(rPr);
 
+        ctrStyleBuilder.init(run1).content("阿斯蒂芬好难过11").font("宋体", "Times New Roman", "20");
         XWPFParagraph paragraph1 = document.createParagraph();
-        ctrStyleBuilder.init(paragraph1.createRun()).content("阿斯蒂芬\n不难过").samePrOf(run1).bold(true);
+        ctpStyleBuilder.init(paragraph1).initSpacing().spaceInLine(2, 3).lineSpace(2, null);
+        XWPFRun build = ctrStyleBuilder.init(paragraph1.createRun()).content("阿斯蒂芬\n不难过").samePrOf(run1)
+                .bold(true).build();
+        ctrStyleBuilder.init(paragraph1.createRun()).samePrOf(build).content("同一段内容");
 
+        XWPFParagraph paragraph2 = document.createParagraph();
+
+        ctpStyleBuilder.init(paragraph2).initInd().indentInChart(2, 0, 0, 0);
+        ctrStyleBuilder.init(paragraph2.createRun()).content("第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段").samePrOf(build);
         WordUtil.saveDocument(document, "D:\\doc.doc");
     }
 }

@@ -51,6 +51,14 @@ public class WordUtil {
         return pPr;
     }
 
+    public static CTRPr getPrOfRun(XWPFRun run) {
+        CTRPr rPr = run.getCTR().getRPr();
+        if (rPr == null) {
+            rPr = run.getCTR().addNewRPr();
+        }
+        return rPr;
+    }
+
     //设置页边距 1厘米约等于567
     public void setDocumentMargin(XWPFDocument document, String left, String top, String right, String bottom) {
         CTSectPr sectPr = document.getDocument().getBody().isSetSectPr() ? document.getDocument().getBody().getSectPr() : document.getDocument().getBody().addNewSectPr();
@@ -74,23 +82,161 @@ public class WordUtil {
         fos.close();
     }
 
-    public static CTRPr getPrOfRun(XWPFRun run) {
-        CTRPr rPr = run.getCTR().getRPr();
-        if (rPr == null) {
-            rPr = run.getCTR().addNewRPr();
+    //段落样式构建器
+    public static class ParagraphStyleBuilder {
+
+        private static final int PER_LINE = 100;
+        private static final int PER_CHART = 100;
+        //1厘米≈567
+        private static final int PER_CM = 567;
+        private static final int ONE_LINE = 240;
+        private static final int PER_POUND = 20;
+
+        private XWPFParagraph paragraph = null;
+        private CTPPr pPr = null;
+        private CTSpacing pSpacing = null;
+        private CTInd pInd = null;
+
+        public ParagraphStyleBuilder init(XWPFParagraph paragraph) {
+            this.paragraph = paragraph;
+            return this;
         }
-        return rPr;
+
+
+        //设置段落对齐方式
+        public ParagraphStyleBuilder align(ParagraphAlignment pAlign, TextAlignment vAlign) {
+            if (pAlign != null) {
+                paragraph.setAlignment(pAlign);
+            }
+            if (vAlign != null) {
+                paragraph.setVerticalAlignment(vAlign);
+            }
+            return this;
+        }
+
+        //初始化段落间距属性，在设置各段落间距前调用
+        public ParagraphStyleBuilder initSpacing() {
+            pPr = getPrOfParagraph(paragraph);
+            pSpacing = pPr.getSpacing() != null ? pPr.getSpacing() : pPr.addNewSpacing();
+            return this;
+        }
+
+        //设置段前和段后间距，以磅为单位
+        public ParagraphStyleBuilder spaceInPound(double before, double after) {
+            if (pSpacing == null) {
+                initSpacing();
+            }
+            pSpacing.setBefore(BigInteger.valueOf((long) (before * PER_POUND)));
+            pSpacing.setAfter(BigInteger.valueOf((long) (after * PER_POUND)));
+            return this;
+        }
+
+        //设置段前和段后间距，以行为单位
+        public ParagraphStyleBuilder spaceInLine(double beforeLines, double afterLines) {
+            if (pSpacing == null) {
+                initSpacing();
+            }
+            pSpacing.setBeforeLines(BigInteger.valueOf((long) (beforeLines * PER_LINE)));
+            pSpacing.setAfterLines(BigInteger.valueOf((long) (afterLines * PER_LINE)));
+            return this;
+        }
+
+        //设置段落行距
+        public ParagraphStyleBuilder lineSpace(double value, STLineSpacingRule.Enum spaceRule) {
+            if (pSpacing == null) {
+                initSpacing();
+            }
+            int unit;
+            if (spaceRule == null) {
+                spaceRule = STLineSpacingRule.AUTO;
+            }
+            if (spaceRule.intValue() == STLineSpacingRule.INT_AUTO) {
+                //当行距规则为多倍行距时，单位为行，且最小为0.06行
+                unit = ONE_LINE;
+                if (value < 0.06) {
+                    value = 0.06;
+                }
+            } else {
+                //当行距规则为固定值或最小值时，单位为磅，且最小为0.7磅
+                unit = PER_POUND;
+                if (value < 0.7) {
+                    value = 0.7;
+                }
+            }
+            pSpacing.setLine(BigInteger.valueOf((long) (value * unit)));
+            pSpacing.setLineRule(spaceRule);
+            return this;
+        }
+
+        public ParagraphStyleBuilder initInd() {
+            pPr = getPrOfParagraph(paragraph);
+            pInd = pPr.getInd() != null ? pPr.getInd() : pPr.addNewInd();
+            return this;
+        }
+
+        //设置段落缩进，以厘米为单位; 悬挂缩进高于首行缩进；右侧缩进高于左侧缩进
+        public ParagraphStyleBuilder indentInCM(double firstLine, double hanging, double right, double left) {
+            if (pInd == null) {
+                initInd();
+            }
+            if (firstLine != 0) {
+                pInd.setFirstLine(BigInteger.valueOf((long) (firstLine * PER_CM)));
+            }
+            if (hanging != 0) {
+                pInd.setHanging(BigInteger.valueOf((long) (hanging * PER_CM)));
+            }
+            if (right != 0) {
+                pInd.setRight(BigInteger.valueOf((long) (right * PER_CM)));
+            }
+            if (left != 0) {
+                pInd.setLeft(BigInteger.valueOf((long) (left * PER_CM)));
+            }
+            return this;
+        }
+
+        //设置段落缩进，以字符为单位; 悬挂缩进高于首行缩进；右侧缩进高于左侧缩进
+        public ParagraphStyleBuilder indentInChart(int firstLine, int hanging, int left, int right) {
+            if (pInd == null) {
+                initInd();
+            }
+            if (firstLine != 0) {
+                pInd.setFirstLineChars(BigInteger.valueOf((long) (firstLine * PER_CHART)));
+            }
+            if (hanging != 0) {
+                pInd.setHangingChars(BigInteger.valueOf((long) (hanging * PER_CHART)));
+            }
+            if (right != 0) {
+                pInd.setRightChars(BigInteger.valueOf((long) (right * PER_CHART)));
+            }
+            if (left != 0) {
+                pInd.setLeftChars(BigInteger.valueOf((long) (left * PER_CHART)));
+            }
+            return this;
+        }
+
+        public ParagraphStyleBuilder samePrOf(CTPPr pPr) {
+            if (pPr != null) {
+                paragraph.getCTP().setPPr(pPr);
+            }
+            return this;
+        }
+
+        public ParagraphStyleBuilder samePrOf(XWPFParagraph otherPra) {
+            paragraph.getCTP().setPPr(getPrOfParagraph(otherPra));
+            return this;
+        }
     }
 
-    public static class CTRStyleBuilder {
+    //文本样式构建器
+    public static class RunStyleBuilder {
         private XWPFRun run = null;
 
-        public CTRStyleBuilder init(XWPFRun run) {
+        public RunStyleBuilder init(XWPFRun run) {
             this.run = run;
             return this;
         }
 
-        public CTRStyleBuilder content(String content) {
+        public RunStyleBuilder content(String content) {
             if (StringUtils.isNotBlank(content)) {
                 // pRun.setText(content);
                 if (content.contains("\n")) {// System.properties("line.separator")
@@ -108,22 +254,22 @@ public class WordUtil {
             return this;
         }
 
-        public CTRStyleBuilder bold(boolean bold) {
+        public RunStyleBuilder bold(boolean bold) {
             run.setBold(bold);
             return this;
         }
 
-        public CTRStyleBuilder italic(boolean italic) {
+        public RunStyleBuilder italic(boolean italic) {
             run.setItalic(italic);
             return this;
         }
 
-        public CTRStyleBuilder strike(boolean strike) {
+        public RunStyleBuilder strike(boolean strike) {
             run.setStrike(strike);
             return this;
         }
 
-        public CTRStyleBuilder font(String cnFontFamily, String enFontFamily, String fontSize) {
+        public RunStyleBuilder font(String cnFontFamily, String enFontFamily, String fontSize) {
             CTRPr rPr = getPrOfRun(run);
             // 设置字体
             CTFonts fonts = rPr.isSetRFonts() ? rPr.getRFonts() : rPr.addNewRFonts();
@@ -145,7 +291,7 @@ public class WordUtil {
             return this;
         }
 
-        public CTRStyleBuilder shade(STShd.Enum shdStyle, String shdColor) {
+        public RunStyleBuilder shade(STShd.Enum shdStyle, String shdColor) {
             CTRPr rPr = getPrOfRun(run);
             // 设置底纹
             CTShd shd = rPr.isSetShd() ? rPr.getShd() : rPr.addNewShd();
@@ -163,14 +309,14 @@ public class WordUtil {
          * @param position 字符垂直方向上间距位置； >0：提升； <0：降低；=磅值*2
          * @return
          */
-        public CTRStyleBuilder position(int position) {
+        public RunStyleBuilder position(int position) {
             if (position != 0) {
                 run.setTextPosition(position);
             }
             return this;
         }
 
-        public CTRStyleBuilder space(int spacingValue) {
+        public RunStyleBuilder space(int spacingValue) {
             if (spacingValue > 0) {
                 CTRPr rPr = getPrOfRun(run);
                 CTSignedTwipsMeasure measure = rPr.isSetSpacing() ? rPr.getSpacing() : rPr.addNewSpacing();
@@ -183,14 +329,14 @@ public class WordUtil {
          * @param verticalAlign SUPERSCRIPT：上标；SUBSCRIPT：下标
          * @return
          */
-        public CTRStyleBuilder verticalAlign(VerticalAlign verticalAlign) {
+        public RunStyleBuilder verticalAlign(VerticalAlign verticalAlign) {
             if (verticalAlign != null) {
                 run.setSubscript(verticalAlign);
             }
             return this;
         }
 
-        public CTRStyleBuilder underLine(STUnderline.Enum underStyle, String underLineColor) {
+        public RunStyleBuilder underLine(STUnderline.Enum underStyle, String underLineColor) {
             CTRPr rPr = getPrOfRun(run);
             CTUnderline udLine = rPr.addNewU();
             udLine.setVal(underStyle);
@@ -198,7 +344,7 @@ public class WordUtil {
             return this;
         }
 
-        public CTRStyleBuilder highLight(STHighlightColor.Enum highStyle) {
+        public RunStyleBuilder highLight(STHighlightColor.Enum highStyle) {
             CTRPr rPr = getPrOfRun(run);
             if (highStyle != null) {
                 CTHighlight highLight = rPr.isSetHighlight() ? rPr.getHighlight() : rPr.addNewHighlight();
@@ -207,14 +353,14 @@ public class WordUtil {
             return this;
         }
 
-        public CTRStyleBuilder samePrOf(CTRPr rPr) {
+        public RunStyleBuilder samePrOf(CTRPr rPr) {
             if (rPr != null) {
                 run.getCTR().setRPr(rPr);
             }
             return this;
         }
 
-        public CTRStyleBuilder samePrOf(XWPFRun otherRun) {
+        public RunStyleBuilder samePrOf(XWPFRun otherRun) {
             run.getCTR().setRPr(getPrOfRun(otherRun));
             return this;
         }
@@ -225,67 +371,7 @@ public class WordUtil {
 
     }
 
-    public static class CTPStyleBuilder {
-        private XWPFParagraph paragraph = null;
-        private CTPPr pPr = null;
-        private CTSpacing pSpacing = null;
-        private CTInd pInd = null;
 
-        public CTPStyleBuilder init(XWPFParagraph paragraph) {
-            this.paragraph = paragraph;
-            return this;
-        }
-
-        public CTPStyleBuilder initSpacing() {
-            pPr = getPrOfParagraph(paragraph);
-            pSpacing = pPr.getSpacing() != null ? pPr.getSpacing() : pPr.addNewSpacing();
-            return this;
-        }
-
-        public CTPStyleBuilder beforeSpacing(String before){
-            if (pSpacing == null) {
-                initSpacing();
-            }
-            // 段前磅数
-            if (before != null) {
-                pSpacing.setBefore(new BigInteger(before));
-            }
-            return this;
-        }
-
-        public CTPStyleBuilder afterSpacing(String after){
-            if (pSpacing == null) {
-                initSpacing();
-            }
-            // 段后磅数
-            if (after != null) {
-                pSpacing.setAfter(new BigInteger(after));
-            }
-            return this;
-        }
-
-        public CTPStyleBuilder beforeLines(String beforeLines){
-            if (pSpacing == null) {
-                initSpacing();
-            }
-            // 段前行数
-            if (beforeLines != null) {
-                pSpacing.setBeforeLines(new BigInteger(beforeLines));
-            }
-            return this;
-        }
-
-        public CTPStyleBuilder afterLines(String afterLines){
-            if (pSpacing == null) {
-                initSpacing();
-            }
-            // 段前行数
-            if (afterLines != null) {
-                pSpacing.setAfterLines(new BigInteger(afterLines));
-            }
-            return this;
-        }
-    }
 
 
 }
