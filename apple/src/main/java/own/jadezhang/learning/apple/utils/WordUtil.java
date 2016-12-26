@@ -19,18 +19,6 @@ public class WordUtil {
         p.createRun().addBreak(breakType);
     }
 
-    /**
-     * @Description: 设置段落对齐
-     */
-    public static void setParagraphAlign(XWPFParagraph p, ParagraphAlignment pAlign, TextAlignment vAlign) {
-        if (pAlign != null) {
-            p.setAlignment(pAlign);
-        }
-        if (vAlign != null) {
-            p.setVerticalAlignment(vAlign);
-        }
-    }
-
     public static XWPFRun createRun(XWPFParagraph paragraph, boolean newLine) {
         XWPFRun run = paragraph.createRun();
         if (newLine) {

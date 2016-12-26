@@ -57,7 +57,7 @@ public abstract class AbstractChartToImgMaker implements ChartToImgMaker{
     @Override
     final public String trans(Map<String, String> option, Map<String, Object> data, String imgPath, int width, int height) {
         Dataset dataset = createDataset(data);
-        //setStandardChartThem();
+        setStandardChartThem();
         JFreeChart jFreeChart = createChart(option, dataset);
         return transToImg(jFreeChart, imgPath, width, height);
     }
