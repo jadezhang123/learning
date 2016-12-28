@@ -325,14 +325,15 @@ public class FileUploadController {
             }
         });*/
 
-        File[] files = new File[]{
-                new File("F:\\document\\杂件\\社保名单汇总-张俊伟.xlsx"),
-                new File("F:\\document\\杂件\\十九楼平面布置图1027.pdf"),
-                new File("F:\\document\\杂件\\2016 九州驿站新介绍.doc")};
+    /*    File[] files = new File[]{
+                new File("D:\\chart.xls"),
+                new File("D:\\学生体质健康记录卡.doc"),
+                new File("D:\\十九楼平面布置图1027.pdf")};*/
+        File[] files = new File[]{};
         DownloadUtil.downloadAfterCompress(request, response, files, new DownloadUtil.FilenameGenerator() {
             @Override
             public String generateFilename(File file) {
-                return "打包文件."+FilenameUtils.getExtension(file.getName());
+                return "打包文件（新闻)."+FilenameUtils.getExtension(file.getName());
             }
 
             @Override
