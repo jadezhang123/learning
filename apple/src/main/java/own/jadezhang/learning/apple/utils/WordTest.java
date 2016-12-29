@@ -17,24 +17,22 @@ public class WordTest {
         List<XWPFParagraph> paragraphs = document.getParagraphs();*/
 
         XWPFDocument document = new XWPFDocument();
-        XWPFParagraph paragraph = document.createParagraph();
-        WordUtil.RunStyleBuilder ctrStyleBuilder = new WordUtil.RunStyleBuilder();
-        WordUtil.ParagraphStyleBuilder ctpStyleBuilder = new WordUtil.ParagraphStyleBuilder();
-        ctpStyleBuilder.init(paragraph).align(ParagraphAlignment.CENTER, TextAlignment.AUTO)
-                .initSpacing().spaceInPound(2, 2);
+        WordUtil.XWPFParagraphBuilder ctpStyleBuilder = new WordUtil.XWPFParagraphBuilder();
+        XWPFParagraph paragraph = ctpStyleBuilder.init(document).align(ParagraphAlignment.CENTER, TextAlignment.AUTO)
+                .initSpacing().spaceInPound(2, 2).build();
 
         XWPFRun run1 = paragraph.createRun();
 
+        WordUtil.XWPFRunBuilder ctrStyleBuilder = new WordUtil.XWPFRunBuilder();
         ctrStyleBuilder.init(run1).content("阿斯蒂芬好难过11").font("宋体", "Times New Roman", "20");
         XWPFParagraph paragraph1 = document.createParagraph();
-        ctpStyleBuilder.init(paragraph1).initSpacing().spaceInLine(2, 3).lineSpace(2, null);
+        ctpStyleBuilder.init(document).initSpacing().spaceInLine(2, 3).lineSpace(2, null);
         XWPFRun build = ctrStyleBuilder.init(paragraph1.createRun()).content("阿斯蒂芬\n不难过").samePrOf(run1)
                 .bold(true).build();
         ctrStyleBuilder.init(paragraph1.createRun()).samePrOf(build).content("同一段内容");
 
-        XWPFParagraph paragraph2 = document.createParagraph();
-
-        ctpStyleBuilder.init(paragraph2).initInd().indentInChart(2, 0, 0, 0);
+        XWPFParagraph paragraph2 = ctpStyleBuilder.init(document)
+                    .initInd().indentInChart(2, 0, 0, 0).build();
         ctrStyleBuilder.init(paragraph2.createRun()).content("第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段").samePrOf(build);
         WordUtil.saveDocument(document, "D:\\doc.doc");
     }

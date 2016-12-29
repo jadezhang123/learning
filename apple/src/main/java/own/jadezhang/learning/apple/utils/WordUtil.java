@@ -1,6 +1,7 @@
 package own.jadezhang.learning.apple.utils;
 
 
+import org.apache.commons.collections4.map.HashedMap;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
@@ -8,6 +9,7 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.math.BigInteger;
+import java.util.Map;
 
 /**
  * Created by Zhang Junwei on 2016/12/21 0021.
@@ -17,14 +19,6 @@ public class WordUtil {
     public void addNewPage(XWPFDocument document, BreakType breakType) {
         XWPFParagraph p = document.createParagraph();
         p.createRun().addBreak(breakType);
-    }
-
-    public static XWPFRun createRun(XWPFParagraph paragraph, boolean newLine) {
-        XWPFRun run = paragraph.createRun();
-        if (newLine) {
-            run.addBreak();
-        }
-        return run;
     }
 
     public static CTPPr getPrOfParagraph(XWPFParagraph p) {
@@ -71,28 +65,37 @@ public class WordUtil {
     }
 
     //段落样式构建器
-    public static class ParagraphStyleBuilder {
+    public static class XWPFParagraphBuilder {
 
         private static final int PER_LINE = 100;
         private static final int PER_CHART = 100;
         //1厘米≈567
         private static final int PER_CM = 567;
-        private static final int ONE_LINE = 240;
         private static final int PER_POUND = 20;
+        private static final int ONE_LINE = 240;
 
         private XWPFParagraph paragraph = null;
         private CTPPr pPr = null;
+        private Map<String, CTPPr> savedPPr = null;
         private CTSpacing pSpacing = null;
         private CTInd pInd = null;
 
-        public ParagraphStyleBuilder init(XWPFParagraph paragraph) {
+        public XWPFParagraphBuilder init(XWPFDocument document) {
+            this.paragraph = document.createParagraph();
+            return this;
+        }
+
+        public XWPFParagraphBuilder init(XWPFParagraph paragraph) {
+            if (paragraph == null){
+                throw new IllegalArgumentException("the paragraph should not be null");
+            }
             this.paragraph = paragraph;
             return this;
         }
 
-
         //设置段落对齐方式
-        public ParagraphStyleBuilder align(ParagraphAlignment pAlign, TextAlignment vAlign) {
+        public XWPFParagraphBuilder align(ParagraphAlignment pAlign, TextAlignment vAlign) {
+            ensureInit();
             if (pAlign != null) {
                 paragraph.setAlignment(pAlign);
             }
@@ -103,14 +106,16 @@ public class WordUtil {
         }
 
         //初始化段落间距属性，在设置各段落间距前调用
-        public ParagraphStyleBuilder initSpacing() {
+        public XWPFParagraphBuilder initSpacing() {
+            ensureInit();
             pPr = getPrOfParagraph(paragraph);
             pSpacing = pPr.getSpacing() != null ? pPr.getSpacing() : pPr.addNewSpacing();
             return this;
         }
 
         //设置段前和段后间距，以磅为单位
-        public ParagraphStyleBuilder spaceInPound(double before, double after) {
+        public XWPFParagraphBuilder spaceInPound(double before, double after) {
+            ensureInit();
             if (pSpacing == null) {
                 initSpacing();
             }
@@ -120,7 +125,8 @@ public class WordUtil {
         }
 
         //设置段前和段后间距，以行为单位
-        public ParagraphStyleBuilder spaceInLine(double beforeLines, double afterLines) {
+        public XWPFParagraphBuilder spaceInLine(double beforeLines, double afterLines) {
+            ensureInit();
             if (pSpacing == null) {
                 initSpacing();
             }
@@ -130,7 +136,8 @@ public class WordUtil {
         }
 
         //设置段落行距
-        public ParagraphStyleBuilder lineSpace(double value, STLineSpacingRule.Enum spaceRule) {
+        public XWPFParagraphBuilder lineSpace(double value, STLineSpacingRule.Enum spaceRule) {
+            ensureInit();
             if (pSpacing == null) {
                 initSpacing();
             }
@@ -156,14 +163,16 @@ public class WordUtil {
             return this;
         }
 
-        public ParagraphStyleBuilder initInd() {
+        public XWPFParagraphBuilder initInd() {
+            ensureInit();
             pPr = getPrOfParagraph(paragraph);
             pInd = pPr.getInd() != null ? pPr.getInd() : pPr.addNewInd();
             return this;
         }
 
         //设置段落缩进，以厘米为单位; 悬挂缩进高于首行缩进；右侧缩进高于左侧缩进
-        public ParagraphStyleBuilder indentInCM(double firstLine, double hanging, double right, double left) {
+        public XWPFParagraphBuilder indentInCM(double firstLine, double hanging, double right, double left) {
+            ensureInit();
             if (pInd == null) {
                 initInd();
             }
@@ -183,7 +192,8 @@ public class WordUtil {
         }
 
         //设置段落缩进，以字符为单位; 悬挂缩进高于首行缩进；右侧缩进高于左侧缩进
-        public ParagraphStyleBuilder indentInChart(int firstLine, int hanging, int left, int right) {
+        public XWPFParagraphBuilder indentInChart(int firstLine, int hanging, int left, int right) {
+            ensureInit();
             if (pInd == null) {
                 initInd();
             }
@@ -202,29 +212,87 @@ public class WordUtil {
             return this;
         }
 
-        public ParagraphStyleBuilder samePrOf(CTPPr pPr) {
+        public XWPFParagraphBuilder savePr(String pPrName){
+            if (savedPPr ==null){
+                savedPPr = new HashedMap<String, CTPPr>();
+            }
+            if (pPr != null) {
+                savedPPr.put(pPrName, pPr);
+            }
+            return this;
+        }
+
+        public XWPFParagraphBuilder samePrOf(String pPrName) {
+            ensureInit();
+
+            if (savedPPr.containsKey(pPrName)){
+                return samePrOf(savedPPr.get(pPrName));
+            }
+
+            return this;
+        }
+
+        public XWPFParagraphBuilder samePrOf(CTPPr pPr) {
+            ensureInit();
             if (pPr != null) {
                 paragraph.getCTP().setPPr(pPr);
             }
             return this;
         }
 
-        public ParagraphStyleBuilder samePrOf(XWPFParagraph otherPra) {
+        public XWPFParagraphBuilder samePrOf(XWPFParagraph otherPra) {
+            ensureInit();
             paragraph.getCTP().setPPr(getPrOfParagraph(otherPra));
             return this;
+        }
+
+        public XWPFParagraph build() {
+            return paragraph;
+        }
+
+        //确保init方法是第一个调用的，避免出现空指针异常
+        private void ensureInit(){
+            if (this.paragraph == null){
+                throw new IllegalStateException("the init method must be invoked firstly");
+            }
         }
     }
 
     //文本样式构建器
-    public static class RunStyleBuilder {
+    public static class XWPFRunBuilder {
         private XWPFRun run = null;
 
-        public RunStyleBuilder init(XWPFRun run) {
+        public XWPFRunBuilder init(XWPFParagraph paragraph, boolean newLine) {
+            this.run = paragraph.createRun();
+            if (newLine) {
+                run.addBreak();
+            }
+            return this;
+        }
+
+        /**
+         * insert a new Run in RunArray
+         *
+         * @param pos The position at which the new run should be added.
+         */
+        public XWPFRunBuilder init(XWPFParagraph paragraph, int pos) {
+            this.run = paragraph.insertNewRun(pos);
+            if (this.run == null){
+                return init(paragraph, false);
+            }
+            return this;
+        }
+
+        public XWPFRunBuilder init(XWPFRun run) {
+            if (run == null){
+                throw new IllegalArgumentException("the run should not be null");
+            }
             this.run = run;
             return this;
         }
 
-        public RunStyleBuilder content(String content) {
+        public XWPFRunBuilder content(String content) {
+            ensureInit();
             if (StringUtils.isNotBlank(content)) {
                 // pRun.setText(content);
                 if (content.contains("\n")) {// System.properties("line.separator")
@@ -242,22 +310,26 @@ public class WordUtil {
             return this;
         }
 
-        public RunStyleBuilder bold(boolean bold) {
+        public XWPFRunBuilder bold(boolean bold) {
+            ensureInit();
             run.setBold(bold);
             return this;
         }
 
-        public RunStyleBuilder italic(boolean italic) {
+        public XWPFRunBuilder italic(boolean italic) {
+            ensureInit();
             run.setItalic(italic);
             return this;
         }
 
-        public RunStyleBuilder strike(boolean strike) {
+        public XWPFRunBuilder strike(boolean strike) {
+            ensureInit();
             run.setStrike(strike);
             return this;
         }
 
-        public RunStyleBuilder font(String cnFontFamily, String enFontFamily, String fontSize) {
+        public XWPFRunBuilder font(String cnFontFamily, String enFontFamily, String fontSize) {
+            ensureInit();
             CTRPr rPr = getPrOfRun(run);
             // 设置字体
             CTFonts fonts = rPr.isSetRFonts() ? rPr.getRFonts() : rPr.addNewRFonts();
@@ -279,7 +351,8 @@ public class WordUtil {
             return this;
         }
 
-        public RunStyleBuilder shade(STShd.Enum shdStyle, String shdColor) {
+        public XWPFRunBuilder shade(STShd.Enum shdStyle, String shdColor) {
+            ensureInit();
             CTRPr rPr = getPrOfRun(run);
             // 设置底纹
             CTShd shd = rPr.isSetShd() ? rPr.getShd() : rPr.addNewShd();
@@ -297,14 +370,16 @@ public class WordUtil {
          * @param position 字符垂直方向上间距位置； >0：提升； <0：降低；=磅值*2
          * @return
          */
-        public RunStyleBuilder position(int position) {
+        public XWPFRunBuilder position(int position) {
+            ensureInit();
             if (position != 0) {
                 run.setTextPosition(position);
             }
             return this;
         }
 
-        public RunStyleBuilder space(int spacingValue) {
+        public XWPFRunBuilder space(int spacingValue) {
+            ensureInit();
             if (spacingValue > 0) {
                 CTRPr rPr = getPrOfRun(run);
                 CTSignedTwipsMeasure measure = rPr.isSetSpacing() ? rPr.getSpacing() : rPr.addNewSpacing();
@@ -317,14 +392,16 @@ public class WordUtil {
          * @param verticalAlign SUPERSCRIPT：上标；SUBSCRIPT：下标
          * @return
          */
-        public RunStyleBuilder verticalAlign(VerticalAlign verticalAlign) {
+        public XWPFRunBuilder verticalAlign(VerticalAlign verticalAlign) {
+            ensureInit();
             if (verticalAlign != null) {
                 run.setSubscript(verticalAlign);
             }
             return this;
         }
 
-        public RunStyleBuilder underLine(STUnderline.Enum underStyle, String underLineColor) {
+        public XWPFRunBuilder underLine(STUnderline.Enum underStyle, String underLineColor) {
+            ensureInit();
             CTRPr rPr = getPrOfRun(run);
             CTUnderline udLine = rPr.addNewU();
             udLine.setVal(underStyle);
@@ -332,7 +409,8 @@ public class WordUtil {
             return this;
         }
 
-        public RunStyleBuilder highLight(STHighlightColor.Enum highStyle) {
+        public XWPFRunBuilder highLight(STHighlightColor.Enum highStyle) {
+            ensureInit();
             CTRPr rPr = getPrOfRun(run);
             if (highStyle != null) {
                 CTHighlight highLight = rPr.isSetHighlight() ? rPr.getHighlight() : rPr.addNewHighlight();
@@ -341,14 +419,16 @@ public class WordUtil {
             return this;
         }
 
-        public RunStyleBuilder samePrOf(CTRPr rPr) {
+        public XWPFRunBuilder samePrOf(CTRPr rPr) {
+            ensureInit();
             if (rPr != null) {
                 run.getCTR().setRPr(rPr);
             }
             return this;
         }
 
-        public RunStyleBuilder samePrOf(XWPFRun otherRun) {
+        public XWPFRunBuilder samePrOf(XWPFRun otherRun) {
+            ensureInit();
             run.getCTR().setRPr(getPrOfRun(otherRun));
             return this;
         }
@@ -357,9 +437,10 @@ public class WordUtil {
             return run;
         }
 
+        private void ensureInit(){
+            if (this.run == null){
+                throw new IllegalStateException("the init method must be invoked firstly");
+            }
+        }
     }
-
-
-
-
 }
