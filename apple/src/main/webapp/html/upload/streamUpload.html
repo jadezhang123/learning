@@ -10,14 +10,17 @@
 </head>
 
 <body>
-<div >
-    <img  id="dragImg" style="width: 100px; height: 50px;;">
+<div>
+    <img id="dragImg" style="width: 100px; height: 50px;;">
     <a id="i_select_files">上传图书封面</a>
+    <input type="button" value="save">
+    <img id="savedImg" style="width: 100px; height: 50px;;">
 </div>
 <script>
+    var token, ext;
     var uploaderConfig = {
         customered: true,
-        maxSize: 102375, /** 单个文件的最大大小100kb，默认:2G */
+        maxSize: 1023750, /** 单个文件的最大大小100kb，默认:2G */
         browseFileId: "i_select_files", /** 选择文件的ID, 默认: i_select_files */
         browseFileBtn: "<div >请选择文件</div>", /** 显示选择文件的样式, 默认: `<div>请选择文件</div>` */
         dragAndDropArea: "i_select_files",
@@ -32,6 +35,10 @@
         /** 单个文件上传完毕的响应事件 */
         onComplete: function (file) {
             console.log(file);
+            var msgObj = eval("(" + file.msg + ")");
+            $('#dragImg').attr('src', '/file/upload/viewFile?token=' + msgObj.token);
+            token = msgObj.token;
+            ext = file.name.substring(file.name.lastIndexOf(".") + 1, file.name.length) || "";
         },
         /** 文件的扩展名不匹配的响应事件 */
         onExtNameMismatch: function (name, filters) {
@@ -44,6 +51,14 @@
     };
 
     var uploader = new Stream(uploaderConfig);
+
+    $('input').click(function () {
+        $.post('/apple/base/user/saveFile', {token: token, ext: ext}, function (result) {
+            console.log(result);
+            $('#savedImg').attr('src', '/file/upload/viewFile?token=' + result);
+        });
+    });
+
 </script>
 </body>
 </html>

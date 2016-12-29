@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
 import own.jadezhang.common.domain.common.ReturnCodeEnum;
+import own.jadezhang.learning.apple.config.Configurations;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.service.base.IUserService;
 import own.jadezhang.learning.apple.view.base.DetailExcelView;
@@ -92,5 +93,14 @@ public class UserController {
         model.put("users", allUsers);
         return new ModelAndView(new DetailExcelView(), model);
     }
+
+    @RequestMapping("/saveFile")
+    @ResponseBody
+    public String  saveFile(String token, String ext) {
+        String fileUrl = Configurations.copyTempToRepository(token, ext);
+        return fileUrl;
+    }
+
+
 
 }

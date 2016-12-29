@@ -1,10 +1,13 @@
 package own.jadezhang.learning.apple.config;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
 import own.jadezhang.common.domain.common.OSinfo;
 import own.jadezhang.common.utils.CommonUtil;
+import own.jadezhang.learning.apple.utils.IDUtil;
+import own.jadezhang.learning.apple.utils.IOUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -96,6 +99,31 @@ public class Configurations {
 
 	public static String generateRelativePath(Date date) {
 		return DateFormatUtils.format(date,"yyyy-MM-dd").replace("-",File.separator);
+	}
+
+	/**
+	 * 拷贝临时文件到正式
+	 * @param token
+	 * @param fileType
+	 * @return
+	 */
+	public static String copyTempToRepository(String token,String fileType){
+		String relativePath = Configurations.generateRelativePath(new Date())
+				+ File.separator + IDUtil.makeUUID() + "." + fileType;
+		try {
+			//把文件copy正式文件夹
+			File fromFile = IOUtil.getTokenedFile(token);
+			File toFile = new File(Configurations.getFileRepository(relativePath));
+			if (!toFile.getParentFile().exists()) {
+				toFile.getParentFile().mkdir();
+			}
+			FileUtils.copyFile(fromFile, toFile);
+			//删除临时文件
+			fromFile.delete();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return relativePath;
 	}
 
 	/**

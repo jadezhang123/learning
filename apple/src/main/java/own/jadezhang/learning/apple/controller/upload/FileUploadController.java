@@ -259,12 +259,10 @@ public class FileUploadController {
      */
     @ResponseBody
     @RequestMapping(value = "/viewFile")
-    public void viewImg(HttpServletRequest request, HttpServletResponse response, String token, String ext) {
+    public void viewImg(HttpServletRequest request, HttpServletResponse response, String token) {
         try {
-            if (StringUtils.isBlank(ext)) {
-                ext = "";
-            }
-            String fileRepository = Configurations.getFileRepository(token + ext);
+
+            String fileRepository = Configurations.getFileRepository(token);
             //先从正式文件仓库中获取文件
             File file = new File(fileRepository);
             if (!file.exists()) {
@@ -281,7 +279,6 @@ public class FileUploadController {
             fis.close();
             URL u = new URL("file:///" + file.getPath());
             response.setContentType(u.openConnection().getContentType());
-//            response.setContentType("image/gif"); //设置返回的文件类型
             //兼容火狐
             if (request.getHeader("User-Agent").toLowerCase().indexOf("firefox") > 0) {
                 response.setHeader("Content-disposition", "attachment;filename=" + new String(token.getBytes(), "ISO8859-1"));
