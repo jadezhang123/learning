@@ -108,7 +108,7 @@ public class DownloadUtil {
             if (request.getHeader("User-Agent").toLowerCase().indexOf("firefox") > 0) {
                 response.setHeader("Content-disposition", "attachment;filename=" + new String(fileName.getBytes(), "ISO8859-1"));
             } else {
-                response.setHeader("Content-disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));
+                response.setHeader("Content-disposition", "attachment;filename=" + new String(fileName.getBytes("gbk"), "ISO8859-1"));
             }
         } catch (IOException e) {
             throw new BizException(DownloadException.DOWNLOAD_ERROR_CODE, DownloadException.DOWNLOAD_ERROR_STR, e);

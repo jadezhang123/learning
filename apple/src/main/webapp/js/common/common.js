@@ -62,6 +62,7 @@ COMMON.qtipsModule = (function () {
         }
     })();
 
+
     /**错误显示**/
     var errorPlacement = function (error, element) {
         if (element.is(':radio') || element.is(':checkbox')) { //如果是radio或checkbox
