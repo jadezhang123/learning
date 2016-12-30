@@ -113,7 +113,14 @@ public class FileUploadController {
                 /** drop this uploaded data */
                 throw new StreamException(StreamException.ERROR_FILE_RANGE_START);
             }
-            IOUtils.copy(req.getInputStream(), new FileOutputStream(savedFile, true));
+            out = new FileOutputStream(savedFile, true);
+            content = req.getInputStream();
+            int read = 0;
+            final byte[] bytes = new byte[BUFFER_LENGTH];
+            while ((read = content.read(bytes)) != -1){
+                out.write(bytes, 0, read);
+            }
+
             start = savedFile.length();
         } catch (StreamException se) {
             success = StreamException.ERROR_FILE_RANGE_START == se.getCode();
@@ -300,7 +307,7 @@ public class FileUploadController {
         FilenameUtils.getExtension(uploadedFile.getOriginalFilename());
         String fileExt = StringUtils.substringAfterLast(uploadedFile.getOriginalFilename(), ".");
         try {
-            File savedFile = new File(Configurations.getFileRepository(Configurations.generateRelativePath(fileExt)));
+            File savedFile = new File(Configurations.getTempPath()+File.separator+uploadedFile.getOriginalFilename()+"."+fileExt);
             if (!savedFile.getParentFile().exists()) {
                 savedFile.getParentFile().mkdirs();
             }

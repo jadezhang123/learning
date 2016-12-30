@@ -13,7 +13,9 @@
 <div>
     <img id="dragImg" style="width: 100px; height: 50px;;">
     <a id="i_select_files">上传图书封面</a>
-    <input type="button" value="save">
+    <input type="button" value="save" id="save">
+    <input type="button" value="deleteTemp" id="deleteTemp">
+    <input type="button" value="delete" id="delete">
     <img id="savedImg" style="width: 100px; height: 50px;;">
 </div>
 <script>
@@ -36,7 +38,7 @@
         onComplete: function (file) {
             console.log(file);
             var msgObj = eval("(" + file.msg + ")");
-            $('#dragImg').attr('src', '/file/upload/viewFile?token=' + encodeURI(msgObj.token));
+            //$('#dragImg').attr('src', '/file/upload/viewFile?token=' + encodeURI(msgObj.token));
             token = msgObj.token;
             ext = file.name.substring(file.name.lastIndexOf(".") + 1, file.name.length) || "";
         },
@@ -51,12 +53,26 @@
     };
 
     var uploader = new Stream(uploaderConfig);
-
-    $('input').click(function () {
+    var savedFile;
+    $('#save').click(function () {
         $.post('/apple/base/user/saveFile', {token: token, ext: ext}, function (result) {
+            savedFile = result;
             $('#savedImg').attr('src', '/file/upload/viewFile?token=' + encodeURI(result));
         });
     });
+
+    $('#delete').click(function () {
+        $.post('/file/upload/delete', {token: savedFile}, function (result) {
+            console.log(result);
+        });
+    });
+
+    $('#deleteTemp').click(function () {
+        $.post('/file/upload/deleteOne', {token: token}, function (result) {
+            console.log(result);
+        });
+    });
+
 
 </script>
 </body>

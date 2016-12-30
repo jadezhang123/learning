@@ -1,7 +1,7 @@
 package own.jadezhang.learning.apple.config;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
 import own.jadezhang.common.domain.common.OSinfo;
@@ -9,9 +9,7 @@ import own.jadezhang.common.utils.CommonUtil;
 import own.jadezhang.learning.apple.utils.IDUtil;
 import own.jadezhang.learning.apple.utils.IOUtil;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Date;
 import java.util.Properties;
 
@@ -110,6 +108,8 @@ public class Configurations {
 	public static String copyTempToRepository(String token,String fileType){
 		String relativePath = Configurations.generateRelativePath(new Date())
 				+ File.separator + IDUtil.makeUUID() + "." + fileType;
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
 		try {
 			//把文件copy正式文件夹
 			File fromFile = IOUtil.getTokenedFile(token);
@@ -117,11 +117,22 @@ public class Configurations {
 			if (!toFile.getParentFile().exists()) {
 				toFile.getParentFile().mkdirs();
 			}
-			FileUtils.copyFile(fromFile, toFile);
+			inputStream = new FileInputStream(fromFile);
+			outputStream = new FileOutputStream(toFile);
+			IOUtils.copy(inputStream, outputStream);
+			inputStream.close();
+			outputStream.close();
 			//删除临时文件
-			fromFile.delete();
+			/*Path path = Paths.get(fromFile.toURI());
+			boolean delete = Files.deleteIfExists(path);*/
+			boolean delete = fromFile.delete();
+			System.out.println(delete);
+
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			IOUtils.closeQuietly(inputStream);
+			IOUtils.closeQuietly(outputStream);
 		}
 		return relativePath;
 	}
