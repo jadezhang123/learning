@@ -17,22 +17,20 @@ public class WordTest {
 
         XWPFRun run1 = paragraph.createRun();
 
-        runBuilder.init(run1).content("阿斯蒂芬好难过11").font("宋体", "Times New Roman", "20");
-        XWPFParagraph paragraph1 = document.createParagraph();
+        runBuilder.init(run1).content("标题宋体 20号字体居中显示, 段前段后都是2磅").font("宋体", "Times New Roman", "20");
 
         //新增一个段前2倍行距段后3倍行距，文本行距2倍行距的段落
         XWPFParagraph firstPar = paragraphBuilder.init(document).initSpacing().spaceInLine(2, 3)
                     .lineSpace(2, null).build();
 
-
-        XWPFRun build = runBuilder.init(paragraph1.createRun()).content("阿斯蒂芬\n不难过").samePrOf(run1)
+        XWPFRun build = runBuilder.init(firstPar).content("新的一个段落，段前2倍行距段后3倍行距，文本行距2倍行距的段落，文本加粗，字体和前一个Run相同").samePrOf(run1)
                 .bold(true).build();
 
-        runBuilder.init(paragraph1.createRun()).samePrOf(build).content("同一段内容");
+        runBuilder.init(firstPar, true).samePrOf(build).content("同一段落,但是文本重新换行，并设字体为黑体").font("黑体", "Times New Roman", "40");
 
         XWPFParagraph paragraph2 = paragraphBuilder.init(document)
                     .initInd().indentInChart(2, 0, 0, 0).build();
-        runBuilder.init(paragraph2).content("第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段").samePrOf(build);
+        runBuilder.init(paragraph2).content("第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段（首行缩进2个字符）").samePrOf(build);
         wordHolder.saveDocument(document, "D:\\doc.doc");
     }
 }

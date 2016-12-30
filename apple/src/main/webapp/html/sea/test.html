@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>SeaTest</title>
-    <script src="../../libs/sea-modules/jquery.min.js"></script>
-    <script type="text/javascript" src="../../libs/sea-modules/sea.js"></script>
+    <!--<script src="../../libs/sea-modules/jquery.min.js"></script>-->
 </head>
 <body>
 <input type="button" value="sayHello" id="sayHello">
+<script type="text/javascript" src="../../libs/sea-modules/sea.js"></script>
 <script>
     // seajs 的简单配置
     seajs.config({
+        base:'../../libs/sea-modules',
         alias: {
-            "jquery": "/libs/sea-modules/jquery.min"
+            "jquery": "jquery.min.js"
         }
     });
 
     // 加载入口模块
-    seajs.use('../../js/sea/main');
+    seajs.use('../../js/sea/main.js');
 </script>
 </body>
 </html>
