@@ -37,19 +37,18 @@ public class MainTester {
     }
 
     public static void main(String[] args) {
-       /* Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("输入字符串：");
         String str = scanner.next();
         // 将字符串数字转化为汉字
         MainTester main1 = new MainTester();
         main1.toChinese(str);
-*/
-        GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
+       /* GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
         String[] fontName = e.getAvailableFontFamilyNames();
         for(int i = 0; i<fontName.length ; i++)
         {
             System.out.println(fontName[i]);
-        }
+        }*/
 
     }
 }

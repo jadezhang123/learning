@@ -14,22 +14,22 @@ import java.util.Map;
 /**
  * Created by Zhang Junwei on 2016/12/21 0021.
  */
-public class WordUtil {
+public class WordHolder {
+
+    private XWPFDocument document;
+    private XWPFParagraphBuilder paragraphBuilder;
+    private XWPFRunBuilder runBuilder;
+
+    public void createDocument() {
+        document = new XWPFDocument();
+    }
 
     public void addNewPage(XWPFDocument document, BreakType breakType) {
         XWPFParagraph p = document.createParagraph();
         p.createRun().addBreak(breakType);
     }
 
-    public static XWPFRun createRun(XWPFParagraph paragraph, boolean newLine) {
-        XWPFRun run = paragraph.createRun();
-        if (newLine) {
-            run.addBreak();
-        }
-        return run;
-    }
-
-    public static CTPPr getPrOfParagraph(XWPFParagraph p) {
+    public CTPPr getPrOfParagraph(XWPFParagraph p) {
         CTPPr pPr = null;
         if (p.getCTP() != null) {
             if (p.getCTP().getPPr() != null) {
@@ -41,12 +41,30 @@ public class WordUtil {
         return pPr;
     }
 
-    public static CTRPr getPrOfRun(XWPFRun run) {
+    public CTRPr getPrOfRun(XWPFRun run) {
         CTRPr rPr = run.getCTR().getRPr();
         if (rPr == null) {
             rPr = run.getCTR().addNewRPr();
         }
         return rPr;
+    }
+
+    public CTTcPr getPrOfCell(XWPFTableCell cell){
+        CTTc cttc = cell.getCTTc();
+        CTTcPr tcPr = cttc.isSetTcPr() ? cttc.getTcPr() : cttc.addNewTcPr();
+        return tcPr;
+    }
+
+    public void setCellText(XWPFTableCell cell, String text, String bgcolor,
+                            int width) {
+        CTTc cttc = cell.getCTTc();
+        CTTcPr ctPr = cttc.addNewTcPr();
+        CTShd ctshd = ctPr.addNewShd();
+        ctPr.addNewTcW().setW(BigInteger.valueOf(width));
+        ctshd.setFill(bgcolor);
+        ctPr.addNewVAlign().setVal(STVerticalJc.CENTER);
+        cttc.getPList().get(0).addNewPPr().addNewJc().setVal(STJc.CENTER);
+        cell.setText(text);
     }
 
     //设置页边距 1厘米约等于567
@@ -62,7 +80,7 @@ public class WordUtil {
     /**
      * @Description: 保存文档
      */
-    public static void saveDocument(XWPFDocument document, String savePath) throws Exception {
+    public void saveDocument(XWPFDocument document, String savePath) throws Exception {
         File file = new File(savePath);
         if (!file.getParentFile().exists()) {
             file.getParentFile().mkdirs();
@@ -72,8 +90,30 @@ public class WordUtil {
         fos.close();
     }
 
-    //段落样式构建器
-    public static class XWPFParagraphBuilder {
+    public XWPFDocument getDocument() {
+        return document;
+    }
+
+    public void setDocument(XWPFDocument document) {
+        this.document = document;
+    }
+
+    public XWPFParagraphBuilder getParagraphBuilder() {
+        if (paragraphBuilder == null) {
+            this.paragraphBuilder = new XWPFParagraphBuilder();
+        }
+        return paragraphBuilder;
+    }
+
+    public XWPFRunBuilder getRunBuilder() {
+        if (runBuilder == null) {
+            this.runBuilder = new XWPFRunBuilder();
+        }
+        return runBuilder;
+    }
+
+    //段落构建器
+    public class XWPFParagraphBuilder {
 
         private static final int PER_LINE = 100;
         private static final int PER_CHART = 100;
@@ -89,15 +129,15 @@ public class WordUtil {
         private CTInd pInd = null;
 
         public XWPFParagraphBuilder init(XWPFDocument document) {
-            this.paragraph = document.createParagraph();
-            return this;
+            return init(document.createParagraph());
         }
 
         public XWPFParagraphBuilder init(XWPFParagraph paragraph) {
-            if (paragraph == null){
+            if (paragraph == null) {
                 throw new IllegalArgumentException("the paragraph should not be null");
             }
             this.paragraph = paragraph;
+            pPr = getPrOfParagraph(paragraph);
             return this;
         }
 
@@ -116,7 +156,6 @@ public class WordUtil {
         //初始化段落间距属性，在设置各段落间距前调用
         public XWPFParagraphBuilder initSpacing() {
             ensureInit();
-            pPr = getPrOfParagraph(paragraph);
             pSpacing = pPr.getSpacing() != null ? pPr.getSpacing() : pPr.addNewSpacing();
             return this;
         }
@@ -173,7 +212,6 @@ public class WordUtil {
 
         public XWPFParagraphBuilder initInd() {
             ensureInit();
-            pPr = getPrOfParagraph(paragraph);
             pInd = pPr.getInd() != null ? pPr.getInd() : pPr.addNewInd();
             return this;
         }
@@ -220,20 +258,21 @@ public class WordUtil {
             return this;
         }
 
-        public XWPFParagraphBuilder savePr(String pPrName){
-            if (savedPPr ==null){
+        public XWPFParagraphBuilder savePr(String pPrName) {
+            ensureInit();
+            if (savedPPr == null) {
                 savedPPr = new HashedMap<String, CTPPr>();
             }
-            if (pPr != null) {
-                savedPPr.put(pPrName, pPr);
-            }
+
+            savedPPr.put(pPrName, pPr);
+
             return this;
         }
 
         public XWPFParagraphBuilder samePrOf(String pPrName) {
             ensureInit();
 
-            if (savedPPr.containsKey(pPrName)){
+            if (savedPPr != null && savedPPr.containsKey(pPrName)) {
                 return samePrOf(savedPPr.get(pPrName));
             }
 
@@ -259,16 +298,21 @@ public class WordUtil {
         }
 
         //确保init方法是第一个调用的，避免出现空指针异常
-        private void ensureInit(){
-            if (this.paragraph == null){
+        private void ensureInit() {
+            if (this.paragraph == null) {
                 throw new IllegalStateException("the init method must be invoked firstly");
             }
         }
     }
 
-    //文本样式构建器
-    public static class XWPFRunBuilder {
+    //文本构建器
+    public class XWPFRunBuilder {
         private XWPFRun run = null;
+        private Map<String, CTRPr> savedRPr;
+
+        public XWPFRunBuilder init(XWPFParagraph paragraph) {
+            return init(paragraph, false);
+        }
 
         public XWPFRunBuilder init(XWPFParagraph paragraph, boolean newLine) {
             this.run = paragraph.createRun();
@@ -285,14 +329,14 @@ public class WordUtil {
          */
         public XWPFRunBuilder init(XWPFParagraph paragraph, int pos) {
             this.run = paragraph.insertNewRun(pos);
-            if (this.run == null){
+            if (this.run == null) {
                 return init(paragraph, false);
             }
             return this;
         }
 
         public XWPFRunBuilder init(XWPFRun run) {
-            if (run == null){
+            if (run == null) {
                 throw new IllegalArgumentException("the run should not be null");
             }
             this.run = run;
@@ -427,6 +471,23 @@ public class WordUtil {
             return this;
         }
 
+        public XWPFRunBuilder savePr(String rPrName) {
+            ensureInit();
+            if (savedRPr == null) {
+                savedRPr = new HashedMap<String, CTRPr>();
+            }
+            savedRPr.put(rPrName, getPrOfRun(run));
+            return this;
+        }
+
+        public XWPFRunBuilder samePrOf(String rPrName) {
+            ensureInit();
+            if (savedRPr != null && savedRPr.containsKey(rPrName)) {
+                return samePrOf(savedRPr.get(rPrName));
+            }
+            return this;
+        }
+
         public XWPFRunBuilder samePrOf(CTRPr rPr) {
             ensureInit();
             if (rPr != null) {
@@ -445,9 +506,48 @@ public class WordUtil {
             return run;
         }
 
-        private void ensureInit(){
-            if (this.run == null){
+        private void ensureInit() {
+            if (this.run == null) {
                 throw new IllegalStateException("the init method must be invoked firstly");
+            }
+        }
+    }
+
+
+    public  class XWPFTableUtil {
+
+        public  void mergeCells(XWPFTable table, int firstRow, int lastRow, int firstCol, int lastCol){
+            for (int rowIndex = firstRow; rowIndex <= lastRow; rowIndex++){
+                mergeCellsHorizontally(table, rowIndex, firstCol, lastCol);
+            }
+        }
+        /**
+         * @Description: 跨列合并
+         */
+        public void mergeCellsHorizontally(XWPFTable table, int row, int firstCol, int lastCol){
+            XWPFTableCell cell;
+            for (int cellIndex = firstCol; cellIndex <= lastCol; cellIndex++) {
+                cell = table.getRow(row).getCell(cellIndex);
+                if (cellIndex == firstCol) {
+                    getPrOfCell(cell).addNewHMerge().setVal(STMerge.RESTART);
+                } else {
+                    getPrOfCell(cell).addNewHMerge().setVal(STMerge.CONTINUE);
+                }
+            }
+        }
+
+        /**
+         * @Description: 跨行合并
+         */
+        public void mergeCellsVertically(XWPFTable table, int col, int firstRow, int lastRow) {
+            XWPFTableCell cell;
+            for (int rowIndex = firstRow; rowIndex <= lastRow; rowIndex++) {
+                cell = table.getRow(rowIndex).getCell(col);
+                if (rowIndex == firstRow) {
+                    getPrOfCell(cell).addNewVMerge().setVal(STMerge.RESTART);
+                } else {
+                    getPrOfCell(cell).addNewVMerge().setVal(STMerge.CONTINUE);
+                }
             }
         }
     }

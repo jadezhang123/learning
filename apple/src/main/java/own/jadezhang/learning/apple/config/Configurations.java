@@ -115,7 +115,7 @@ public class Configurations {
 			File fromFile = IOUtil.getTokenedFile(token);
 			File toFile = new File(Configurations.getFileRepository(relativePath));
 			if (!toFile.getParentFile().exists()) {
-				toFile.getParentFile().mkdir();
+				toFile.getParentFile().mkdirs();
 			}
 			FileUtils.copyFile(fromFile, toFile);
 			//删除临时文件

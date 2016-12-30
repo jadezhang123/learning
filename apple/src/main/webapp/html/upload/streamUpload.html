@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>upload</title>
     <link href="../../libs/stream/css/stream-v1.css" rel="stylesheet" type="text/css">
-    <script src="../../libs/jquery.min.js"></script>
+    <script src="../../libs/sea-modules/jquery.min.js"></script>
     <script type="text/javascript" src="../../libs/layer/layer.js"></script>
     <script type="text/javascript" src="../../libs/stream/js/stream-v1.js"></script>
 </head>
@@ -36,7 +36,7 @@
         onComplete: function (file) {
             console.log(file);
             var msgObj = eval("(" + file.msg + ")");
-            $('#dragImg').attr('src', '/file/upload/viewFile?token=' + msgObj.token);
+            $('#dragImg').attr('src', '/file/upload/viewFile?token=' + encodeURI(msgObj.token));
             token = msgObj.token;
             ext = file.name.substring(file.name.lastIndexOf(".") + 1, file.name.length) || "";
         },
@@ -54,8 +54,7 @@
 
     $('input').click(function () {
         $.post('/apple/base/user/saveFile', {token: token, ext: ext}, function (result) {
-            console.log(result);
-            $('#savedImg').attr('src', '/file/upload/viewFile?token=' + result);
+            $('#savedImg').attr('src', '/file/upload/viewFile?token=' + encodeURI(result));
         });
     });
 
