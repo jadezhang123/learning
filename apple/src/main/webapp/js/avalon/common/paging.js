@@ -7,12 +7,12 @@ avalon.ready(function () {
     //执行分页查询，为私有方法
     var executePaging = function () {
         var index = layer.load(0,{time: 5000});
-        pagingComponent.queryingParam.pageNo = pagingComponent.pageNo;
+        pagingComponent.queryParam.pageNo = pagingComponent.pageNo;
         $.ajaxFun({
             url: pagingComponent.pagingURL,
             type: "post",
             dataType: "json",
-            data: pagingComponent.queryingParam,
+            data: pagingComponent.queryParam,
             onSuccess: function (result) {
                 pagingComponent.successCallback(result);
                 pagingComponent.pageNo = result.pageNo;
@@ -30,7 +30,7 @@ avalon.ready(function () {
     pagingComponent = avalon.define({
         $id: 'pagingComponent',
         pagingURL: '',
-        queryingParam: {},
+        queryParam: {},
         pageNo: 1,                //页码
         total: 1,                //总页数
         records: 1,              //总计记录数
@@ -44,7 +44,7 @@ avalon.ready(function () {
          * @param data
          *     {
          *         pagingURL:'url',   //分页请求的url, *初始化时必须配置*
-         *         queryingParam: {}, //分页请求的查询参数
+         *         queryParam: {}, //分页请求的查询参数
          *         successCallback:function, //分页请求成功后的回调方法,传入参数为后台返回的分页对象（BizData4Page），*初始化时必须配置*
          *         noDataTip: '',     //无数据时的提示信息
          *     }
@@ -63,23 +63,23 @@ avalon.ready(function () {
         /**
          * 更新查询参数，两种调用方式
          *
-         * 1：updateQueryingParam(param)
+         * 1：updateQueryParam(param)
          *    param: 查询参数对象
          *
-         * 2: updateQueryingParam(key, value)
+         * 2: updateQueryParam(key, value)
          *    key: 查询参数对象的属性名
          *    value: 查询参数对象的属性名对应的值
          */
-        updateQueryingParam: function () {
+        updateQueryParam: function () {
             if (arguments.length == 0) {
                 var param = arguments[0];
                 for (var key in param) {
                     if (param.hasOwnProperty(key) && param[key]) {
-                        pagingComponent.queryingParam[key] = param[key];
+                        pagingComponent.queryParam[key] = param[key];
                     }
                 }
             } else if (arguments.length == 2) {
-                pagingComponent.queryingParam[arguments[0]] = arguments[1];
+                pagingComponent.queryParam[arguments[0]] = arguments[1];
             }
         },
 
@@ -94,9 +94,9 @@ avalon.ready(function () {
             }
             pagingComponent.pageNo = pageNo;
             if (arguments.length === 2){
-                pagingComponent.updateQueryingParam(arguments[1]);
+                pagingComponent.updateQueryParam(arguments[1]);
             }else if (arguments.length === 3){
-                pagingComponent.updateQueryingParam(arguments[1], arguments[2]);
+                pagingComponent.updateQueryParam(arguments[1], arguments[2]);
             }
             executePaging();
         }
