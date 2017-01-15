@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>layer</title>
+	<script type="text/javascript" src="../../libs/sea-modules/jquery.min.js"></script>
+	<script type="text/javascript" src="../../libs/layer/layer.js"></script>
+	<script type="text/javascript" src="../../libs/avalon.js"></script>
+	<script type="text/javascript" src="../../js/common/common.js"></script>
+	<script type="text/javascript" src="../../js/layer/test.js"></script>
+
+</head>
+<body ms-controller="layerTester" id="layerTester">
+
+<input type="button" value="弹出" ms-click="openLayer()">
+<input type="button" value="切换" ms-click="changeBody()">
+<input type="button" value="加载" id="check">
+<input type="button" value="查看" id="view">
+<div id="layer-photos-demo">
+	<img  layer-src="/imgs/67.gif" src="/imgs/67.gif" alt="p1">
+	<img  layer-src="/imgs/70.gif" src="/imgs/70.gif" alt="p1">
+	<img  layer-src="/imgs/68.gif" src="/imgs/68.gif" alt="p1">
+	<img  layer-src="/imgs/71.gif" src="/imgs/71.gif" alt="图片名">
+</div>
+
+<script>
+	$(function () {
+		$('#check').click(function () {
+			COMMON.layer.openLoading();
+		});
+		layer.photos({
+			photos: '#layer-photos-demo'
+			,anim: 5
+		});
+
+	});
+</script>
+</body>
+</html>

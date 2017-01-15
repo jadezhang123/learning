@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>学习</title>
+	<style type="text/css">
+		a{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+
+<h3>$scope对象的职责是承载DOM中指令多共享的操作和模型</h3>
+<ul>
+	<li><p>操作指的是$scope上的标准JavaScript方法</p></li>
+	<li><p>模型指的是$scope上保存的包含瞬时状态数据的JavaScript对象。
+			持久化状态的数据应该保存在服务中，服务的作用是处理模型的持久化</p></li>
+	<li><p>出于技术和架构方面的原因，绝对不要直接将控制器中$scope赋值为值类型对象（字符串、布尔值或数字）。
+	DOM中应该始终通过点操作符来访问数据。</p></li>
+	<li><p>控制器应该尽可能简单。虽然可以用控制器来组织所有的功能，但是将业务逻辑移到服务和指令中是非常好的注意</p></li>
+</ul>
+
+<h1 align="center">angular</h1>
+
+<a href="ag-1.html">基础</a>
+<a href="ag-2.html">依赖注入</a>
+<a href="ag-3.html">自动加载</a>
+<a href="ag-4.html">指令</a>
+<a href="ag-5.html">路由</a>
+</body>
+</html>

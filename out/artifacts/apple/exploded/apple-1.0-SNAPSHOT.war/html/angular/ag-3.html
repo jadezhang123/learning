@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>angular</title>
+	<script type="text/javascript" src="../../libs/angular/angular.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		angular.element(document).ready(function(){
+			var e = document.querySelector("#bootstrap");
+			angular.element(e)
+			.on("click",function(){
+				angular.bootstrap(document,["ezstuff"]); 
+			})
+		})
+		;
+		angular.module("ezstuff",[])
+		.directive("ezDuang",function(){
+			return {
+				restrict : "E",
+				template : "<img src='http://ww4.sinaimg.cn/bmiddle/757eb2ffjw1eptcr4qobjg209205dthh.gif'>"
+			};
+		});
+	</script>
+</body>
+</html>

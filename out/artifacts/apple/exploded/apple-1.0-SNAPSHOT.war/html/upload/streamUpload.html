@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+    <link href="../../libs/stream/css/stream-v1.css" rel="stylesheet" type="text/css">
+    <script src="../../libs/sea-modules/jquery.min.js"></script>
+    <script type="text/javascript" src="../../libs/layer/layer.js"></script>
+    <script type="text/javascript" src="../../libs/stream/js/stream-v1.js"></script>
+</head>
+
+<body>
+<div>
+    <img id="dragImg" style="width: 100px; height: 50px;;">
+    <a id="i_select_files">上传图书封面</a>
+    <input type="button" value="save" id="save">
+    <input type="button" value="deleteTemp" id="deleteTemp">
+    <input type="button" value="delete" id="delete">
+    <img id="savedImg" style="width: 100px; height: 50px;;">
+</div>
+<script>
+    var token, ext;
+    var uploaderConfig = {
+        customered: true,
+        maxSize: 1023750, /** 单个文件的最大大小100kb，默认:2G */
+        browseFileId: "i_select_files", /** 选择文件的ID, 默认: i_select_files */
+        //browseFileBtn: "<div >请选择文件</div>", /** 显示选择文件的样式, 默认: `<div>请选择文件</div>` */
+        //dragAndDropArea: "i_select_files",
+        //dragAndDropTips: "请将文件拖拽到此处上传",
+        multipleFiles: false, /** 多个文件一起上传, 默认: false */
+        autoUploading: true, /**选择文件后是否自动上传, 默认: true*/
+        extFilters: [".jpg", ".gif", ".png"], /** 允许的文件扩展名, 默认: [] */
+        swfURL: "/libs/stream/swf/FlashUploader.swf", /** SWF文件的位置 */
+        tokenURL: "/file/upload/getToken", /** 根据文件名、大小等信息获取Token的URI（用于生成断点续传、跨域的令牌） */
+        frmUploadURL: "/file/upload/formUpload", /** Flash上传的URI */
+        uploadURL: "/file/upload/streamUpload", /** HTML5上传的URI */
+        /** 单个文件上传完毕的响应事件 */
+        onComplete: function (file) {
+            console.log(file);
+            var msgObj = eval("(" + file.msg + ")");
+            //$('#dragImg').attr('src', '/file/upload/viewFile?token=' + encodeURI(msgObj.token));
+            token = msgObj.token;
+            ext = file.name.substring(file.name.lastIndexOf(".") + 1, file.name.length) || "";
+        },
+        /** 文件的扩展名不匹配的响应事件 */
+        onExtNameMismatch: function (name, filters) {
+            layer.alert("抱歉，不支持该文件格式上传！");
+        },
+        /** 文件大小超出的响应事件 */
+        onMaxSizeExceed: function (size, limited, name) {
+            layer.alert('上传失败，单个文件大小为100KB！');
+        }
+    };
+
+    var uploader = new Stream(uploaderConfig);
+    var savedFile;
+    $('#save').click(function () {
+        $.post('/apple/base/user/saveFile', {token: token, ext: ext}, function (result) {
+            savedFile = result;
+            $('#savedImg').attr('src', '/file/upload/viewFile?token=' + encodeURI(result));
+        });
+    });
+
+    $('#delete').click(function () {
+        $.post('/file/upload/delete', {token: savedFile}, function (result) {
+            console.log(result);
+        });
+    });
+
+    $('#deleteTemp').click(function () {
+        $.post('/file/upload/deleteOne', {token: token}, function (result) {
+            console.log(result);
+        });
+    });
+
+
+</script>
+</body>
+</html>

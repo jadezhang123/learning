@@ -1,0 +1,22 @@
+
+<div ms-controller="pagingComponent" id="pagingComponent">
+    <div class="judge_rep" id="paging_noDataTip" style="display: none">
+        <div class="jdg-tips">
+            <h3 class="h3-tips"><img src="../../imgs/sorry.png"/></h3>
+            <p class="p-tips">{{noDataTip}}</p>
+        </div>
+    </div>
+    <div class="div-page" >
+        <a ms-click="queryPage(pageNo-1)" href="javascript:;" ms-class="no:pageNo-1<1">上一页</a>
+        <a ms-click="queryPage(1)" href="javascript:;" ms-if="pageNo-2>1">1</a>
+        <span ms-if="pageNo-2>2">...</span>
+        <a ms-click="queryPage(pageNo-2)" href="javascript:;" ms-if="pageNo-2>0">{{pageNo-2}}</a>
+        <a ms-click="queryPage(pageNo-1)" href="javascript:;" ms-if="pageNo-1>0">{{pageNo-1}}</a>
+        <a href="javascript:;" class="cur">{{pageNo}}</a>
+        <a ms-click="queryPage(pageNo+1)" href="javascript:;" ms-if="pageNo+1<=total">{{pageNo+1}}</a>
+        <span ms-if="total>pageNo+2">...</span>
+        <a ms-click="queryPage(total)" href="javascript:;" ms-if="total>pageNo+1">{{total}}</a>
+        <a ms-click="queryPage(pageNo+1)" href="javascript:;" ms-class="no:pageNo+1>total">下一页</a>
+        <span>共{{records}}条</span>
+    </div>
+</div>

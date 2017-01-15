@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>指令</title>
+    <script src="../../libs/angular/angular1.5/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp"
+     ng-init="someProperty = 'some data'">
+    <!--<div my-directive my-url="sss" my-text="myTextss"></div>-->
+    <div ng-init="siblingProperty='moredata'">
+        Inside Div Two: {{ aThirdProperty }}
+        <div ng-init="aThirdProperty = 'data for 3rd property'"
+             ng-controller="SomeController">
+            Inside Div Three: {{ aThirdProperty }}
+            <div ng-controller="SecondController">
+                Inside Div Four: {{ aThirdProperty }}
+                <br>
+                Outside myDirective: {{ myProperty }}
+                <div my-directive ng-init="myProperty = 'wow, this is cool'">
+                    Inside myDirective11: {{ myProperty }}
+                    Inside Div Four: {{ aThirdProperty }}
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    angular.module('myApp', [])
+    /*.directive('myDirective', function () {
+     return {
+     restrict: 'A',
+     replace: true,
+     scope: {
+     myUrl: '@',
+     myText: '@'
+     },
+     template: '<a href="{{myUrl}}">{{myText}}</a>',
+     };
+     })*/
+            .directive('myDirective', function () {
+                return {
+                    restrict: 'A',
+                    scope: {},
+                    //priority: 100,
+                    template: '<div>Inside myDirective {{ myProperty }}</div>'
+                };
+            })
+            .controller('SomeController', function ($scope) {
+                // 可以留空，但需要被定义
+            })
+            .controller('SecondController', function ($scope) {
+                // 同样可以留空
+            });
+
+</script>
+</body>
+</html>

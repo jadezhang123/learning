@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>bar</title>
+	<link rel="stylesheet" type="text/css" href="../../css/comm.css">
+	<script type="text/javascript" src="../../libs/sea-modules/jquery.min.js"></script>
+	<script type="text/javascript" src="../../libs/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="../../js/echarts/option.js"></script>
+</head>
+<body>
+<div id="barChart" style="height:800px;width:100%"></div>
+<button onclick="changeLegend('加分')">加分</button>
+<button onclick="changeLegend('减分')">减分</button>
+<script type="text/javascript">
+	var barChart = echarts.init(document.getElementById('barChart'));
+
+	var itemStyle = {
+	    normal: {
+	    },
+	    emphasis: {
+	        barBorderWidth: 1,
+	        shadowBlur: 10,
+	        shadowOffsetX: 0,
+	        shadowOffsetY: 0,
+	        shadowColor: 'rgba(0,0,0,0.5)'
+	    }
+	};
+
+	/*option = {
+	    legend: {
+	        data: ['bar','bar4'],
+	        x : 'center',
+			y : 'top',
+	    },
+	    tooltip: {
+			trigger:'axis'
+	    },
+	    xAxis: {
+	        data: [1,2,3,4,5,6,7,8,9,10],
+	        name: 'X Axis',
+	        silent: false,
+	    },
+	    yAxis: {
+	        inverse: false,
+	        splitArea: {show: false}
+	    },
+	    series: [
+	        {
+	            name: '班级均分',
+	            type: 'bar',
+	            data: [3,6,4,8,4,9,5,7,8,4]
+	        },
+	        {
+	            name: '全校均分',
+	            type: 'line',
+	            itemStyle:{
+	            	normal:{
+	            		opacity:0
+	            	},
+	            },
+	            data: [5.8,5.8,5.8,5.8,5.8,5.8,5.8,5.8,5.8,5.8]
+	        }
+	    ]
+	};*/
+
+	/*var avgScore = 495;
+
+	function showScoreTip(param) {
+		var scoreMsg = (avgScore+param.data) + '';
+		if (param.data <0) {
+			scoreMsg += '；比校均分<span style="color:red">低 </span>' + (-param.data);
+		}else if(param.data > 0) {
+			scoreMsg += '；比校均分<span style="color:red">高 </span>' + (param.data);
+		}
+
+		return param.seriesName+ '<br>' + param.name + ': ' + scoreMsg;
+	}
+
+	var option = {
+		    tooltip: {
+		    	trigger:'axis',
+		    	formatter:showScoreTip
+		    },
+		    xAxis: {
+        		type : 'category',
+        		data : ['初一（1）', '初一（2）', '初二（1）', '初二（2）', '初二（3）', '高一（1）', '高一（2）', '高一（3）', '高二（1）', '高二（2）']
+    		},
+		    yAxis: {
+		    	type:'value',
+		    },
+		    series: [
+		        {
+		            name: '班级均分',
+		            type: 'bar',
+		            data: [-11,5,3,-7,4,-4,6,-2,1,1],
+		        }
+		    ]
+		};
+	*/
+
+	//
+	/*var option = {
+	    legend: {
+	        data: ['布置人数','完成人数'],
+	        x : 'center',
+			y : 'top',
+	    },
+	    tooltip: {
+	    	trigger:'axis',
+	    	formatter:'{b}<br/>{a0}：{c0}<br/>{a1}：{c1}<br/>{a2}：{c2}%<br/>'
+	    },
+	    xAxis: {
+	        data: ['语文','数学','英语','生物','物理','化学'],
+	        name: '科目',
+	        silent: false,
+	    },
+	    yAxis: [
+		    {
+		    	name:'人数'
+		    },
+		    {
+		    	name:'完成比例',
+		    	min:0,
+		    	max:100,
+		    },
+	    ],
+	    series: [
+	        {
+	            name: '布置人数',
+	            type: 'bar',
+	            yAxisIndex :0,
+	            data: [3,6,4,8,4,9]
+	        },
+	        {
+	            name: '完成人数',
+	            type: 'bar',
+	            yAxisIndex :0,
+	            data: [2,3,1,5,2,5]
+	        },
+	        {
+	            name: '完成比例',
+	            type: 'line',
+	            yAxisIndex :1,
+	            lineStyle:{
+	            	normal:{
+	            		width:0
+	            	}
+	            },
+	            data: [(2/3)*100,(3/6)*100,(1/4)*100,(5/8)*100,(2/4)*100,(5/9)*100]
+	        }
+	    ]
+	};
+	*/
+
+	function changeLegend(legend) {
+		console.log(legend);
+		barChart.dispatchAction({
+			type: 'legendToggleSelect',
+    		name: legend
+		});
+
+	}
+	var option = {
+			legend:{
+				show:false,
+				data:['加分','减分']
+			},
+		    tooltip: {
+		    	trigger:'axis',
+		    	
+		    },
+		    xAxis: {
+        		type : 'category',
+        		data : ['初一（1）', '初一（2）', '初二（1）', '初二（2）', '初二（3）', '高一（1）', '高一（2）', '高一（3）', '高二（1）', '高二（2）']
+    		},
+		    yAxis: {
+		    	type:'value',
+		    	name:'加/减分'
+		    },
+		    series: [
+		        {
+		            name: '加分',
+		            type: 'bar',
+		            stack:'总分',
+		            data: [11,5,3,7,4,4,6,2,1,1]
+		        },
+		        {
+		            name: '减分',
+		            type: 'bar',
+		            stack:'总分',
+		            data: [-1,-15,-5,-7,-8,-2,0,-1,0,0]
+		        }
+		    ]
+		};
+	barChart.setOption(option);
+
+	/*barChart.on('click', function (params) {
+	    console.log(params);
+	});
+
+	barChart.on('legendselectchanged', function (params) {
+	    console.log(params);
+	});*/
+
+
+
+
+</script>
+</body>
+</html>

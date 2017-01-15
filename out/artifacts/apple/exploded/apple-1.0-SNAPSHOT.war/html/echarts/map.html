@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>地图</title>
+	<link rel="stylesheet" type="text/css" href="../../css/comm.css">
+	<script type="text/javascript" src="../../libs/sea-modules/jquery.min.js"></script>
+	<script type="text/javascript" src="../../libs/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="../../data/asset/geo/china.js"></script>
+	<script type="text/javascript" src="../../data/asset/geo/hubei.js"></script>
+	<script type="text/javascript" src="../../libs/avalon.js"></script>
+	<!-- <script type="text/javascript" src="../../js/echarts/event.js"></script> -->
+</head>
+<body>
+	<div id="chinaMap" style="height:500px;width:600px"></div>
+	<div id="provinceMap" style="height:500px;width:600px"></div>
+	<script>
+		$.get('../../data/asset/geo/china.json', function (chinaJson) {
+			echarts.registerMap('china', chinaJson);
+			var chart = echarts.init(document.getElementById('chinaMap'));
+			chart.setOption({
+				series: [{
+					type: 'map',
+					map: 'china'
+				}]
+			});
+		});
+	</script>
+
+	<!--<script type="text/javascript">
+		var iphoneChart = echarts.init(document.getElementById('chinaMap'));
+		var provinceChart = echarts.init(document.getElementById('provinceMap'));
+		function randomData() {
+			return Math.round(Math.random()*1000);
+		}
+
+		var option = {
+			title: {
+				text: 'iphone销量',
+				subtext: '纯属虚构',
+				left: 'center'
+			},
+			tooltip: {
+				trigger: 'item'
+			},
+			legend: {
+				orient: 'vertical',
+				left: 'left',
+				data:['iphone3','iphone4','iphone5']
+			},
+			visualMap: {
+				min: 0,
+				max: 2500,
+				left: 'left',
+				top: 'bottom',
+	        text: ['高','低'],           // 文本，默认为数值文本
+	        calculable: true
+	    },
+
+	    toolbox: {
+	    	show: true,
+	    	orient: 'vertical',
+	    	left: 'right',
+	    	top: 'center',
+	    	feature: {
+	    		dataView: {readOnly: false},
+	    		restore: {},
+	    		saveAsImage: {}
+	    	}
+	    },
+	    series: [
+	    {
+	    	name: 'iphone3',
+	    	type: 'map',
+	    	mapType: 'china',
+	    	roam: false,
+	    	label: {
+	    		normal: {
+	    			show: true
+	    		},
+	    		emphasis: {
+	    			show: true
+	    		}
+	    	},
+	    	data:[
+	    	{name: '北京',value: randomData() },
+	    	{name: '天津',value: randomData() },
+	    	{name: '上海',value: randomData() },
+	    	{name: '重庆',value: randomData() },
+	    	{name: '河北',value: randomData() },
+	    	{name: '河南',value: randomData() },
+	    	{name: '云南',value: randomData() },
+	    	{name: '辽宁',value: randomData() },
+	    	{name: '黑龙江',value: randomData() },
+	    	{name: '湖南',value: randomData() },
+	    	{name: '安徽',value: randomData() },
+	    	{name: '山东',value: randomData() },
+	    	{name: '新疆',value: randomData() },
+	    	{name: '江苏',value: randomData() },
+	    	{name: '浙江',value: randomData() },
+	    	{name: '江西',value: randomData() },
+	    	{name: '湖北',value: randomData() },
+	    	{name: '广西',value: randomData() },
+	    	{name: '甘肃',value: randomData() },
+	    	{name: '山西',value: randomData() },
+	    	{name: '内蒙古',value: randomData() },
+	    	{name: '陕西',value: randomData() },
+	    	{name: '吉林',value: randomData() },
+	    	{name: '福建',value: randomData() },
+	    	{name: '贵州',value: randomData() },
+	    	{name: '广东',value: randomData() },
+	    	{name: '青海',value: randomData() },
+	    	{name: '西藏',value: randomData() },
+	    	{name: '四川',value: randomData() },
+	    	{name: '宁夏',value: randomData() },
+	    	{name: '海南',value: randomData() },
+	    	{name: '台湾',value: randomData() },
+	    	{name: '香港',value: randomData() },
+	    	{name: '澳门',value: randomData() }
+	    	]
+	    },
+	    {
+	    	name: 'iphone4',
+	    	type: 'map',
+	    	mapType: 'china',
+	    	label: {
+	    		normal: {
+	    			show: true
+	    		},
+	    		emphasis: {
+	    			show: true
+	    		}
+	    	},
+	    	data:[
+	    	{name: '北京',value: randomData() },
+	    	{name: '天津',value: randomData() },
+	    	{name: '上海',value: randomData() },
+	    	{name: '重庆',value: randomData() },
+	    	{name: '河北',value: randomData() },
+	    	{name: '安徽',value: randomData() },
+	    	{name: '新疆',value: randomData() },
+	    	{name: '浙江',value: randomData() },
+	    	{name: '江西',value: randomData() },
+	    	{name: '山西',value: randomData() },
+	    	{name: '内蒙古',value: randomData() },
+	    	{name: '吉林',value: randomData() },
+	    	{name: '福建',value: randomData() },
+	    	{name: '广东',value: randomData() },
+	    	{name: '西藏',value: randomData() },
+	    	{name: '四川',value: randomData() },
+	    	{name: '宁夏',value: randomData() },
+	    	{name: '香港',value: randomData() },
+	    	{name: '澳门',value: randomData() }
+	    	]
+	    },
+	    {
+	    	name: 'iphone5',
+	    	type: 'map',
+	    	mapType: 'china',
+	    	label: {
+	    		normal: {
+	    			show: true
+	    		},
+	    		emphasis: {
+	    			show: true
+	    		}
+	    	},
+	    	data:[
+	    	{name: '北京',value: randomData() },
+	    	{name: '天津',value: randomData() },
+	    	{name: '上海',value: randomData() },
+	    	{name: '广东',value: randomData() },
+	    	{name: '台湾',value: randomData() },
+	    	{name: '香港',value: randomData() },
+	    	{name: '澳门',value: randomData() }
+	    	]
+	    }
+	    ]
+	};
+
+
+	iphoneChart.setOption(option); 
+
+	/*var provinceOption = {
+		series :[
+		{
+			name: 'iphone3',
+            type: 'map',
+            mapType: '湖北',
+            roam: false,
+            label: {
+                normal: {
+                    show: true
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+                {name: '武汉市',value: randomData() },
+                {name: '孝感市',value: randomData() },
+                {name: '十堰市',value: randomData() },
+                {name: '恩施市',value: randomData() }
+            ]
+	    },
+	    {
+			name: 'iphone4',
+            type: 'map',
+            mapType: '湖北',
+            roam: false,
+            label: {
+                normal: {
+                    show: true
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+                {name: '武汉市',value: randomData() },
+                {name: '孝感市',value: randomData() },
+                {name: '十堰市',value: randomData() },
+                {name: '恩施市',value: randomData() },
+            ]
+	    }
+		]
+	};
+
+	jQuery.extend(option, provinceOption);
+	provinceChart.setOption(option);*/
+
+	/*echarts.connect([iphoneChart, provinceChart]);*/
+	var dblclickCallback = null;
+	iphoneChart.on('dblclick', function (params) {
+		console.log(params);
+		var provinceOption = {
+			series :[
+			{
+				name: 'iphone3',
+				type: 'map',
+				mapType: '湖北',
+				roam: false,
+				label: {
+					normal: {
+						show: true
+					},
+					emphasis: {
+						show: true
+					}
+				},
+				data:[
+				{name: '武汉市',value: randomData() },
+				{name: '孝感市',value: randomData() },
+				{name: '十堰市',value: randomData() },
+				{name: '恩施市',value: randomData() }
+				]
+			},
+			{
+				name: 'iphone4',
+				type: 'map',
+				mapType: '湖北',
+				roam: false,
+				label: {
+					normal: {
+						show: true
+					},
+					emphasis: {
+						show: true
+					}
+				},
+				data:[
+				{name: '武汉市',value: randomData() },
+				{name: '孝感市',value: randomData() },
+				{name: '十堰市',value: randomData() },
+				{name: '恩施市',value: randomData() },
+				]
+			}
+			]
+		};
+
+		jQuery.extend(option, provinceOption);
+		provinceChart.setOption(option);
+	});
+
+</script>-->
+</body>
+</html>
