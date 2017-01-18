@@ -1,23 +1,36 @@
 package own.jadezhang.learning.apple.view.base.excel;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.ss.util.RegionUtil;
-import own.jadezhang.common.domain.common.ErrorCodeEnum;
-import own.jadezhang.common.exception.BizException;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Zhang Junwei on 2016/11/22.
  */
 public class POIExcelUtil {
+
+    //格式化器
+    private static DecimalFormat integerFormat = new DecimalFormat("0");// 格式化 number String
+    private static SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 格式化日期字符串
+    private static DecimalFormat decimalFormat = new DecimalFormat("0.00");// 格式化数字
     /**
      * 为表格的特定区域绑定下拉框约束
      *
@@ -87,5 +100,79 @@ public class POIExcelUtil {
         RegionUtil.setBorderLeft(border, region, sheet, wb);
         RegionUtil.setBorderRight(border, region, sheet, wb);
         RegionUtil.setBorderTop(border, region, sheet, wb);
+    }
+
+
+    public static <T> List<T> readExcel(Class<T> clazz, InputStream is) throws Exception {
+        List<T> resultList = new ArrayList<T>();
+        Workbook workbook = WorkbookFactory.create(is);
+        //默认读取第一页表格
+        Sheet sheet = workbook.getSheetAt(0);
+        //列名-字段名
+        Map<String, String> columnMap = new HashMap<String, String>();
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            ExcelColProAnnotation annotation = field.getAnnotation(ExcelColProAnnotation.class);
+            if (annotation != null) {
+                if (!columnMap.containsKey(annotation.columnName())) {
+                    columnMap.put(annotation.columnName(), field.getName());
+                }
+            }
+        }
+        //临时变量
+        T t = null;
+        Object value = null;
+        Row row = null;
+        Cell cell = null;
+        for (int i = 1, maxRow = sheet.getLastRowNum(); i <= maxRow; i++) {
+            row = sheet.getRow(i);
+            if (row == null) {
+                continue;
+            }
+            t = clazz.newInstance();
+            //列，
+            for (int j = 0, maxCol = row.getLastCellNum(); j <= maxCol; j++) {
+                cell = row.getCell(j);
+                value = getCellValue(cell);
+                if (value == null || "".equals(value)) {
+                    continue;
+                }
+                // 第二个参数通过标题获取属性名
+                String columnName = sheet.getRow(0).getCell(j).toString();
+                //BeanUtils.setProperty(t, columnMap.get(columnName), value);
+            }
+            resultList.add(t);
+        }
+        return resultList;
+    }
+
+    public static Object getCellValue(Cell cell){
+        Object value = null;
+        if (cell == null) {
+            return value;
+        }
+        switch (cell.getCellType()) {
+            case XSSFCell.CELL_TYPE_STRING:
+                value = cell.getStringCellValue();
+                break;
+            case XSSFCell.CELL_TYPE_NUMERIC:
+                if ("@".equals(cell.getCellStyle().getDataFormatString())) {
+                    value = integerFormat.format(cell.getNumericCellValue());
+                } else if ("General".equals(cell.getCellStyle().getDataFormatString())) {
+                    value = decimalFormat.format(cell.getNumericCellValue());
+                } else {
+                    value = timeFormat.format(HSSFDateUtil.getJavaDate(cell.getNumericCellValue()));
+                }
+                break;
+            case XSSFCell.CELL_TYPE_BOOLEAN:
+                value = cell.getBooleanCellValue();
+                break;
+            case XSSFCell.CELL_TYPE_BLANK:
+                value = "";
+                break;
+            default:
+                value = cell.toString();
+        }
+        return value;
     }
 }
