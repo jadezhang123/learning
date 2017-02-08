@@ -8,12 +8,14 @@
     var methods = {};
     $.fn.myPlugin = function (method, option) {
         var setting = $.extend({}, defaults, option);
+        var result;
         if (methods[method]) {
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+            result = methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
-            return methods.init.apply(this, arguments);
+            result = methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.tooltip');
         }
+        return result ? result : this;
     };
 })(jQuery, window, document);

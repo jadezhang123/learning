@@ -13,6 +13,12 @@ requirejs.config({
         app: '../app'
     }
 });
-define(['jquery'], function ($) {
+define(['jquery','Sortable'], function ($, Sortable) {
     console.log($);
+    console.log(Sortable);
+    $(function () {
+       $('#btn').click(function () {
+            console.log('btn');
+       });
+    });
 });
