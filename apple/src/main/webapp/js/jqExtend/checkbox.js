@@ -16,6 +16,6 @@
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.tooltip');
         }
-        return result ? result : this;
+        return result !== undefined ? result : this;
     };
 })(jQuery, window, document);
