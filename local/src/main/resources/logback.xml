@@ -1,0 +1,86 @@
+<!--
+  ~ Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
+  ~
+  ~ Project Name: samples
+  ~ $$Id: logback.xml 14-7-27 下午6:18 $$
+  -->
+<!-- debug="true"会将log框架本身的调试信息打印出来   -->
+<configuration debug="true" scan="false" scanPeriod="10 seconds">
+    <!--
+    As of version 0.9.25, logback-classic ships with LevelChangePropagator, an implementation of LoggerContextListener
+    which propagates changes made to the level of any logback-classic logger onto the java.utils.logging framework.
+    Such propagation eliminates the performance impact of disabled log statements. Instances of LogRecord will be sent
+    to logback (via SLF4J) only for enabled log statements. This makes it reasonable for real-world applications to use
+    the jul-to-slf4j bridge.
+    -->
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
+
+    <appender name="DEBUG-FILE-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/mubs-debug.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+            </pattern>
+        </encoder>
+
+        <!-- 仅输出 比INFO级别低的日志 -->
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator> <!-- defaults to type ch.qos.logback.classic.boolex.JaninoEventEvaluator -->
+                <expression>return level &gt; INFO;</expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+
+    </appender>
+
+    <appender name="WARN-FILE-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/mubs-warn.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+            </pattern>
+        </encoder>
+
+        <!-- 仅输出 比WARN级别高的日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+    </appender>
+
+    <appender name="SPECLOGGER-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/mubs-spec.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d{yyyyMMdd-HH:mm:ss.SSSZ}|%contextName|%thread|%-5level|%logger|%msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="SPECLOGGER" level="DEBUG">
+        <appender-ref ref="SPECLOGGER-APPENDER" additivity="false"/>
+    </logger>
+
+    <!-- 这里平时的level为WARN，跟踪问题时才设置为DEBUG -->
+    <logger name="cn.thinkjoy" level="WARN">
+        <appender-ref ref="DEBUG-FILE-APPENDER"/>
+        <appender-ref ref="WARN-FILE-APPENDER" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT-APPENDER" />
+    </root>
+</configuration>

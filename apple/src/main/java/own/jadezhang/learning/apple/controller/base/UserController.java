@@ -1,6 +1,8 @@
 package own.jadezhang.learning.apple.controller.base;
 
 import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
-import own.jadezhang.common.domain.common.ReturnCodeEnum;
+import own.jadezhang.common.domain.enums.ReturnCodeEnum;
 import own.jadezhang.learning.apple.config.Configurations;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.service.base.IUserService;
@@ -26,6 +28,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/apple/base/user")
 public class UserController {
+
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
+    //private static final Logger logger = LogManager.getLogger(UserController.class);
     @Autowired
     private IUserService userService;
 
@@ -46,6 +51,7 @@ public class UserController {
     @RequestMapping("/findAll")
     @ResponseBody
     public List<User> findAll() {
+        logger.info("findAll users");
         return userService.findAll();
     }
 
@@ -100,6 +106,5 @@ public class UserController {
         String fileUrl = Configurations.copyTempToRepository(token, ext);
         return fileUrl;
     }
-
 
 }

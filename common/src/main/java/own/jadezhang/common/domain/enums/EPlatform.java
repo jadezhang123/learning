@@ -1,4 +1,4 @@
-package own.jadezhang.common.domain.common;
+package own.jadezhang.common.domain.enums;
 
 /**
  * 操作系统枚举

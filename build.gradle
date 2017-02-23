@@ -25,11 +25,11 @@ subprojects {
         provided
         compile.extendsFrom provided
         all*.exclude group: 'org.springframework', module: 'spring'
-        all*.exclude group: 'asm', module: 'asm'
-        all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     }
     /*类库配置*/
     repositories {
+        //阿里云maven仓库
+        repositories { maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' } }
         mavenLocal()
         mavenCentral()
     }
