@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="own.jadezhang.learning.apple.dao.base.IArticleDAO">
-
+    <cache></cache>
     <sql id="Base_Column_List">
         id,uid,name,comment
     </sql>
 
-    <insert id="insert" parameterType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
-        INSERT INTO user (uid, name, comment) VALUES (#uid, #name, #comment)
+    <insert id="insert" parameterType="own.jadezhang.learning.apple.domain.base.Article">
+        INSERT INTO article (uid, name, comment) VALUES (#uid, #name, #comment)
         <selectKey resultType="java.lang.Long" keyProperty="id">
             SELECT LAST_INSERT_ID() AS ID
         </selectKey>
@@ -24,7 +24,7 @@
     </insert>
 
     <!-- 更新 -->
-    <update id="update" parameterType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <update id="update" parameterType="own.jadezhang.learning.apple.domain.base.Article">
         UPDATE article
         <trim prefix="SET" suffixOverrides=",">
             uid=#{uid},
@@ -39,19 +39,35 @@
         UPDATE article
         <trim prefix="SET" suffixOverrides=",">
             <if test="map.uid!=null">
-                name = #{update.uid},
+                uid = #{map.uid},
             </if>
             <if test="map.name!=null">
-                name = #{update.name},
+                name = #{map.name},
             </if>
             <if test="map.comment!=null">
-                sex = #{update.comment},
+                comment = #{map.comment},
             </if>
         </trim>
         WHERE
-        id = #{update.id}
+        id = #{map.id}
     </update>
 
+    <update id="updateNotNull">
+        UPDATE article
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="map.uid!=null">
+                uid = #{map.uid},
+            </if>
+            <if test="map.name!=null">
+                name = #{map.name},
+            </if>
+            <if test="map.comment!=null">
+                comment = #{map.comment},
+            </if>
+        </trim>
+        WHERE
+        id = #{map.id}
+    </update>
     <!-- 按Id删除 -->
     <delete id="deleteById" parameterType="java.lang.Long">
         DELETE FROM article
@@ -70,14 +86,14 @@
     <delete id="deleteByCondition" parameterType="java.util.Map">
         DELETE FROM article
         <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="condition.id!=null">
-                AND id = #{id}
+            <if test="condition.uid!=null">
+                AND uid = #{uid}
             </if>
-            <if test="name!=null">
+            <if test="condition.name!=null">
                 AND name = #{name}
             </if>
-            <if test="sex!=null">
-                AND sex = #{sex}
+            <if test="condition.comment!=null">
+                AND comment = #{condition.comment}
             </if>
         </trim>
     </delete>
@@ -88,7 +104,7 @@
     </delete>
 
     <!--查询相关 -->
-    <select id="fetch" parameterType="java.lang.Long" resultType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <select id="fetch" parameterType="java.lang.Long" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article
@@ -97,7 +113,7 @@
         </trim>
     </select>
 
-    <select id="findOne" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <select id="findOne" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article WHERE
@@ -108,7 +124,7 @@
         LIMIT 0,1
     </select>
 
-    <select id="findList" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <select id="findList" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article WHERE
@@ -118,7 +134,7 @@
         </if>
     </select>
 
-    <select id="findAll" resultType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <select id="findAll" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article
@@ -128,21 +144,21 @@
     </select>
 
 
-    <select id="like" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <select id="like" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article
         <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="id!=null">
+            <if test="condition.id!=null">
                 AND id like CONCAT('%', #{condition.id} , '%')
             </if>
-            <if test="uid!=null">
+            <if test="condition.uid!=null">
                 AND uid like CONCAT('%', #{condition.uid} , '%')
             </if>
-            <if test="name!=null">
+            <if test="condition.name!=null">
                 AND name like CONCAT('%', #{condition.name} , '%')
             </if>
-            <if test="comment!=null">
+            <if test="condition.comment!=null">
                 AND comment like CONCAT('%', #{condition.comment} , '%')
             </if>
         </trim>
@@ -152,21 +168,21 @@
     </select>
 
 
-    <select id="queryList" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <select id="queryList" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article
         <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="id!=null">
+            <if test="condition.id!=null">
                 AND id = #{condition.id}
             </if>
-            <if test="uid!=null">
+            <if test="condition.uid!=null">
                 AND uid = #{condition.uid}
             </if>
-            <if test="name!=null">
+            <if test="condition.name!=null">
                 AND name = #{condition.name}
             </if>
-            <if test="comment!=null">
+            <if test="condition.comment!=null">
                 AND comment = #{condition.comment}
             </if>
         </trim>
@@ -175,21 +191,21 @@
         </if>
     </select>
 
-    <select id="queryOne" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.dao.base.IArticleDAO">
+    <select id="queryOne" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article
         <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="id!=null">
+            <if test="condition.id!=null">
                 AND id = #{condition.id}
             </if>
-            <if test="uid!=null">
+            <if test="condition.uid!=null">
                 AND uid = #{condition.uid}
             </if>
-            <if test="name!=null">
+            <if test="condition.name!=null">
                 AND name = #{condition.name}
             </if>
-            <if test="comment!=null">
+            <if test="condition.comment!=null">
                 AND comment = #{condition.comment}
             </if>
         </trim>

@@ -14,61 +14,31 @@
 	<option value="qqq1">qqq4</option>
 </select>
 <input type="button" id="findAll" value="findAll">
+<input type="button" id="addUser" value="addUser">
 <script type="text/javascript">
-
-	$('#findAll').click(function () {
-		$.ajax({
-			url:'/apple/base/user/findAll',
-			type:'get',
-			success:function (result) {
-				console.log(result);
-			}
+	$(function () {
+		$('#findAll').click(function () {
+			$.ajax({
+				url:'/apple/base/user/findAll',
+				type:'get',
+				success:function (result) {
+					console.log(result);
+				}
+			});
 		});
+
+		$('#addUser').click(function () {
+			$.ajax({
+				url:'/apple/base/user/batchAdd',
+				type:'get',
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
 	});
 
-	/*var arr = [{status:0},{status:1},{status:0},{status:1},{status:0},{status:1}];
-	console.log(arr);
-            
-	for(var i=0,flag=true,len=arr.length;i<len;flag ? i++ : i){
-	        
-	   if( arr[i]&&arr[i].status==0 ){
-	        arr.splice(i,1);
-	        flag = false;
-	    } else {
-	        flag = true;
-	    }
-
-	}
-	console.log(arr);
-
-	Array.prototype.deleteAt=function(n) {
-	　if(n<0)　
-	　　return this;
-	　else
-	　　return this.slice(0,n).concat(this.slice(n+1,this.length));
-	}
-
-	Array.prototype.del = function(item){
-
-	}
-
-	var array1 = [0,1,2,3,4,5];
-
-	console.log(array1.deleteAt(3));
-
-	function remove(array, val){
-	    var _index = 0;
-	    for ( var index = 0, length = array.length; index < length; ++index){
-	        if( array[index] !== val ){
-	            array[_index++] = array[index];
-	        }
-	    }
-	    array.length = _index;
-	}
-	remove(array1, 4);
-
-	var arra2 = ['s1','s2', 's3'];
-	console.log(JSON.stringify(arra2));*/
 	
 </script>
 </body>

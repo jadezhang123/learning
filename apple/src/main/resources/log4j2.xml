@@ -15,5 +15,7 @@
 
         <Logger name="own.jadezhang.learning.apple" level="DEBUG"/>
 
+        <Logger name="org.apache.ibatis" level="DEBUG"/>
+
     </Loggers>
 </Configuration>
