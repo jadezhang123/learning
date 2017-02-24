@@ -1,5 +1,7 @@
 package own.jadezhang.common.domain.common;
 
+import own.jadezhang.common.domain.enums.EPlatform;
+
 /**
  * 操作系统类：
  * 获取System.getProperty("os.name")对应的操作系统

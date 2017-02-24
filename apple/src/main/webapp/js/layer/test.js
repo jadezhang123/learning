@@ -1,6 +1,6 @@
 avalon.ready(function() {
 	//添加公共模块的依赖
-	var layerModule = COMMON.layer;
+	var layerModule = COMMON.layerModule;
 
 	var layerTesterVm = avalon.define({
 		$id: "layerTester",

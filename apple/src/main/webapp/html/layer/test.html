@@ -16,6 +16,7 @@
 <input type="button" value="切换" ms-click="changeBody()">
 <input type="button" value="加载" id="check">
 <input type="button" value="查看" id="view">
+<input type="button" value="信息" id="msg">
 <div id="layer-photos-demo">
 	<img  layer-src="/imgs/67.gif" src="/imgs/67.gif" alt="p1">
 	<img  layer-src="/imgs/70.gif" src="/imgs/70.gif" alt="p1">
@@ -25,8 +26,21 @@
 
 <script>
 	$(function () {
+		$('#msg').click(function () {
+			layer.msg('fff', {
+				//icon:1,// 对勾
+				//icon:2,// 错误
+				//icon:3,// 问号
+				//icon:4,// 锁
+				//icon:5,// 哭脸
+				//icon:6,// 笑脸
+				icon:7,// 感叹号
+				time: 1500
+			});
+		});
+
 		$('#check').click(function () {
-			COMMON.layer.openLoading();
+			COMMON.layerModule.openLoading();
 		});
 		layer.photos({
 			photos: '#layer-photos-demo'

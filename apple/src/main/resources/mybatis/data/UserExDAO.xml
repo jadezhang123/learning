@@ -2,4 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="own.jadezhang.learning.apple.dao.base.IUserDAO">
+
+    <resultMap id="userWithArticles" type="own.jadezhang.learning.apple.domain.base.UserEx">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <collection property="articles" javaType="ArrayList" ofType="own.jadezhang.learning.apple.domain.base.Article">
+            <result property="id" column="article_id"/>
+            <result property="name" column="article_name"/>
+            <result property="comment" column="article_comment"/>
+        </collection>
+    </resultMap>
+
+    <select id="getUserWithArticles" resultMap="userWithArticles">
+        SELECT u.*, a.id AS article_id,a.name AS article_name
+        FROM user u LEFT JOIN article a ON u.id = a.uid
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND u.id = #{condition.id}
+            </if>
+            <if test="condition.name!=null">
+                AND u.name like CONCAT('%', #{condition.name} , '%')
+            </if>
+            <if test="condition.sex!=null">
+                AND u.sex = #{condition.sex}
+            </if>
+        </trim>
+    </select>
 </mapper>

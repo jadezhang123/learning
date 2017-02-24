@@ -3,15 +3,22 @@ version '0.0.1-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
-
-repositories {
-    mavenCentral()
-}
+sourceCompatibility = 1.7
 
 dependencies {
-
     compile 'commons-io:commons-io:2.4'
+    //日志依赖统一对外接口依赖
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    //log4j2实现
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.7'
+    compile 'org.apache.logging.log4j:log4j-api:2.7'
+    compile 'org.apache.logging.log4j:log4j-core:2.7'
+    //slf4j的简单实现
+    //compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
+
+    //compile 'ch.qos.logback:logback-core:1.1.2'
+
+
     //poi
     compile group: 'org.apache.poi', name: 'poi-ooxml', version: "3.14"
     compile 'org.apache.poi:ooxml-schemas:1.3'

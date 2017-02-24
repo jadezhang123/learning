@@ -1,19 +1,14 @@
-package own.jadezhang.common.domain.common;
+package own.jadezhang.common.domain.enums;
 
 /**
- *
  */
-public enum ReturnCodeEnum {
+public enum ErrorCodeEnum {
 
-	/**
-	 * 操作提示
-	 */
-	SUCCESS_COMPLETE("0100001","操作成功"),
-	DELETE_COMPLETE("0100002","删除成功"),
-	ADD_COMPLETE("0100003","新增成功"),
-	UPDATE_COMPLETE("0100004","更新成功"),
-	ACTION_FAILURE("0100005", "操作失败"),
-	;
+	LOGIN_TIMEOUT("0000001", "登录超时，请重新登录!"),
+	PARAM_ERROR("0100001", "参数错误"),
+	PARAM_NULL("0100002", "参数不能为空"),
+	PARAM_TOOLONG("0100003", "参数长度超过限制");
+
 	/** The code. */
 	private final String code;
 
@@ -22,13 +17,13 @@ public enum ReturnCodeEnum {
 
 	/**
 	 * Instantiates a new error type.
-	 *
+	 * 
 	 * @param code
 	 *            the code
 	 * @param message
 	 *            the message
 	 */
-	private ReturnCodeEnum(String code, String message) {
+	private ErrorCodeEnum(String code, String message) {
 		this.code = code;
 		this.message = message;
 	}

@@ -9,8 +9,11 @@ import own.jadezhang.common.service.AbstractServiceImpl;
 import own.jadezhang.learning.apple.dao.base.IArticleDAO;
 import own.jadezhang.learning.apple.dao.base.IUserDAO;
 import own.jadezhang.learning.apple.domain.base.User;
+import own.jadezhang.learning.apple.domain.base.UserEx;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Zhang Junwei on 2016/10/16.
@@ -45,5 +48,10 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
             }
         });
         return count;
+    }
+
+    @Override
+    public List<UserEx> getUserWithArticles(Map<String, Object> condition) {
+        return userDAO.getUserWithArticles(condition);
     }
 }

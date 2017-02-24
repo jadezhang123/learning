@@ -1,6 +1,9 @@
 package own.jadezhang.learning.apple.controller.base;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,9 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
-import own.jadezhang.common.domain.common.ReturnCodeEnum;
+import own.jadezhang.common.domain.enums.ReturnCodeEnum;
 import own.jadezhang.learning.apple.config.Configurations;
+import own.jadezhang.learning.apple.domain.base.Article;
 import own.jadezhang.learning.apple.domain.base.User;
+import own.jadezhang.learning.apple.domain.base.UserEx;
+import own.jadezhang.learning.apple.service.base.IArticleService;
 import own.jadezhang.learning.apple.service.base.IUserService;
 import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
@@ -26,9 +32,12 @@ import java.util.Map;
 @Controller
 @RequestMapping("/apple/base/user")
 public class UserController {
+
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private IUserService userService;
-
+    @Autowired
+    private IArticleService articleService;
     @ResponseBody
     @RequestMapping(value = "/pagingUsers")
     public BizData4Page<User> pagingUsers(int sex, @RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
@@ -45,9 +54,19 @@ public class UserController {
 
     @RequestMapping("/findAll")
     @ResponseBody
-    public List<User> findAll() {
+    public List<UserEx> findAll() {
+        logger.info("findAll users");
         return userService.findAll();
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/findUsers")
+    public List<UserEx> findUsers(String userName) {
+        Map<String, Object> condition = new HashMap<String, Object>();
+        condition.put("name", userName);
+        return userService.getUserWithArticles(condition);
+    }
+
 
     @RequestMapping("/batchAdd")
     @ResponseBody
@@ -99,6 +118,20 @@ public class UserController {
     public String  saveFile(String token, String ext) {
         String fileUrl = Configurations.copyTempToRepository(token, ext);
         return fileUrl;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/addArticle")
+    public ResultDTO addArticle(Article article) {
+        try {
+            int count = articleService.add(article);
+            if (count >0){
+                return new ResultDTO(true, ReturnCodeEnum.ADD_COMPLETE.getMessage());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResultDTO(false, ReturnCodeEnum.ACTION_FAILURE.getMessage());
     }
 
 
