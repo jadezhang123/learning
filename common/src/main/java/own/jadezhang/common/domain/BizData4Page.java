@@ -37,7 +37,7 @@ public class BizData4Page<T> implements Serializable {
     /**
      * 附带的数据
      */
-    private Map<List, Object> extraData;
+    private Map<String, Object> extraData;
 
     public BizData4Page(){
         super();
@@ -56,7 +56,7 @@ public class BizData4Page<T> implements Serializable {
         this.totalPages = total == 0 ? 1 : total;
     }
 
-    public BizData4Page(List rows, int recordCount, int pageNo, int pageSize, Map<List, Object> extraData) {
+    public BizData4Page(List rows, int recordCount, int pageNo, int pageSize, Map<String, Object> extraData) {
         this(rows, recordCount, pageNo, pageSize);
         this.extraData = extraData;
     }
@@ -109,11 +109,11 @@ public class BizData4Page<T> implements Serializable {
         this.conditions = conditions;
     }
 
-    public Map<List, Object> getExtraData() {
+    public Map<String, Object> getExtraData() {
         return extraData;
     }
 
-    public void setExtraData(Map<List, Object> extraData) {
+    public void setExtraData(Map<String, Object> extraData) {
         this.extraData = extraData;
     }
 

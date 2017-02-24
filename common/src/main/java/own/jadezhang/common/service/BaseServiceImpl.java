@@ -17,7 +17,7 @@ public abstract class BaseServiceImpl<D extends IBaseDAO, T extends BaseDomain> 
 
     @Override
     public int batchAdd(List<T> entities) {
-        if (entities.size() > 0) {
+        if (entities != null && entities.size() > 0) {
             return getDao().batchInsert(entities);
         }
         return 0;

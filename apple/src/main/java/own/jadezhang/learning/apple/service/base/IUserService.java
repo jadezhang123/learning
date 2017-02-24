@@ -13,12 +13,16 @@ import java.util.Map;
  * Created by Zhang Junwei on 2016/10/16.
  */
 public interface IUserService<D extends IBaseDAO, T extends BaseDomain> extends IBaseService<D, T>, IPagingService<D, T> {
-    int deleteUser(Long id);
 
+    Integer deleteUser(Long id);
     /**
      * 查询用户，附带关联的文章
      * @param condition
      * @return
      */
     List<UserEx> getUserWithArticles(Map<String, Object> condition);
+
+    void cacheUser(String userCode, String userName);
+
+    String getCachedUser(String userCode);
 }

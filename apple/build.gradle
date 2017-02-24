@@ -41,6 +41,9 @@ dependencies {
     compile 'mysql:mysql-connector-java:5.1.26'
     compile 'commons-pool:commons-pool:1.6'
     compile 'commons-dbcp:commons-dbcp:1.4'
+    //redis
+    compile 'redis.clients:jedis:2.7.3'
+    compile 'org.springframework.data:spring-data-redis:1.7.4.RELEASE'
 
     compile 'org.quartz-scheduler:quartz:2.2.1'
 

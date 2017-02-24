@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>路由</title>
-	<link rel="stylesheet" type="text/css" href="../../css/comm.css">
-	<script src="../../libs/angular/angular1.5/angular.min.js"></script>
-	<script src="../../libs/angular/angular1.5/angular-route.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>路由</title>
+    <link rel="stylesheet" type="text/css" href="../../css/comm.css">
+    <script src="../../libs/angular/angular1.5/angular.min.js"></script>
+    <script src="../../libs/angular/angular1.5/angular-route.min.js"></script>
 </head>
 <body ng-app="routeTest">
-	<div class="header">Header</div>
-	<div class="content"></div>
-		<div ng-view></div>
-	<div class="footer">Footer</div>
+<div class="header">Header</div>
+<div class="content"></div>
+<div ng-view></div>
+<div class="footer">Footer</div>
 
 <script type="text/javascript">
-	angular.module('routeTest', ['ngRoute'])
-		.config(['$provide',function($routeProvider) {
-			$routeProvider.when('/', {
-				templateUrl:'views/index.html',
-				controller:'HomeController'
-			});
-		}]);
-	
+
+    var baseModule = angular.module('base');
+    baseModule.factory('loginService', function ($http) {
+        var login = function () {
+            $http.get('').success(function (data) {
+                
+            });
+        };
+
+        return {
+            login:login
+        };
+    });
+
+    angular.module('routeTest', ['ngRoute'])
+            .config(['$provide', function ($routeProvider) {
+                $routeProvider.when('/', {
+                    templateUrl: 'views/index.html',
+                    controller: 'HomeController'
+                });
+            }]);
+
 </script>
 </body>
 </html>

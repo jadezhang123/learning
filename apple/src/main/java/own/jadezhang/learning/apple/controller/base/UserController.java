@@ -1,7 +1,7 @@
 package own.jadezhang.learning.apple.controller.base;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
 import own.jadezhang.common.domain.enums.ReturnCodeEnum;
 import own.jadezhang.learning.apple.config.Configurations;
+import own.jadezhang.learning.apple.dao.redis.IRedisRepository;
 import own.jadezhang.learning.apple.domain.base.Article;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.domain.base.UserEx;
@@ -36,6 +37,10 @@ public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private IRedisRepository<String, String> redisRepository;
+
     @Autowired
     private IArticleService articleService;
     @ResponseBody
@@ -44,7 +49,7 @@ public class UserController {
         Map<String, Object> condition = new HashMap<String, Object>();
         condition.put("sex", sex);
         int records = userService.count(condition);
-        if (records == 0){
+        if (records == 0) {
             return BizData4Page.forNoRecords(pageSize);
         }
         List<User> list = userService.queryForPage(condition, pageNo, pageSize);
@@ -86,7 +91,7 @@ public class UserController {
     @RequestMapping("/deleteUser")
     @ResponseBody
     public ResultDTO deleteUser(Long id) {
-        int count = userService.deleteUser(id);
+        Integer count = userService.deleteUser(id);
         if (count > 0) {
             return new ResultDTO(true, ReturnCodeEnum.DELETE_COMPLETE.getMessage());
         } else {
@@ -115,11 +120,22 @@ public class UserController {
 
     @RequestMapping("/saveFile")
     @ResponseBody
-    public String  saveFile(String token, String ext) {
+    public String saveFile(String token, String ext) {
         String fileUrl = Configurations.copyTempToRepository(token, ext);
         return fileUrl;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/cacheUser")
+    public ResultDTO cacheUser(User user) {
+        String userCode = "id"+user.getId();
+        String cachedUser = userService.getCachedUser(userCode);
+        if (StringUtils.isBlank(cachedUser)){
+            userService.cacheUser(userCode, user.getName());
+            cachedUser = userService.getCachedUser(userCode);
+        }
+        return new ResultDTO(true, "保存成功" + cachedUser);
+    }
     @ResponseBody
     @RequestMapping(value = "/addArticle")
     public ResultDTO addArticle(Article article) {

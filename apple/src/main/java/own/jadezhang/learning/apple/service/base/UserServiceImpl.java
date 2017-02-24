@@ -8,6 +8,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import own.jadezhang.common.service.AbstractServiceImpl;
 import own.jadezhang.learning.apple.dao.base.IArticleDAO;
 import own.jadezhang.learning.apple.dao.base.IUserDAO;
+import own.jadezhang.learning.apple.dao.redis.IRedisRepository;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.domain.base.UserEx;
 
@@ -24,6 +25,8 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
 
     @Resource
     private TransactionTemplate transactionTemplate;
+    @Resource
+    private IRedisRepository<String, String> redisRepository;
 
     @Autowired
     private IUserDAO userDAO;
@@ -37,9 +40,9 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
 
 
     @Override
-    public int deleteUser(final Long id) {
+    public Integer deleteUser(final Long id) {
 
-        int count = transactionTemplate.execute(new TransactionCallback<Integer>() {
+        Integer count = transactionTemplate.execute(new TransactionCallback<Integer>() {
             @Override
             public Integer doInTransaction(TransactionStatus status) {
                 int count = articleDAO.deleteByProperty("uid", id);
@@ -49,6 +52,17 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
         });
         return count;
     }
+
+    @Override
+    public void cacheUser(String userCode, String userName) {
+        redisRepository.set(userCode, userName);
+    }
+
+    @Override
+    public String getCachedUser(String userCode) {
+        return redisRepository.get(userCode);
+    }
+
 
     @Override
     public List<UserEx> getUserWithArticles(Map<String, Object> condition) {
