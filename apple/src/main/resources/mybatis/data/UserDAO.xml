@@ -8,7 +8,7 @@
     </sql>
 
     <insert id="insert" parameterType="own.jadezhang.learning.apple.domain.base.User">
-        INSERT INTO user (name, sex) VALUES (#name, #sex)
+        INSERT INTO user (name, sex) VALUES (#{name}, #{sex})
         <selectKey resultType="java.lang.Long" keyProperty="id">
             SELECT LAST_INSERT_ID() AS ID
         </selectKey>
@@ -36,16 +36,55 @@
     <update id="updateMap">
         UPDATE user
         <trim prefix="SET" suffixOverrides=",">
-            <if test="map.name!=null">
+            <if test="update.name!=null">
                 name = #{update.name},
             </if>
-            <if test="map.sex!=null">
+            <if test="update.sex!=null">
                 sex = #{update.sex},
             </if>
         </trim>
         WHERE
         id = #{update.id}
     </update>
+
+    <update id="updateNotNull" parameterType="own.jadezhang.learning.apple.domain.base.User">
+        UPDATE user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="sex!=null">
+                sex = #{sex},
+            </if>
+        </trim>
+        WHERE
+        id = #{id}
+    </update>
+
+    <update id="updateByCondition">
+        UPDATE user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="update.name!=null">
+                name = #{update.name},
+            </if>
+            <if test="update.sex!=null">
+                sex = #{update.sex},
+            </if>
+        </trim>
+
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND id = #{condition.id}
+            </if>
+            <if test="condition.name!=null">
+                AND name = #{condition.name}
+            </if>
+            <if test="condition.sex!=null">
+                AND sex = #{condition.sex}
+            </if>
+        </trim>
+    </update>
+
 
     <!-- 按Id删除 -->
     <delete id="deleteById" parameterType="java.lang.Long">
@@ -65,7 +104,7 @@
     <delete id="deleteByCondition" parameterType="java.util.Map">
         DELETE FROM user
         <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="condition.id!=null">
+            <if test="id!=null">
                 AND id = #{id}
             </if>
             <if test="name!=null">
@@ -77,7 +116,7 @@
         </trim>
     </delete>
 
-    <delete id="deleteByProperty" parameterType="java.util.Map">
+    <delete id="deleteByProperty">
         DELETE FROM user WHERE
         ${property} = #{value}
     </delete>

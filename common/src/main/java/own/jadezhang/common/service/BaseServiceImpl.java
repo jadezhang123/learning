@@ -35,6 +35,16 @@ public abstract class BaseServiceImpl<D extends IBaseDAO, T extends BaseDomain> 
     }
 
     @Override
+    public int updateNotNull(T entity) {
+        return getDao().updateNotNull(entity);
+    }
+
+    @Override
+    public int updateByCondition(Map<String, Object> updateMap, Map<String, Object> conditionMap) {
+        return getDao().updateByCondition(updateMap, conditionMap);
+    }
+
+    @Override
     public int deleteById(Object id) {
         return getDao().deleteById(id);
     }

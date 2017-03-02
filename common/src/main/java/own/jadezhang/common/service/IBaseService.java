@@ -20,6 +20,15 @@ public interface IBaseService<D extends IBaseDAO, T extends BaseDomain> {
 
     int updateMap(Map<String, Object> entityMap);
 
+    /**
+     * 更新实体不为null的字段，实体id必传
+     * @param entity
+     * @return
+     */
+    int updateNotNull(T entity);
+
+    int updateByCondition(Map<String, Object> updateMap, Map<String, Object> conditionMap);
+
     int deleteById(Object id);
 
     int deleteByIds(List ids);

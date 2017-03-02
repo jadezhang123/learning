@@ -43,6 +43,7 @@ public class UserController {
 
     @Autowired
     private IArticleService articleService;
+
     @ResponseBody
     @RequestMapping(value = "/pagingUsers")
     public BizData4Page<User> pagingUsers(int sex, @RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {

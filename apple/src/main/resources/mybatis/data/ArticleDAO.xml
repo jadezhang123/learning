@@ -8,7 +8,7 @@
     </sql>
 
     <insert id="insert" parameterType="own.jadezhang.learning.apple.domain.base.Article">
-        INSERT INTO article (uid, name, comment) VALUES (#uid, #name, #comment)
+        INSERT INTO article (uid, name, comment) VALUES (#{uid}, #{name}, #{comment})
         <selectKey resultType="java.lang.Long" keyProperty="id">
             SELECT LAST_INSERT_ID() AS ID
         </selectKey>
@@ -38,35 +38,35 @@
     <update id="updateMap">
         UPDATE article
         <trim prefix="SET" suffixOverrides=",">
-            <if test="map.uid!=null">
-                uid = #{map.uid},
+            <if test="update.uid!=null">
+                uid = #{update.uid},
             </if>
-            <if test="map.name!=null">
-                name = #{map.name},
+            <if test="update.name!=null">
+                name = #{update.name},
             </if>
-            <if test="map.comment!=null">
-                comment = #{map.comment},
+            <if test="update.comment!=null">
+                comment = #{update.comment},
             </if>
         </trim>
         WHERE
-        id = #{map.id}
+        id = #{update.id}
     </update>
 
-    <update id="updateNotNull">
+    <update id="updateNotNull" parameterType="own.jadezhang.learning.apple.domain.base.Article">
         UPDATE article
         <trim prefix="SET" suffixOverrides=",">
-            <if test="map.uid!=null">
-                uid = #{map.uid},
+            <if test="uid!=null">
+                uid = #{uid},
             </if>
-            <if test="map.name!=null">
-                name = #{map.name},
+            <if test="name!=null">
+                name = #{name},
             </if>
-            <if test="map.comment!=null">
-                comment = #{map.comment},
+            <if test="comment!=null">
+                comment = #{comment},
             </if>
         </trim>
         WHERE
-        id = #{map.id}
+        id = #{id}
     </update>
     <!-- 按Id删除 -->
     <delete id="deleteById" parameterType="java.lang.Long">
@@ -86,14 +86,17 @@
     <delete id="deleteByCondition" parameterType="java.util.Map">
         DELETE FROM article
         <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="condition.uid!=null">
+            <if test="id!=null">
+                AND id = #{id}
+            </if>
+            <if test="uid!=null">
                 AND uid = #{uid}
             </if>
-            <if test="condition.name!=null">
+            <if test="name!=null">
                 AND name = #{name}
             </if>
-            <if test="condition.comment!=null">
-                AND comment = #{condition.comment}
+            <if test="comment!=null">
+                AND comment = #{comment}
             </if>
         </trim>
     </delete>
@@ -113,7 +116,7 @@
         </trim>
     </select>
 
-    <select id="findOne" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.Article">
+    <select id="findOne" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article WHERE
@@ -124,7 +127,7 @@
         LIMIT 0,1
     </select>
 
-    <select id="findList" parameterType="java.util.Map" resultType="own.jadezhang.learning.apple.domain.base.Article">
+    <select id="findList" resultType="own.jadezhang.learning.apple.domain.base.Article">
         SELECT
         <include refid="Base_Column_List" />
         FROM article WHERE

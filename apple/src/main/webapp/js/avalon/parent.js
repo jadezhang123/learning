@@ -18,7 +18,7 @@ avalon.ready(function(){
 				console.log(data);
 			});
 		},
-		findUsers:function () {
+		findUsersWithArticles:function () {
 			$.ajax({
 				url: '/apple/base/user/findUsers',
 				type: 'post',
@@ -28,7 +28,18 @@ avalon.ready(function(){
 					console.log(data);
 					if (data.length >0){
 						vm.uid = data[0].id;
+						console.log(vm.uid);
 					}
+				}
+			});
+		},
+		findUsers:function () {
+			$.ajax({
+				url: '/apple/base/user/findAll',
+				type: 'get',
+				dataType: 'json',
+				success: function (data) {
+					console.log(data);
 				}
 			});
 		},

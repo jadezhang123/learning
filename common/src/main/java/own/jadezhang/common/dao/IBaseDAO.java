@@ -19,6 +19,10 @@ public interface IBaseDAO<T extends BaseDomain> {
 
     int updateMap(@Param("update") Map<String, Object> entityMap);
 
+    int updateNotNull(T entity);
+
+    int updateByCondition(@Param("update") Map<String, Object> updateMap, @Param("condition") Map<String, Object> conditionMap);
+
     int deleteById(@Param("id") Object id);
 
     int deleteByIds(@Param("ids") List ids);
@@ -42,7 +46,7 @@ public interface IBaseDAO<T extends BaseDomain> {
     Integer count(@Param("condition") Map<String, Object> condition);
 
     List<T> queryForPage(@Param("condition") Map<String, Object> condition, @Param("orderBy") String orderBy, @Param("sortBy") String sortBy,
-                   @Param("offset") int offset, @Param("rows") int rows);
+                         @Param("offset") int offset, @Param("rows") int rows);
 
     List<T> like(@Param("condition") Map<String, Object> condition, @Param("orderBy") String orderBy, @Param("sortBy") String sortBy);
 

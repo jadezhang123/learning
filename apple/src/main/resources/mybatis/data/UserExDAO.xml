@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="own.jadezhang.learning.apple.dao.base.IUserDAO">
-
+    <cache-ref namespace="own.jadezhang.learning.apple.dao.base.IUserDAO"></cache-ref>
     <resultMap id="userWithArticles" type="own.jadezhang.learning.apple.domain.base.UserEx">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
@@ -14,7 +14,7 @@
         </collection>
     </resultMap>
 
-    <select id="getUserWithArticles" resultMap="userWithArticles">
+    <select id="getUserWithArticles" resultMap="userWithArticles" >
         SELECT u.*, a.id AS article_id,a.name AS article_name
         FROM user u LEFT JOIN article a ON u.id = a.uid
         <trim prefix="WHERE" prefixOverrides="AND | OR">
