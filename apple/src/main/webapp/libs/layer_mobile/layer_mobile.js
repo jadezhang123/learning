@@ -7,6 +7,7 @@
     "use strict";
     //自动加载css文件实现
     function ff(c) {
+
         var a = document.scripts,
             d = c ? c : a[a.length - 1].src,
             e = d.substring(0, d.lastIndexOf("/") + 1);
