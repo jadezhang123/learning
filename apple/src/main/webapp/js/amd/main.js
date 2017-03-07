@@ -2,16 +2,18 @@
  * Created by Zhang Junwei on 2017/1/23 0023.
  */
 requirejs.config({
-    baseUrl: '/js/amd/lib',
-    paths: {
-        app: '../app'
+    baseUrl: '/js',
+    paths:{
+        jquery:'../libs/jquery',
+        layer:'../libs/layer/layer',
     }
 });
-define(['jquery', 'Sortable'], function ($) {
+define(['jquery', 'layer'], function ($, layer) {
+    console.log(layer);
+
     $(function () {
         $('#btn').click(function () {
-            console.log('btn');
-
+            layer.alert('aaa');
         });
     });
 });

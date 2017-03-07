@@ -7,17 +7,10 @@
 <body>
 <input type="button" value="sayHello" id="sayHello">
 <script type="text/javascript" src="../../libs/sea-modules/sea.js" id="seajsnode"></script>
+<script type="text/javascript" src="../../js/common/sea-config.js"></script>
 <script>
-    // seajs 的简单配置
-
-    seajs.config({
-        base:'../../libs/sea-modules',
-        alias: {
-            "jquery": "jquery.min.js"
-        }
-    });
     // 加载入口模块
-    seajs.use('../../js/sea/main.js');
+    seajs.use('sea/main.js');
 </script>
 </body>
 </html>

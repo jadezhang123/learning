@@ -15,7 +15,6 @@ import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
 import own.jadezhang.common.domain.enums.ReturnCodeEnum;
 import own.jadezhang.learning.apple.config.Configurations;
-import own.jadezhang.learning.apple.dao.redis.IRedisRepository;
 import own.jadezhang.learning.apple.domain.base.Article;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.domain.base.UserEx;
@@ -37,10 +36,6 @@ public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private IUserService userService;
-
-    @Autowired
-    private IRedisRepository<String, String> redisRepository;
-
     @Autowired
     private IArticleService articleService;
 

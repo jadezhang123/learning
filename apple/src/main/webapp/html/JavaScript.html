@@ -7,14 +7,8 @@
 </head>
 <body>
 
-<select title="haoshi">
-	<option value="qqq1">qqq1</option>
-	<option value="qq1">qqq2</option>
-	<option value="qqq1">qqq3</option>
-	<option value="qqq1">qqq4</option>
-</select>
 <input type="button" id="findAll" value="findAll">
-<input type="button" id="addUser" value="addUser">
+<input type="button" id="cacheUser" value="cacheUser">
 <script type="text/javascript">
 	$(function () {
 		$('#findAll').click(function () {
@@ -27,10 +21,11 @@
 			});
 		});
 
-		$('#addUser').click(function () {
+		$('#cacheUser').click(function () {
 			$.ajax({
-				url:'/apple/base/user/batchAdd',
-				type:'get',
+				url:'/apple/base/user/cacheUser',
+				type:'post',
+				data:{id:123,name:'jack'},
 				success:function (result) {
 					console.log(result);
 				}
