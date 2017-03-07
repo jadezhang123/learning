@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>avalonCMDTest</title>
+    <script type="text/javascript" src="../../libs/sea-modules/sea.js" id="seajsnode"></script>
+    <script type="text/javascript" src="../../libs/sea-config.js"></script>
+</head>
+<body ms-controller="cmdDemo" id="cmdDemo">
+
+<input type="button" value="click" ms-click="@say">
+{{@test1}}
+<table>
+    <tr>
+        <td>
+            <ul>
+                <li ms-for="el in @communities">{{el.community_name}}</li>
+            </ul>
+        </td>
+        <td>
+            <wbr ms-widget="{is:'ms-autocomplete', $id: 'aaa', name: 'community_id', communities :@communities}"/>
+
+        </td>
+    </tr>
+</table>
+
+<div ms-for="(key,el) in @styles">
+    <label>{{ key }}::{{ el }}</label>
+    <input type="text" ms-duplex="@styles[key]" >
+    <!--不能ms-duplex="el"-->
+</div>
+
+<select  ms-duplex-string="@gradeCode" >
+    <option value="" selected>全部年级</option>
+    <option ms-for="el in @grades" ms-attr="{value: el.code}">{{el.name}}</option>
+</select>
+
+<script>
+    // 加载入口模块
+    seajs.use('sea/cmdDemo.js');
+</script>
+</body>
+</html>

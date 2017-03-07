@@ -37,10 +37,6 @@ public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private IUserService userService;
-
-    @Autowired
-    private IRedisRepository<String, String> redisRepository;
-
     @Autowired
     private IArticleService articleService;
 

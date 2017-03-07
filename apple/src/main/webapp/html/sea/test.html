@@ -9,15 +9,15 @@
 <script type="text/javascript" src="../../libs/sea-modules/sea.js" id="seajsnode"></script>
 <script>
     // seajs 的简单配置
-
     seajs.config({
-        base:'../../libs/sea-modules',
+        base:'/js',
         alias: {
-            "jquery": "jquery.min.js"
+            "jquery": "/libs/jquery-sea.js",
+            "avalon":"/libs/avalon2.modern.js"
         }
     });
     // 加载入口模块
-    seajs.use('../../js/sea/main.js');
+    seajs.use('sea/main.js');
 </script>
 </body>
 </html>

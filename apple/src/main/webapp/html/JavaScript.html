@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>JavaScript</title>
-	<script src="../libs/jquery.js"></script>
+	<script src="../libs/jquery.jquery-sea.js"></script>
 </head>
 <body>
 
@@ -15,6 +15,7 @@
 </select>
 <input type="button" id="findAll" value="findAll">
 <input type="button" id="addUser" value="addUser">
+<input type="button" id="cacheUser" value="cacheUser">
 <script type="text/javascript">
 	$(function () {
 		$('#findAll').click(function () {
@@ -27,10 +28,11 @@
 			});
 		});
 
-		$('#addUser').click(function () {
+		$('#cacheUser').click(function () {
 			$.ajax({
-				url:'/apple/base/user/batchAdd',
-				type:'get',
+				url:'/apple/base/user/cacheUser',
+				type:'post',
+				data:{id:123, name: 'jack'},
 				success:function (result) {
 					console.log(result);
 				}
