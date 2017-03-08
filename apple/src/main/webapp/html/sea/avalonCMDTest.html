@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>avalonCMDTest</title>
+    <link href="../../css/frame_type_1.0.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../../libs/sea-modules/sea.js" id="seajsnode"></script>
     <script type="text/javascript" src="../../libs/sea-config.js"></script>
+    <style>
+        .ms-controller, .ms-important, [ms-controller], [ms-important] {
+            visibility: hidden;
+        }
+    </style>
 </head>
-<body ms-controller="cmdDemo" id="cmdDemo">
-
+<body ms-controller="cmdDemo" id="cmdDemo" >
+<wbr ms-widget="{is:'ms-header'}"/>
 <input type="button" value="click" ms-click="@say">
 {{@test1}}
 <table>
@@ -18,7 +24,7 @@
             </ul>
         </td>
         <td>
-            <wbr ms-widget="{is:'ms-autocomplete', $id: 'aaa', name: 'community_id', communities :@communities}"/>
+            <wbr ms-widget="{is:'ms-autocomplete', $id: 'aaa', name: 'community_id', communities :@communities, onResult:@onSearchResult}"/>
 
         </td>
     </tr>
@@ -34,7 +40,7 @@
     <option value="" selected>全部年级</option>
     <option ms-for="el in @grades" ms-attr="{value: el.code}">{{el.name}}</option>
 </select>
-
+<wbr ms-widget="{is:'ms-footer'}"/>
 <script>
     // 加载入口模块
     seajs.use('sea/cmdDemo.js');

@@ -1,0 +1,148 @@
+
+/**********************************************************
+更新信息：
+	日期：2016/08/10
+**************************************************************/
+
+@charset "utf-8";
+/*图标字体架构*/
+@font-face {font-family: "qky_icon";
+  src: url('../icon_font/iconfont.eot'); /* IE9*/
+  src: url('../icon_font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../icon_font/iconfont.woff') format('woff'), /* chrome, firefox */
+  url('../icon_font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../icon_font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.qkyicon{font-family:qky_icon!important;font-size:16px;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.qkyicon_2{font-family:qky_icon!important;font-size:18px;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+
+/*基础样式*/
+body{ font-size:12px;color:#666666; width:100%; }
+*{ margin:0; padding:0; text-decoration:none; list-style:none; font-weight:normal;font-family: Arial,Microsoft YaHei;}
+li,ul{list-style:none; margin:0; padding:0;}
+img,button{ border:0px;}
+img{vertical-align: middle;}
+a{ color:#666; cursor:pointer; outline:none;}
+i,em{ font-style:normal;}
+textarea,input,select{ outline:none;font-family: Microsoft YaHei, Arial;resize:none; font-size:14px;}
+input[type="text"], select { height: 28px;    line-height: 28px;    border: 1px solid #ccc;}
+textarea { border: 1px solid #ccc; line-height:28px;}
+.clear2{ clear:both; zoom:1;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clear{ clear:both;}
+.white{ background:#fff;}
+.yc{ display:none;}
+.trn{  -webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;}
+.p-r{ position:relative;}
+.p-a{ position:absolute;}
+
+.q1_co{ color:#111;}
+.q3_co{ color:#333;}
+.q6_co{ color:#666;}
+.q9_co{ color:#999;}
+.w_co{ color:#fff;}
+.b_co{ color:#027fb6;}
+.y_co{ color:#ff6600;}
+.w_ba{ background:#fff;}
+.b_ba{ background:#04acf7;}
+.fz_0{ font-size:12px;}
+.fz_1{ font-size:14px;}
+.fz_2{ font-size:16px;}
+.fz_3{ font-size:18px !important;}
+.fz_4{ font-size:20px !important;}
+.fz_5{ font-size:22px !important;}
+.fz_max{ font-size:36px;}
+.pad_lr10{ padding-left:10px !important; padding-right:10px !important;}
+.pad_lr20{ padding-left:20px !important; padding-right:20px !important;}
+.pad_l90{ padding-left:90px !important;}
+.pad_t30{ padding-top:30px !important;}
+.pad_t20{ padding-top:20px !important;}
+.pad_t40{ padding-top:40px !important;}
+.pad_btm15{ padding-bottom:15px !important;}
+.pad_no{ padding:0 !important;}
+.mar_tno{ margin-top:0 !important;}
+.mar_bno{ margin-bottom:0 !important;}
+.mar_lr15{ margin-left:15px !important; margin-right:15px !important;}
+.mar_lr20{ margin-left:20px !important; margin-right:20px !important;}
+.mar_tb10{ margin-top:10px !important;margin-bottom:10px !important;}
+.mar_tb15{ margin-top:15px !important;margin-bottom:15px !important;}
+.mar_l15{ margin-left:15px !important;}
+.mar_r15{ margin-right:15px !important;}
+.mar_l10{ margin-left:10px !important;}
+.mar_r10{ margin-right:10px !important;}
+.mar_l5{ margin-left:5px !important;}
+.mar_r5{ margin-right:5px !important;}
+.mar_r3{ margin-right:3px !important;}
+.mar_b-1{ margin-bottom:-1px !important;}
+
+
+/*顶部模块框架样式*/
+.clear:before,.clear:after{ content: " "; display: table;}
+.clear:after {clear: both;}
+
+.qky_newheader{ position:fixed; width:100%; font-size:14px; background:#027fb6;color: #ceedfa; z-index:1; left:0;top:0;}
+.qky_newheader a{cursor:pointer;color: #ceedfa;}
+.qky_newh-con{ width:90%; margin:0 auto;height:50px;}
+
+.qkyh_logo{float:left;}
+.qkyh_logo img{ max-width:100%; height:24px; margin:11px 0;}
+
+.qkyh_navbox{ float:left; margin-left:40px; }
+.qkyh_navbox a{ display:inline-block; padding:0 20px; font-size:14px;line-height:50px;letter-spacing: 0px;}
+.qky_newheader .qkyh_navbox a:hover,.qky_newheader .qkyh_navbox a.cur{ color:#fff;}
+
+.qkyh_infobox{ width:430px; padding:0;}
+.qkyh_infobox .info{position:relative;}
+.qkyh_infobox .txbox{ width:28px; height:28px; padding:11px 0; position:relative;float:left; }
+.qkyh_infobox .txbox img{ width:100%; height:100%;-moz-border-radius:50%; -webkit-border-radius:50%;border-radius:50%;}
+.qkyh_infobox .txbox span{ width:6px; height:6px; position:absolute; top:11px; right:0; background:url(../images/top/newsico.png) no-repeat center center; }
+.qkyh_infobox .userbox{ height:50px; line-height:50px; background:url(../images/top/selbtn.png) no-repeat 90% center; width:98px;float:left;margin-left:10px;cursor:pointer;}
+.qkyh_infobox .inf_school{ text-align:right;height:50px; line-height:50px; margin-right:20px;width:200px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.qkyh_infobox .usersel{ width:136px; padding-top:11px; position:absolute; left:0; top:100%; border-radius: 0 0 4px 4px;background: #027fb6;box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.04); z-index:333; display:none;}
+.qkyh_infobox .usersel a{ display:block; padding-left:10px; height:30px; line-height:30px; font-size:13px;}
+.qkyh_infobox .info:hover .usersel{ display:block;}
+.qky_newheader .usersel a:hover{ background: #0274a6; color:#fff;}
+
+.menubtn{ float:right; width:28px; height:28px; background:url(../images/top/btn_menu.png) no-repeat center center;  margin:11px 10px 11px 0; position: relative; cursor:pointer;}
+.menusel{ width:294px; position:absolute; top:100%; padding:30px 0 60px; right:-20px;box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.04); border-radius: 0 0 2px 2px;z-index:444; display: none; background:#027fb6;}
+.menulist{ width:80px; height:94px; float:left; margin:0 0 20px 14px; border-radius:4px;}
+.menulist img{ display:block; margin:10px auto; box-sizing:border-box;border: 2px solid;}
+.menulist span{ width:100%; display:block; text-align:center;}
+.qky_newheader .menulist img{border-color:#0c88bf; width:60px; height:60px;}
+.qky_newheader .menulist span{color:#fff;}
+.menubtn:hover .menusel{display:block;}
+.qky_newheader .menulist:hover img{ border: 2px solid #2598cb;border-radius: 4px;}
+
+
+/*中部模块框架样式*/
+.qky_content{ width:100%; _width:expression((documentElement.clientWidth<1000)?'1000px':'auto'); height:auto; overflow:hidden; font-size:12px; padding-bottom:16px; padding-top:70px;}
+
+	/*中部导航模块框架样式*/
+	.qky_nav { width:980px; height:auto; background:#fff; margin:0 auto;overflow:hidden; margin-top:14px;}
+	
+		
+		
+	/*中部主要模块框架样式*/
+	.qky_main{width:1000px; height:auto;  margin:16px auto 0;overflow:hidden; *margin-top:64px;}
+	
+		/*中部主要左边模块框架样式*/
+		.qky_main_l{ width:230px;}
+		
+			
+			
+		/*中部主要右边模块框架样式*/	 
+		.qky_main_r{ width:738px;}
+		
+
+
+/*底部模块框架样式*/
+.qky_footer{ width:100%; padding:14px 0;}
+.qky_footer div{ text-align:center; color:#666; line-height:30px;}
+.qky_footer div img{ margin:5px auto; display:block;}
+
+
+
+
+

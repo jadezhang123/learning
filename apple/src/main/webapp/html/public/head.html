@@ -1,0 +1,34 @@
+<div ms-important="headerVM">
+<!--全部页面加入反馈-->
+<div class="div-rgt">
+    <a href="../feedback/feedback.html" class="cd-feedback"><i class="qkyicon">&#xe6af;</i><p>反馈</p></a>
+</div>
+<div class="qky_newheader clear" style="z-index: 100000" id="pageHeader">
+    <div class="qky_newh-con">
+        <div class="qkyh_logo">
+            <img ms-attr-src="{{@icon}}" height="36px"/>
+            <img src="/images/top/qkyoa_logo02.png" height="36px;"/>
+        </div>
+        <div class="qkyh_navbox">
+            <a href="/index.html" ms-class="cur:locationPath.indexOf('handbook')==-1">首&nbsp;&nbsp;页</a>
+            <a ac-authCode="/grow/handbook/master/query" ms-if="userType==1" href="/html/handbook/handBook.html" ms-class="cur:locationPath.indexOf('handbook')>-1">学期报告书</a>
+            <a ms-if="userType==4" href="/html/handbook/handBookHistory.html" ms-class="cur:locationPath.indexOf('handbook')>-1">学期报告书</a>
+        </div>
+        <div class="qkyh_infobox fr">
+            <div ms-if="userType!=8" class="inf_school fl" ms-attr-title="schoolName">{{schoolName}}</div>
+            <div ms-if="userType==8" class="inf_school fl" ms-attr-title="agencyName">{{agencyName}}</div>
+            <div class="info fl">
+                <div class="txbox"><!--<span></span>--><img ms-attr-src="headImage"/></div>
+                <div class="userbox">{{userName}} {{userType | userTypeFilter}}</div>
+                <div class="usersel">
+                    <!--<a>消息提示</a>-->
+                    <!--<a>修改密码</a>-->
+                    <a href="javascript:;" ms-click="logout">退出登录</a>
+                </div>
+            </div>
+            <!--edsaas Menu-->
+            <div class="menubtn fl" id="edsaasMenu" ms-if="serviceMode == 1"></div>
+        </div>
+    </div>
+</div>
+</div>
