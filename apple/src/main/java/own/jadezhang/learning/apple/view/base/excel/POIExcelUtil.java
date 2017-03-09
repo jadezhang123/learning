@@ -139,7 +139,7 @@ public class POIExcelUtil {
                 }
                 // 第二个参数通过标题获取属性名
                 String columnName = sheet.getRow(0).getCell(j).toString();
-                //BeanUtils.setProperty(t, columnMap.get(columnName), value);
+                BeanUtils.setProperty(t, columnMap.get(columnName), value);
             }
             resultList.add(t);
         }
