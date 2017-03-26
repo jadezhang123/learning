@@ -1,0 +1,76 @@
+/****
+综合素质评价样式
+创建时间：2017-03-03 
+创建作者：YHC
+***/
+
+/*avalon隐藏元素*/
+.ms-controller{
+    visibility: hidden
+}
+
+
+/*s身份选择*/
+.roles_pic{ padding:3px; background:#fff; width:60px; height:60px;}
+/*下拉菜单*/
+.icon-zhankaijiantou,.icon-shouqijiantou{ color:#999; font-size:12px;}
+.class_checks,.zb_checks{position:absolute;top:44px; height:auto; width:100%; background:#fff;}
+.zb_checks{top:40px;}
+.class_checks .weui_check_label{ font-size:14px;}
+.class_checks .weui_check_label,.zb_checks .weui_check_label{ padding-left:25px;}
+/*增减学生*/
+.weui-header .weui-header-title .weui_input{ width:auto !important;}
+.weui_uploader_file .stus_del{right:5px;}
+.weui_uploader_dele_wrp{ float: left; position: relative; margin-right: 9px; margin-bottom: 9px; width:58px; height:58px; border: 1px solid #d9d9d9;}
+.weui_uploader_dele_wrp:after{width: 39.5px; height: 2px; content: " "; position: absolute;top: 50%;left: 50%; -webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);   background-color: #d9d9d9;}
+.wh_40{ width:40px !important; height:40px !important;}
+.wh_50{ width:50px !important; height:50px !important;}
+.l40{ line-height:40px;}
+.weui_cell img{width: 100%;height: 100%;vertical-align: top;}
+.p2 .icon_g{ margin-right:30px;}
+
+/*学生列表*/
+.stus_list{ width:100%;top:0; left:0; height:100%; background:#ebebeb;}
+.stus_list .weui_cells_checkbox .weui_cell{ padding-right:30px;}
+.zmbox{ position:fixed; width:18px; top:0; right:0; padding:0 2 0 0; margin:58px 0 0 0; height:96%;}
+.zmbox .zm{ width:16px; display:block; height:16px; line-height:16px; margin-bottom:2px;font-size:12px; color:#999; text-align:center;-webkit-transition:all .4s ease;-moz-transition:all .4s ease;-o-transition:all .4s ease;transition:all .4s ease; }
+.zmbox .zm:hover{ transform:scale(1.2,1.2);-webkit-transform:scale(1.2,1.2);-moz-transform:scale(1.2,1.2); background:#28ce57; color:#fff; border-radius:50%;}
+/*上传*/
+.weui_uploader_bd .weui_uploader_file{ margin:0 9px 9px 0;}
+/*二级指标评价*/
+.page-bd li.rel:first-child{ margin-top:-1px !important;}
+.page-bd li .js-category.wid60{ width:60%; padding:10px 0 10px 15px;}
+.page-bd li .l28{ height:28px; line-height:28px;}
+.page-bd li.rel .weui_cell .weui_cell_ft{right:10px;}
+
+.weui_media_box.weui_media_text h2.abs{ right:30px;top:50px;}
+.weui_media_box.weui_media_text i.abs{ right:15px;top:20px;}
+.page-bd li:first-child.weui_panel_bd{ margin-top:12px;}
+.weui_uploader_files .weui_uploader_file {background-size:contain;}
+/*一级二级指标宽度*/
+@media screen and ( max-width: 320px ) {.wlev01{max-width:112px;}.wlev02{max-width:140px;}}
+@media ( min-device-width:321px ) and ( max-width:360px ){.wlev01{max-width:130px;}.wlev02{max-width:150px;}}
+@media ( min-device-width:361px ) and ( max-width:380px ){.wlev01{max-width:150px;}.wlev02{max-width:160px;}.weui_media_box.weui_media_text h2.abs.f29{ font-size:30px !important;}}
+@media ( min-device-width:380px ) and ( max-width:414px ){.wlev01{max-width:160px;}.wlev02{max-width:170px;}.weui_media_box.weui_media_text h2.abs.f29{ font-size:34px !important;}}
+@media ( min-device-width:415px ){.wlev01{max-width:auto;}.wlev02{max-width:auto;}.weui_media_box.weui_media_text h2.abs.f29{ font-size:36px !important;}}
+.wlev01,.wlev02{ display:inline-block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+/*统计-分数*/
+.weui_media_box.weui_media_text  .weui_tabbar:before{ border:none;}
+.weui_media_box.weui_media_text  .weui_tabbar .weui_tabbar_icon{ width:90%; text-align:center;}
+/*日历*/
+.bg_calendar01{ background:#68a0f4;}.bg_calendar02{ background:#c3d9fb !important;}
+.div_calendar .weui_tabbar_item{ height:44px; line-height:44px;}.div_calendar .weui_tabbar_label{ font-size:14px}
+.div_calendar .weui_tabbar:before{ border-top:none;}
+.div_calendar .pre-month ,.div_calendar .next-month{ color:#cecece;}
+.div_calendar .today{ background:#28ce57; color:#fff;}.div_calendar .b_hover{ background:#f0f0f0;}
+.div_calendar .today,.div_calendar .b_hover{ width:44px; margin:0 auto;-moz-border-radius:50%; -webkit-border-radius:50%;border-radius:50%;}
+@media screen and ( max-width: 308px ) {.div_calendar p.weui_tabbar_label,.div_calendar .weui-reddot-s{ width:100%;}}
+@media ( min-device-width:309px ){.div_calendar p.weui_tabbar_label,.div_calendar .weui-reddot-s{ width:44px;}}
+.div_calendar p.weui_tabbar_label,.div_calendar .weui-reddot-s{ margin:0 auto;position: relative;display:block;line-height: 44px;  padding:0;}.div_calendar .weui-reddot-s:after {right:5px;top:13px;}
+.div_calendar .iblock.circle{ width:8px; height:8px;}
+/*通用提示页面*/
+.nor-tips{font-size:100px; line-height:100px;}
+
+/*学生身份 -评价*/
+.wb_arrow{ border-right: 1px solid #e0e0e0; border-top: 1px solid #e0e0e0; height:8px;width: 8px; margin:50px auto 0; transform: rotate(-135deg);-webkit-transform: rotate(-135deg);border-left:8px solid #fff; border-bottom:8px solid #fff;}
+.weui_tabbar_item.rel .wb_arrow{ right:-10px; top:-25px;}

@@ -1,7 +1,9 @@
 package own.jadezhang.learning.apple.domain.quartz;
 
+import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.quartz.PersistJobDataAfterExecution;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import java.io.File;
@@ -11,6 +13,9 @@ import java.io.RandomAccessFile;
 /**
  * Created by Zhang Junwei on 2016/10/19.
  */
+
+@PersistJobDataAfterExecution
+@DisallowConcurrentExecution
 public class RepeatJobBean extends QuartzJobBean{
     //超时时间
     private int timeout;

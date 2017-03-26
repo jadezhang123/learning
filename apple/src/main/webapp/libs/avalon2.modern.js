@@ -3000,7 +3000,7 @@ https://github.com/RubyLouvre/avalon/tree/2.2.4
     }
 
     var keyMap = avalon$2.oneObject("break,case,catch,continue,debugger,default,delete,do,else,false," + "finally,for,function,if,in,instanceof,new,null,return,switch,this," + "throw,true,try,typeof,var,void,while,with," + /* 关键字*/
-    "abstract,boolean,byte,char,class,const,double,enum,export,extends," + "final,float,goto,implements,import,int,interface,long,native," + "package,private,protected,public,short,static,super,synchronized," + "throws,transient,volatile")
+    "abstract,boolean,byte,char,class,const,double,enum,export,extends," + "final,float,goto,implements,import,int,interface,long,native," + "quartz,private,protected,public,short,static,super,synchronized," + "throws,transient,volatile")
 
     var skipMap = avalon$2.mix({
         Math: 1,

@@ -15,11 +15,11 @@ import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
 import own.jadezhang.common.domain.enums.ReturnCodeEnum;
 import own.jadezhang.learning.apple.config.Configurations;
-import own.jadezhang.learning.apple.dao.redis.IRedisRepository;
 import own.jadezhang.learning.apple.domain.base.Article;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.domain.base.UserEx;
 import own.jadezhang.learning.apple.service.base.IArticleService;
+import own.jadezhang.learning.apple.service.base.ITaskService;
 import own.jadezhang.learning.apple.service.base.IUserService;
 import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
@@ -39,6 +39,8 @@ public class UserController {
     private IUserService userService;
     @Autowired
     private IArticleService articleService;
+    @Autowired
+    private ITaskService taskService;
 
     @ResponseBody
     @RequestMapping(value = "/pagingUsers")
@@ -67,6 +69,17 @@ public class UserController {
         Map<String, Object> condition = new HashMap<String, Object>();
         condition.put("name", userName);
         return userService.getUserWithArticles(condition);
+    }
+
+    @RequestMapping("/add")
+    @ResponseBody
+    public ResultDTO addUser(User user) {
+        //userService.add(user);
+        //scheduleJobManager.addJob(QuartzJob.class, "testJob");
+        //taskService.addLogTask();
+        //taskService.triggerLogTask();
+        taskService.scheduleLogTask();
+        return new ResultDTO(true, ReturnCodeEnum.ADD_COMPLETE.getMessage());
     }
 
 

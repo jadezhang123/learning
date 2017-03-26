@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zepto</title>
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <link rel="stylesheet" href="/css/weui2.css"/>
+    <link rel="stylesheet" href="/css/qky_grow.css"/>
+    <link rel="stylesheet" type="text/css" href="/icon_font/iconfont.css"/>
+    <style>
+        #content{
+            width: 100%;
+            height:300px;
+            background-color: #0bb20c;
+        }
+    </style>
+    <script src="/js/sea.js" id="seajsnode"></script>
+    <script src="/js/sea-config.js"></script>
+</head>
+<body ms-controller="zeptoDemo">
+<div id="content"></div>
+<button id="toptips">toptips</button>
+<script>
+    // 加载入口模块
+    seajs.use('zepto/test');
+</script>
+</body>
+</html>

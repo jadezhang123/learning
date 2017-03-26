@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>JavaScript</title>
-	<script src="../libs/jquery.jquery-sea.js"></script>
+	<script src="../libs/jquery.min.js"></script>
 </head>
 <body>
 
@@ -16,6 +16,11 @@
 <input type="button" id="findAll" value="findAll">
 <input type="button" id="addUser" value="addUser">
 <input type="button" id="cacheUser" value="cacheUser">
+<br>
+<input type="button" id="scheduleWithTrigger" value="scheduleWithTrigger">
+<input type="button" id="pauseJob" value="pauseJob">
+<input type="button" id="resumeJob" value="resumeJob">
+
 <script type="text/javascript">
 	$(function () {
 		$('#findAll').click(function () {
@@ -33,6 +38,49 @@
 				url:'/apple/base/user/cacheUser',
 				type:'post',
 				data:{id:123, name: 'jack'},
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#addUser').click(function () {
+			$.ajax({
+				url:'/apple/base/user/add',
+				type:'post',
+				data:{name: 'jack'},
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#scheduleWithTrigger').click(function () {
+			$.ajax({
+				url:'/apple/quartz/test/scheduleJob',
+				type:'get',
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#pauseJob').click(function () {
+			$.ajax({
+				url:'/apple/quartz/test/pauseJob',
+				type:'post',
+				data:{id:123, name: 'jack'},
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#resumeJob').click(function () {
+			$.ajax({
+				url:'/apple/quartz/test/resumeJob',
+				type:'post',
+				data:{name: 'jack'},
 				success:function (result) {
 					console.log(result);
 				}

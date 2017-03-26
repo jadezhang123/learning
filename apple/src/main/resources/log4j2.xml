@@ -11,8 +11,6 @@
             <AppenderRef ref="Console"/>
         </Root>
 
-        <Logger name="org.springframework.beans.factory" level="DEBUG"/>
-
         <Logger name="own.jadezhang.learning.apple" level="DEBUG"/>
 
         <Logger name="org.apache.ibatis" level="DEBUG"/>

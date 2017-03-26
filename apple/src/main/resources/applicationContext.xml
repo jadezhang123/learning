@@ -10,7 +10,8 @@
 
 	<import resource="classpath:spring-mybatis.xml"/>
 	<import resource="classpath:spring-redis.xml"/>
-	<!--<import resource="classpath:quartz/quartz-schedule.xml"/>-->
+	<import resource="classpath:quartz/spring-quartz.xml"/>
+
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
 	<context:annotation-config/>
 
