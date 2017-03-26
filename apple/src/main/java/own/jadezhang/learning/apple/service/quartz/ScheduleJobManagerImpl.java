@@ -86,6 +86,11 @@ public class ScheduleJobManagerImpl implements ScheduleJobManager {
     }
 
     @Override
+    public void triggerJob(String jobName, String group, JobDataMap data) throws SchedulerException {
+        getScheduler().triggerJob(this.getJobKey(jobName, group), data);
+    }
+
+    @Override
     public void scheduleJob(String jobName, String group, String triggerName, String triggerGroup, String cronExpression) throws SchedulerException {
 
         Trigger trigger = buildCronTriggerForJob(jobName, group, triggerName, triggerGroup, cronExpression);

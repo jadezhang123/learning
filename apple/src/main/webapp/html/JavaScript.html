@@ -20,6 +20,7 @@
 <input type="button" id="scheduleWithTrigger" value="scheduleWithTrigger">
 <input type="button" id="pauseJob" value="pauseJob">
 <input type="button" id="resumeJob" value="resumeJob">
+<input type="button" id="sendEmail" value="sendEmail">
 
 <script type="text/javascript">
 	$(function () {
@@ -79,8 +80,15 @@
 		$('#resumeJob').click(function () {
 			$.ajax({
 				url:'/apple/quartz/test/resumeJob',
-				type:'post',
-				data:{name: 'jack'},
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#sendEmail').click(function () {
+			$.ajax({
+				url:'/apple/quartz/test/sendMail',
 				success:function (result) {
 					console.log(result);
 				}

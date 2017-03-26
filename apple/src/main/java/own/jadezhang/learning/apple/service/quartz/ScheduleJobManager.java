@@ -59,6 +59,16 @@ public interface ScheduleJobManager {
     void triggerJob(String jobName, String group) throws SchedulerException;
 
     /**
+     * 触发该任务立即执行（只触发一次），与{@link #addJob(JobDetail)}及其重载方法配合使用
+     * 一般此类任务为有状态，不能并行执行
+     * @param jobName
+     * @param group
+     * @param data
+     * @throws SchedulerException
+     */
+    void triggerJob(String jobName, String group, JobDataMap data) throws SchedulerException;
+
+    /**
      * 安排任务（任务必须已经存在，否则忽略），与{@link #addJob(JobDetail)}及其重载方法配合使用
      *
      * @param jobName

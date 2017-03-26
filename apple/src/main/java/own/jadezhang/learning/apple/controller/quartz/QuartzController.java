@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import own.jadezhang.common.domain.common.ResultDTO;
+import own.jadezhang.learning.apple.domain.quartz.QuartzJob;
 import own.jadezhang.learning.apple.domain.quartz.ScheduleJob;
+import own.jadezhang.learning.apple.domain.quartz.SendMailJob;
 import own.jadezhang.learning.apple.service.quartz.ScheduleJobManager;
 
 /**
@@ -28,14 +30,12 @@ public class QuartzController {
     @RequestMapping(value = "/scheduleJob")
     public ResultDTO scheduleJob() {
         try {
-            Scheduler scheduler = scheduleJobManager.getScheduler();
             Trigger trigger = TriggerBuilder.newTrigger()
-                    .withIdentity("trigger1","test")
-                    .withSchedule(CronScheduleBuilder.cronSchedule("0/15 * * * * ? "))
+                    .withIdentity("trigger2","test")
+                    .withSchedule(CronScheduleBuilder.cronSchedule("0/30 * * * * ? "))
                     .startNow()
-                    .forJob("task2", "system")
                     .build();
-            scheduler.scheduleJob(trigger);
+            scheduleJobManager.scheduleJob(QuartzJob.class, "task2", "system", trigger);
         } catch (SchedulerException e) {
             e.printStackTrace();
             return new ResultDTO(false, "失败");
@@ -88,6 +88,31 @@ public class QuartzController {
         } catch (SchedulerException e) {
             e.printStackTrace();
             return new ResultDTO(false, "失败");
+        }
+        return new ResultDTO(true, "成功");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/sendMail")
+    public ResultDTO sendMail() {
+
+        try {
+            scheduleJobManager.addJob(SendMailJob.class, "sendMail", "test");
+            JobDataMap dataMap = new JobDataMap();
+            dataMap.put("sender","jack");
+            dataMap.put("receiver","lucy");
+            dataMap.put("content","i love you");
+            scheduleJobManager.triggerJob("sendMail", "test", dataMap);
+
+            Thread.sleep(2000);
+
+            JobDataMap dataMap1 = new JobDataMap();
+            dataMap1.put("sender","lucy");
+            dataMap1.put("receiver","jack");
+            dataMap1.put("content","i love you too");
+            scheduleJobManager.triggerJob("sendMail", "test", dataMap1);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return new ResultDTO(true, "成功");
     }

@@ -20,6 +20,11 @@
                 <ref bean="cronTrigger" />
             </list>
         </property>
+        <property name="globalJobListeners">
+            <list>
+                <ref bean="jobProcessListener"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="jobTask" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
