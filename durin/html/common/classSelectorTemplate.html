@@ -1,0 +1,35 @@
+<div>
+    <h1 class="weui-header-title" ms-click="@toggleClassSelector">{{@className}}
+        <i id="cell_1" class="icon  mar_l5 f14 f-green"
+           ms-class="[@visible?'icon-shouqijiantou':'icon-zhankaijiantou']"></i>
+    </h1>
+    <div class="weui_msg_img hide abs" id="menu_class" ms-visible="@visible">
+        <div class="class_checks weui-border-tb tleft">
+            <div class="page-bd">
+                <ul>
+                    <li class="weui-border-b" ms-class="[@gradeCode==el.code && 'js-show']" ms-for="el in @gradeList">
+                        <div class="weui-flex js-category" ms-click="@toggleClass(el.code)">
+                            <p class="weui-flex-item">{{el.name}}</p>
+                            <i class="icon icon-74"
+                               ms-class="[@gradeCode==el.code?'icon-shouqijiantou':'icon-zhankaijiantou']"></i>
+                        </div>
+                        <div class="page-category js-categoryInner">
+                            <div class="weui_cells weui_cells_radio" style="margin-top: 0px;">
+                                <label class="weui_cell weui_check_label" ms-for="cls in @el.classes" >
+                                    <div class="weui_cell_bd weui_cell_primary">
+                                        <p>{{cls.name}}</p>
+                                    </div>
+                                    <div class="weui_cell_ft">
+                                        <input type="radio" name="radio1" class="weui_check" ms-attr="{value:cls.code}"
+                                               ms-duplex="@classCode" ms-click="@selectClass(cls)">
+                                        <span class="weui_icon_checked"></span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -44,7 +44,7 @@
 
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="jobTask"/>
-        <property name="cronExpression" value="1/30 * * * * ? "/>
+        <property name="cronExpression" value="0/30 * * * * ? "/>
         <!--
         为了处理 misfired job，Quartz 中为 trigger 定义了处理策略，主要有下面两种：
         MISFIRE_INSTRUCTION_FIRE_ONCE_NOW = 1; 针对 misfired job 马上执行一次；

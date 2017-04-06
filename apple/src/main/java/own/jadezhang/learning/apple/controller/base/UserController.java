@@ -6,10 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import own.jadezhang.common.domain.BizData4Page;
 import own.jadezhang.common.domain.common.ResultDTO;
@@ -23,6 +20,10 @@ import own.jadezhang.learning.apple.service.base.ITaskService;
 import own.jadezhang.learning.apple.service.base.IUserService;
 import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,8 +64,8 @@ public class UserController {
         return userService.findAll();
     }
 
-    @ResponseBody
     @RequestMapping(value = "/findUsers")
+    @ResponseBody
     public List<UserEx> findUsers(String userName) {
         Map<String, Object> condition = new HashMap<String, Object>();
         condition.put("name", userName);
@@ -160,5 +161,14 @@ public class UserController {
         return new ResultDTO(false, ReturnCodeEnum.ACTION_FAILURE.getMessage());
     }
 
+    @RequestMapping(value = "/image", headers = "Accept=image/jpeg, image/jpg, image/png, image/gif", method = RequestMethod.GET)
+    public @ResponseBody BufferedImage viewImg(String file) {
+        try {
+            InputStream inputStream = this.getClass().getResourceAsStream("E:\\dd.png");
+            return ImageIO.read(inputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

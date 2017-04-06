@@ -9,6 +9,7 @@ define(function (require) {
     var headerVM = require('header');
     console.log(headerVM.isManager(0));
     var echarts = require('echarts');
+    var today = avalon.filters.date(new Date(), 'yyyy-MM-dd');
     //var layer = require('layer');
     var layer_mobile = require('layer_mobile');
     var communities = [{
@@ -33,26 +34,26 @@ define(function (require) {
         community_id: 43,
         community_name: 'test',
     }];
-    
+
 
     var cmdDemoVM = avalon.define({
-        $id:'cmdDemo',
+        $id: 'cmdDemo',
         test1: 'test1',
         communities: communities,
-        init:function () {
+        init: function () {
 
         },
 
-        say:function () {
+        say: function () {
             //layer.alert('layer alert');
             //alert(JSON.stringify(communities));
             layer_mobile.open({
                 style: 'border:none; background-color:#78BA32; color:#fff;',
-                content:'内容'
+                content: '内容'
             });
         },
-        onSearchResult:function (v) {
-            avalon.log('获取了'+v);
+        onSearchResult: function (v) {
+            avalon.log('获取了' + v);
         },
         styles: {
             width: 200,
@@ -62,8 +63,8 @@ define(function (require) {
             borderStyle: "solid",
             backgroundColor: "gray"
         },
-        grades:[{code:1,name:'一'},{code:2,name:'二'}],
-        gradeCode:''
+        grades: [{code: 1, name: '一'}, {code: 2, name: '二'}],
+        gradeCode: ''
     });
     avalon.scan($('#cmdDemo')[0], cmdDemoVM);
     cmdDemoVM.init();

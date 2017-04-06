@@ -14,6 +14,8 @@
 	<option value="qqq1">qqq4</option>
 </select>
 <input type="button" id="findAll" value="findAll">
+<input type="button" id="findUsers" value="findUsers">
+<input type="button" id="viewImage" value="viewImage">
 <input type="button" id="addUser" value="addUser">
 <input type="button" id="cacheUser" value="cacheUser">
 <br>
@@ -21,13 +23,38 @@
 <input type="button" id="pauseJob" value="pauseJob">
 <input type="button" id="resumeJob" value="resumeJob">
 <input type="button" id="sendEmail" value="sendEmail">
-
+<input id="onlyNum">
 <script type="text/javascript">
 	$(function () {
 		$('#findAll').click(function () {
 			$.ajax({
 				url:'/apple/base/user/findAll',
 				type:'get',
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#findUsers').click(function () {
+			$.ajax({
+				url:'/apple/base/user/findUsers',
+				type:'post',
+				data:{userName:'ff'},
+				success:function (result) {
+					console.log(result);
+				}
+			});
+		});
+
+		$('#viewImage').click(function () {
+			$.ajax({
+				url:'/apple/base/user/image',
+				type:'get',
+				headers: {
+					Accept: "image/png",
+				},
+				data:{file:'ff'},
 				success:function (result) {
 					console.log(result);
 				}
@@ -95,6 +122,12 @@
 			});
 		});
 
+		//onlyNum
+		$('#onlyNum').keyup(function () {
+			this.value=this.value.replace(/\D/g,'');
+		}).on('paste',function () {
+			this.value=this.value.replace(/\D/g,'');
+		});
 	});
 
 	

@@ -13,16 +13,6 @@
     }
 })(this, function ($, layer) {
     "use strict";
-
-    /**自定义过滤**/
-    avalon.filters.numberFilter = function(num){
-        if(num>0){
-            num='+'+num;
-        }else if(num<0){
-            num=num;
-        }
-        return num;
-    };
     var common = {
         //身份字典
         tagNameAndNum: {
@@ -74,6 +64,7 @@
             // 设置默认参数
             var settings = $.extend({
                 url: '',
+                loading: true,
                 isPlain: true,      //content-type是否为空text/plain
                 isXhr: false,    //检查跨域头（主平台）
                 data: {},
@@ -85,7 +76,9 @@
                 }
             }, options);
             //请求统一打开loading层
-            var loadIndex = common.openLoading();
+            if (settings.loading){
+                var loadIndex = common.openLoading();
+            }
             //普通方式
             $.ajax({
                 url: settings.url,
@@ -97,8 +90,10 @@
                     withCredentials: settings.isXhr
                 },
                 complete: function () {
-                    //关闭loading层
-                    common.closeLoading(loadIndex);
+                    if (settings.loading) {
+                        //关闭loading层
+                        common.closeLoading(loadIndex);
+                    }
                 },
                 success: function (data) {
                     if (common.isSuccess(data)) {
@@ -120,11 +115,48 @@
             localStorage.setItem(itemName, JSON.stringify(itemValue));
         },
         //获得本地存储
-        getLocalValue: function (itemName) {
+        getLocalValue: function (itemName, valueKey) {
+            if (valueKey){
+                return (JSON.parse(localStorage.getItem(itemName)))[valueKey];
+            }
             return JSON.parse(localStorage.getItem(itemName));
+        },
+        //清除本地存储项
+        removeLocalItem: function (itemName) {
+            localStorage.removeItem(itemName);
+        },
+        //同步获取模板html
+        getTemplateHtml:function (url) {
+            var template = '';
+            $.ajax({
+                url: url,
+                async: false,
+                dataType: 'html',
+                success: function (html) {
+                    template = html;
+                }
+            });
+            return template;
         },
         //初始化方法
         init: function () {
+        },
+        //获取当前登录用户的身份代码；1 => 教师；2 => 家长； 4 => 学生； 8 => 机构；'' => 未知
+        getCurrUserType:function () {
+            return this.getLocalValue('account', 'userType') || '';
+        },
+        getCurrUid:function () {
+            return this.getLocalValue('account', 'uid') || '';
+        },
+
+        getGradesAndClasses:function (successCallback) {
+            this.ajaxFun({
+                url: "/grow/eval/getGradeAndClassBySchool",
+                type: "get",
+                onSuccess: function (data) {
+                    successCallback && successCallback(data);
+                }
+            });
         }
     };
     common.init();

@@ -8,6 +8,7 @@ allprojects {
     version '0.0.1-SNAPSHOT'
     /*自带插件*/
     apply plugin: 'java'
+    apply plugin: 'maven'
     /*1.7环境*/
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
@@ -16,21 +17,16 @@ allprojects {
         options.encoding = "UTF-8"
         options.warnings = false
     }
-
 }
 
 /** 子项目配置 */
 subprojects {
-    configurations {
-        provided
-        compile.extendsFrom provided
-        all*.exclude group: 'org.springframework', module: 'spring'
-    }
+
     /*类库配置*/
     repositories {
+        mavenLocal()
         //阿里云maven仓库
         repositories { maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' } }
-        mavenLocal()
         mavenCentral()
     }
     dependencies {

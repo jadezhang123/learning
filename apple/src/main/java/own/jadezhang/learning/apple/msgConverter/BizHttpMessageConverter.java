@@ -1,5 +1,9 @@
 package own.jadezhang.learning.apple.msgConverter;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.apache.commons.lang.ArrayUtils;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.converter.AbstractHttpMessageConverter;
@@ -11,19 +15,10 @@ import java.io.IOException;
 /**
  * Created by Zhang Junwei on 2017/2/23 0023.
  */
-public class BizMessageConverter<T> extends AbstractHttpMessageConverter<T>{
-    @Override
-    protected boolean supports(Class<?> clazz) {
-        return false;
-    }
+public class BizHttpMessageConverter<T> extends FastJsonHttpMessageConverter {
 
     @Override
-    protected T readInternal(Class<? extends T> clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
-        return null;
-    }
-
-    @Override
-    protected void writeInternal(T t, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
-
+    protected void writeInternal(Object obj, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
+        super.writeInternal(obj, outputMessage);
     }
 }

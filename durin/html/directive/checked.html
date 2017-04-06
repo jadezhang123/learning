@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <link rel="stylesheet" href="/css/weui2.css"/>
+    <link rel="stylesheet" href="/css/qky_grow.css"/>
+    <link rel="stylesheet" type="text/css" href="/icon_font/iconfont.css"/>
+    <!--自定义样式区-->
+    <style>
+        .ms-controller, .ms-important, [ms-controller], [ms-important] {
+            visibility: hidden;
+        }
+    </style>
+    <script src="/js/sea.js" id="seajsnode" id="seajsnode"></script>
+    <script src="/js/sea-config.js"></script>
+</head>
+<body ontouchstart style="background-color:#cef6d7;" ms-controller="checked">
+<div class="weui_btn_primary weui-header z-ind1000" id="bar">
+    <div class="weui-header-left"> <a href="../home.html" class="icon icon-shouye f20"><span class=" f15">首页</span></a>  </div>
+    <wbr ms-widget="{is:'ms-classSelector',$id:'classSelector',onSelected:@afterSelectClass}"/>
+    <div class="weui-header-right"><a class="weui_icon_search"></a></div>
+</div>
+<script>
+    // 加载入口模块
+    seajs.use('directive/checked');
+</script>
+</body>
+</html>

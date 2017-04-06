@@ -10,6 +10,12 @@
         .ms-controller, .ms-important, [ms-controller], [ms-important] {
             visibility: hidden;
         }
+        .a{
+            background-color: #2E2D3C;
+        }
+        .b{
+            background-color: #00a2d4;
+        }
     </style>
 </head>
 <body ms-controller="cmdDemo" id="cmdDemo" >
@@ -36,9 +42,10 @@
     <!--不能ms-duplex="el"-->
 </div>
 
+<div ms-class="[]"></div>
 <select  ms-duplex-string="@gradeCode" >
     <option value="" selected>全部年级</option>
-    <option ms-for="el in @grades" ms-attr="{value: el.code}">{{el.name}}</option>
+    <option ms-for="el in @grades" ms-attr="{value: el.code}" ms-class="[el.]">{{el.name}}</option>
 </select>
 <wbr ms-widget="{is:'ms-footer'}"/>
 <script>
