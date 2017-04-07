@@ -12,6 +12,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import own.jadezhang.common.exception.BizException;
 import own.jadezhang.learning.apple.config.Configurations;
 import own.jadezhang.learning.apple.config.Range;
 import own.jadezhang.learning.apple.exception.StreamException;
@@ -19,11 +20,14 @@ import own.jadezhang.learning.apple.utils.DownloadUtil;
 import own.jadezhang.learning.apple.utils.IOUtil;
 import own.jadezhang.learning.apple.utils.TokenUtil;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -117,7 +121,7 @@ public class FileUploadController {
             content = req.getInputStream();
             int read = 0;
             final byte[] bytes = new byte[BUFFER_LENGTH];
-            while ((read = content.read(bytes)) != -1){
+            while ((read = content.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
 
@@ -212,7 +216,6 @@ public class FileUploadController {
 
     /**
      * 根据token从临时文件中删除
-     *
      * @param token
      * @return
      */
@@ -235,7 +238,6 @@ public class FileUploadController {
 
     /**
      * 取消已经上传的文件
-     *
      * @param excels
      * @return
      */
@@ -260,7 +262,6 @@ public class FileUploadController {
 
     /**
      * 根据token从临时文件中在前端显示
-     *
      * @param token
      * @return
      */
@@ -307,7 +308,7 @@ public class FileUploadController {
         FilenameUtils.getExtension(uploadedFile.getOriginalFilename());
         String fileExt = StringUtils.substringAfterLast(uploadedFile.getOriginalFilename(), ".");
         try {
-            File savedFile = new File(Configurations.getTempPath()+File.separator+uploadedFile.getOriginalFilename()+"."+fileExt);
+            File savedFile = new File(Configurations.getTempPath() + File.separator + uploadedFile.getOriginalFilename() + "." + fileExt);
             if (!savedFile.getParentFile().exists()) {
                 savedFile.getParentFile().mkdirs();
             }
@@ -337,13 +338,31 @@ public class FileUploadController {
         DownloadUtil.downloadAfterCompress(request, response, files, new DownloadUtil.FilenameGenerator() {
             @Override
             public String generateFilename(File file) {
-                return "打包文件（新闻)."+FilenameUtils.getExtension(file.getName());
+                return "打包文件（新闻)." + FilenameUtils.getExtension(file.getName());
             }
 
             @Override
             public String generateFilename(File file, int index) {
-                return "打包子文件（"+index+"）."+FilenameUtils.getExtension(file.getName());
+                return "打包子文件（" + index + "）." + FilenameUtils.getExtension(file.getName());
             }
         });
+    }
+
+    /**
+     * 图片预览（在webApplicationContext的xml中配置BufferedImageHttpMessageConverter）
+     * @param file
+     * @return
+     */
+    @RequestMapping(value = "/image", headers = "Accept=image/png, image/jpeg, image/jpg, image/gif", method = RequestMethod.GET)
+    @ResponseBody
+    public BufferedImage viewImg(String file) {
+        try {
+            InputStream input = new FileInputStream(file);
+            BufferedImage read = ImageIO.read(input);
+            input.close();
+            return read;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

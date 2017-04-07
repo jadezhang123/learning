@@ -24,6 +24,8 @@ dependencies {
     compile 'org.springframework:spring-web:4.2.5.RELEASE'
     compile 'org.springframework:spring-jdbc:4.2.5.RELEASE'
     compile 'org.springframework:spring-webmvc:4.2.5.RELEASE'
+    compile 'org.springframework:spring-websocket:4.2.5.RELEASE'
+    compile 'org.springframework:spring-messaging:4.2.5.RELEASE'
 
 
 

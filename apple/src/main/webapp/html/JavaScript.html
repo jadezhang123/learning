@@ -6,16 +6,9 @@
 	<script src="../libs/jquery.min.js"></script>
 </head>
 <body>
-
-<select title="haoshi">
-	<option value="qqq1">qqq1</option>
-	<option value="qq1">qqq2</option>
-	<option value="qqq1">qqq3</option>
-	<option value="qqq1">qqq4</option>
-</select>
+<img style="width: 100px;height: 100px;">
 <input type="button" id="findAll" value="findAll">
 <input type="button" id="findUsers" value="findUsers">
-<input type="button" id="viewImage" value="viewImage">
 <input type="button" id="addUser" value="addUser">
 <input type="button" id="cacheUser" value="cacheUser">
 <br>
@@ -26,6 +19,12 @@
 <input id="onlyNum">
 <script type="text/javascript">
 	$(function () {
+
+		$('img').attr('src', '/file/upload/image?file='+ encodeURIComponent('E:\\11.png'));
+		//$('img').attr('src', '/file/upload/image?file='+ encodeURIComponent('E:\\22.jpeg'));
+		//$('img').attr('src', '/file/upload/image?file='+ encodeURIComponent('E:\\12.jpg'));
+		//$('img').attr('src', '/file/upload/image?file='+ encodeURIComponent('E:\\13.gif'));
+
 		$('#findAll').click(function () {
 			$.ajax({
 				url:'/apple/base/user/findAll',
@@ -41,20 +40,6 @@
 				url:'/apple/base/user/findUsers',
 				type:'post',
 				data:{userName:'ff'},
-				success:function (result) {
-					console.log(result);
-				}
-			});
-		});
-
-		$('#viewImage').click(function () {
-			$.ajax({
-				url:'/apple/base/user/image',
-				type:'get',
-				headers: {
-					Accept: "image/png",
-				},
-				data:{file:'ff'},
 				success:function (result) {
 					console.log(result);
 				}

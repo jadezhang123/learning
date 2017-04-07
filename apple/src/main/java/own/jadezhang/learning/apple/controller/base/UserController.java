@@ -22,6 +22,7 @@ import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -161,14 +162,5 @@ public class UserController {
         return new ResultDTO(false, ReturnCodeEnum.ACTION_FAILURE.getMessage());
     }
 
-    @RequestMapping(value = "/image", headers = "Accept=image/jpeg, image/jpg, image/png, image/gif", method = RequestMethod.GET)
-    public @ResponseBody BufferedImage viewImg(String file) {
-        try {
-            InputStream inputStream = this.getClass().getResourceAsStream("E:\\dd.png");
-            return ImageIO.read(inputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }
