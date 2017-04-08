@@ -4,7 +4,6 @@ import org.quartz.CronScheduleBuilder;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import own.jadezhang.learning.apple.domain.quartz.NewJob;
 import own.jadezhang.learning.apple.domain.quartz.QuartzJob;
@@ -15,7 +14,7 @@ import own.jadezhang.learning.apple.service.quartz.ScheduleJobManager;
  */
 @Service("taskServiceImpl")
 public class TaskServiceImpl implements ITaskService {
-    @Autowired
+    //@Autowired
     private ScheduleJobManager scheduleJobManager;
 
     public static final String JobName = "logTask";

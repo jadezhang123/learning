@@ -6,7 +6,6 @@
     <!-- 注册调度任务 -->
     <bean id="mapScheduler" lazy-init="false" autowire="no"
           class="org.springframework.scheduling.quartz.SchedulerFactoryBean" destroy-method="destroy">
-        <!--<property name="dataSource" ref="dataSource"/>-->
         <!--可选，QuartzScheduler 启动时更新己存在的Job，这样就不用每次修改targetObject后删除qrtz_job_details表对应记录了 -->
         <property name="overwriteExistingJobs" value="true" />
         <!--必须的，QuartzScheduler 延时启动，应用启动完后 QuartzScheduler 再启动 -->
@@ -44,7 +43,8 @@
 
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="jobTask"/>
-        <property name="cronExpression" value="0/30 * * * * ? "/>
+        <!-- 每一小时执行一次 -->
+        <property name="cronExpression" value="0 0 0/1 * * ? "/>
         <!--
         为了处理 misfired job，Quartz 中为 trigger 定义了处理策略，主要有下面两种：
         MISFIRE_INSTRUCTION_FIRE_ONCE_NOW = 1; 针对 misfired job 马上执行一次；

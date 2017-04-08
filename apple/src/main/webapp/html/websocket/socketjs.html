@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../libs/websocket/sockjs.js"></script>
+    <script src="../../libs/websocket/stomp.js"></script>
+</head>
+<body>
+<button id="send" onclick="sendMsg();">发送</button>
+<script>
+    var socket = new SockJS("/learning");
+    var stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function (frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/greetings', function (greeting) {
+            console.log(JSON.parse(greeting.body));
+        });
+    });
+
+    function sendMsg() {
+        stompClient.send('/app/hello',{}, JSON.stringify({name: 'jack', sex: 1}));
+    }
+
+</script>
+
+</body>
+</html>

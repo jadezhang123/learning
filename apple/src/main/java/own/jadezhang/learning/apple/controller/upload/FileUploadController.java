@@ -12,7 +12,6 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import own.jadezhang.common.exception.BizException;
 import own.jadezhang.learning.apple.config.Configurations;
 import own.jadezhang.learning.apple.config.Range;
 import own.jadezhang.learning.apple.exception.StreamException;
@@ -27,7 +26,6 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -349,7 +347,7 @@ public class FileUploadController {
     }
 
     /**
-     * 图片预览（在webApplicationContext的xml中配置BufferedImageHttpMessageConverter）
+     * 图片预览（在webApplicationContext的xml中在<mvc:message-converters/>元素下配置BufferedImageHttpMessageConverter）
      * @param file
      * @return
      */
