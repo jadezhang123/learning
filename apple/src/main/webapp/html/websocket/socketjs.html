@@ -5,22 +5,42 @@
     <title>Title</title>
     <script src="../../libs/websocket/sockjs.js"></script>
     <script src="../../libs/websocket/stomp.js"></script>
+    <script src="../../libs/jquery.min.js"></script>
 </head>
 <body>
-<button id="send" onclick="sendMsg();">发送</button>
+<button onclick="sendMsg();">发送</button>
+<button onclick="sendMsg1();">发送1</button>
+<input type="button" id="sendEmail" value="sendEmail" onclick="sendEmail();">
 <script>
     var socket = new SockJS("/learning");
     var stompClient = Stomp.over(socket);
 
     stompClient.connect({}, function (frame) {
-        console.log('Connected: ' + frame);
+
         stompClient.subscribe('/topic/greetings', function (greeting) {
             console.log(JSON.parse(greeting.body));
+        });
+
+        stompClient.subscribe('/topic/task', function (taskResult) {
+            console.log(JSON.parse(taskResult.body));
         });
     });
 
     function sendMsg() {
         stompClient.send('/app/hello',{}, JSON.stringify({name: 'jack', sex: 1}));
+    }
+
+    function sendMsg1() {
+        stompClient.send('/app/hello1',{}, JSON.stringify({name: 'bob', sex: 1}));
+    }
+
+    function sendEmail() {
+        $.ajax({
+            url:'/apple/quartz/test/sendMail',
+            success:function (result) {
+                console.log(result);
+            }
+        });
     }
 
 </script>

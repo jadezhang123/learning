@@ -25,6 +25,7 @@ public class SendMailJob extends QuartzJobBean {
             e.printStackTrace();
         }
         System.out.println(receiver + " received a mail from " + sender + "; the content is " + content);
+        context.setResult("send email successfully");
     }
 
     public void setSender(String sender) {

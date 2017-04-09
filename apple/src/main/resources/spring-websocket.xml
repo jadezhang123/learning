@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="own.jadezhang.learning.apple.controller.websocket"/>
+
+    <!-- WebSocket engine 属性配置（适用Tomcat, WildFly, GlassFish环境）-->
+    <bean class="org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean">
+        <property name="maxTextMessageBufferSize" value="8192"/>
+        <property name="maxBinaryMessageBufferSize" value="8192"/>
+    </bean>
+
+    <!--&lt;!&ndash; 配置 websocket 消息处理器，allowed-origins允许通信的站点
+       allowed-origins 三种模式：
+       1.默认，WebSocket and SockJS 只允许来自同一站点的请求（JSONP,IE 6,7 均无法使用）
+       2.指定系列站点：必须以 http:// 或 https:// 打头（限制同上，且IE9也不支持）
+       3.允许所有站点：指定指为 *
+   &ndash;&gt;
+    <websocket:handlers allowed-origins="*">
+        <websocket:mapping path="/messageHandler" handler="websocketMessageHandler"/>
+        <websocket:sockjs/>
+    </websocket:handlers>
+    <bean id="websocketMessageHandler"
+          class="own.jadezhang.learning.apple.controller.websocket.WebsocketMessageHandler"/>-->
+
+
+    <!-- Simple Broker-->
+    <websocket:message-broker application-destination-prefix="/app">
+        <websocket:stomp-endpoint path="/learning" allowed-origins="*">
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <!-- topic用于发布-订阅消息模式； queue用于端到端消息模式 -->
+        <websocket:simple-broker prefix="/topic, /queue"/>
+    </websocket:message-broker>
+
+
+    <!--&lt;!&ndash;Full-Featured Broker&ndash;&gt;
+    <websocket:message-broker application-destination-prefix="/app">
+        <websocket:stomp-endpoint path="/learning" allowed-origins="*">
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <websocket:stomp-broker-relay prefix="/topic,/queue"/>
+    </websocket:message-broker>-->
+</beans>

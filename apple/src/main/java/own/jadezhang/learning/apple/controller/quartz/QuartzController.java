@@ -1,6 +1,7 @@
 package own.jadezhang.learning.apple.controller.quartz;
 
 import org.quartz.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,7 +17,7 @@ import own.jadezhang.learning.apple.service.quartz.ScheduleJobManager;
 @Controller
 @RequestMapping("/apple/quartz/test")
 public class QuartzController {
-    //@Autowired
+    @Autowired
     private ScheduleJobManager scheduleJobManager;
 
     @ResponseBody
