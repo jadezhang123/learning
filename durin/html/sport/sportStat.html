@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学生综合素质评价</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<link rel="stylesheet" href="/css/weui.css"/>
+<link rel="stylesheet" href="/css/weui2.css"/>
+<link rel="stylesheet" href="/css/qky_grow.css"/>
+<link rel="stylesheet" type="text/css" href="/icon_font/iconfont.css"/>
+<script src="/js/sea.js" id="seajsnode" id="seajsnode"></script>
+<script src="/js/sea-config.js"></script>
+</head>
+<body ontouchstart ms-controller="sportStat">
+<div class="weui_btn_primary weui-header z-ind1000">
+    <div class="weui-header-left"> <a href="teacher_health-list.html" class="icon icon-icon1 f20"></a>  </div>
+    <wbr ms-widget="{is:'ms-classSelector',$id:'classSelector',onSelected:@afterSelectClass}"/>
+</div>
+<div class="weui_tab " style="height:44px;" id="tab1"><!--tab-fixed添加顶部-->
+    <div class="weui_navbar" style="height:44px;" >
+        <div class="weui_navbar_item  " ms-class="[@sex==1&&'tab-green']">
+            <i class="icon icon-nan f20 middle mar_r5"></i>男生<span class="f14">（23人）</span>
+        </div>
+        <div class="weui_navbar_item" ms-class="[@sex==2&&'tab-green']">
+            <i class="icon icon-nv f20 middle mar_r5"></i>女生<span class="f14">（23人）</span>
+        </div>
+    </div>
+</div>
+<!--体质健康统计-->
+<div class="weui_panel_bd ">
+   <div class="weui_cells">
+      <div class="weui_cells_title">学生身高/体重情况：</div>
+      <div class="weui_cell">
+          <div class="echart01" id="h_wChart"></div>
+      </div>
+   </div>        
+   <div class="weui_cells">
+      <div class="weui_cells_title">学生BMI情况：</div>
+      <div class="weui_cell">
+             <div class="echart01" id="bmiChart"></div>
+      </div>
+   </div>        
+   <div class="weui_cells">
+      <div class="weui_cells_title">各体测项目情况：</div>
+      <div class="weui_cell">
+             <div class="echart01"  id="rateChart"></div>
+      </div>
+   </div>        
+</div>
+<script>
+    // 加载入口模块
+    seajs.use('sport/stat');
+</script>
+</body>
+</html>

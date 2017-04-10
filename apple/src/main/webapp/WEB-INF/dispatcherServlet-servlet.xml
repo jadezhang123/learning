@@ -17,20 +17,18 @@
     <!--使 @RequestMapping, @ExceptionHandler等其他注解（有关数据格式转换的）起作用-->
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-           <ref bean="bufferedImageMessageConverter"/>
-           <ref bean="fastJsonMessageConverter"/>
+            <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <!--<property name="features">
+                    <list>
+                        <value type="com.alibaba.fastjson.serializer.SerializerFeature">WriteMapNullValue</value>
+                        <value type="com.alibaba.fastjson.serializer.SerializerFeature">WriteNullStringAsEmpty</value>
+                    </list>
+                </property>-->
+            </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <bean id="bufferedImageMessageConverter" class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
-    <bean id="fastJsonMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
-        <!--<property name="features">
-            <list>
-                <value type="com.alibaba.fastjson.serializer.SerializerFeature">WriteMapNullValue</value>
-                <value type="com.alibaba.fastjson.serializer.SerializerFeature">WriteNullStringAsEmpty</value>
-            </list>
-        </property>-->
-    </bean>
 
     <!--<mvc:annotation-driven>
         <mvc:message-converters>
@@ -56,7 +54,6 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>
     </bean>
-
 
 
 </beans>
