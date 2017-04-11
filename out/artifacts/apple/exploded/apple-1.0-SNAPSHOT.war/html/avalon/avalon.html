@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>avalon</title>
 	<!--[if lt IE 8]><script type="text/javascript" src="../../libs/json2.js"></script><![endif]-->
-	<script type="text/javascript" src="../../libs/sea-modules/jquery.min.js"></script>
+	<script type="text/javascript" src="../../libs/jquery.min.js"></script>
 	<script type="text/javascript" src="../../libs/avalon1.5.8.js"></script>
 	<script type="text/javascript" src="../../js/avalon/component.js"></script>
 	<script type="text/javascript" src="../../js/avalon/service.js"></script>
@@ -26,7 +26,6 @@
 		{{str}}
 		<ms:btn config="btnOptions"></ms:btn>
 		<input type="button" value="son" ms-click="fork">
-		<input type="button" value="addUsers" ms-click="add">
 		<input type="button" value="sonclck" ms-click="sonClick">
 		<input type="radio" name="sex" value="1"  ms-duplex-number="sex"/>
     	<input type="radio" name="sex" value="2"  ms-duplex-number="sex"/>
@@ -45,6 +44,12 @@
 			<a ms-click="fork">vm2.fork</a>
 		</div>
 	</div>
+
+	<input type="button" value="addArticle" ms-click="addArticle">
+	<input type="button" value="addUsers" ms-click="add">
+	<input ms-duplex="userName">
+	<input type="button" value="findUsersWithArticles" ms-click="findUsersWithArticles">
+	<input type="button" value="findUsers" ms-click="findUsers">
 
 </body>
 </html>

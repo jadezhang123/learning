@@ -13,6 +13,7 @@
 	<import resource="classpath:spring-redis.xml"/>
 	<import resource="classpath:quartz/spring-quartz.xml"/>
 	<import resource="classpath:spring-websocket.xml"/>
+	<import resource="classpath:spring-jms.xml"/>
 
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
 	<context:annotation-config/>

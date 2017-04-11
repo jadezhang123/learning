@@ -2718,7 +2718,7 @@ var keys = ["break,case,catch,continue,debugger,default,delete,do,else,false",
     "throw,true,try,typeof,var,void,while,with", /* 关键字*/
     "abstract,boolean,byte,char,class,const,double,enum,export,extends",
     "final,float,goto,implements,import,int,interface,long,native",
-    "package,private,protected,public,short,static,super,synchronized",
+    "quartz,private,protected,public,short,static,super,synchronized",
     "throws,transient,volatile", /*保留字*/
     "arguments,let,yield,undefined"].join(",")
 keys.replace(/\w+/g, function (a) {
@@ -6649,9 +6649,8 @@ avalon.ready = function (fn) {
         fn(avalon)
     }
 }
-
 avalon.config({
-    loader: true
+    loader: false
 })
 avalon.ready(function () {
     avalon.scan(DOC.body)
@@ -6670,7 +6669,7 @@ avalon.ready(function () {
 // declare themselves as anonymous modules, and avoid setting a global if an
 // AMD loader is present. avalon is a special case. For more information, see
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
-    if (typeof define === "function" && define.amd) {
+    if (typeof define === "function" && (define.amd||define.cmd)) {
         define("avalon", [], function() {
             return avalon
         })

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>paging</title>
     <link rel="stylesheet" type="text/css" href="../../libs/qtips/jquery.qtip.min.css">
-    <!--[if lt IE 8]><script type="text/javascript" src="../../libs/json2.js"></script><![endif]-->
-    <script type="text/javascript" src="../../libs/sea-modules/jquery.min.js"></script>
+    <!--[if lt IE 8]>
+    <script type="text/javascript" src="../../libs/json2.js"></script><![endif]-->
+    <script type="text/javascript" src="../../libs/jquery.min.js"></script>
     <script type="text/javascript" src="../../libs/layer/layer.js"></script>
     <script type="text/javascript" src="../../libs/qtips/jquery.qtip.min.js"></script>
     <script type="text/javascript" src="../../libs/avalon.js"></script>
@@ -25,11 +26,11 @@
         </li>
     </ul>
 </div>
-<div ms-include-src="'./public/paging.html'" ></div>
+<div ms-include-src="'./public/paging.html'"></div>
 <script type="text/javascript">
 
     $('#addTip').click(function () {
-        COMMON.qtips.createTip('#addTip', 'this is a tip');
+        COMMON.qtipsModule.createTip('#addTip', 'this is a tip');
     });
 
     avalon.ready(function () {
@@ -54,8 +55,7 @@
         });
 
         pagingTestVM.$watch('sex', function () {
-            pagingTestVM.updateQueryingParam('sex', pagingTestVM.sex);
-            pagingComponent.queryPage(1);
+            pagingComponent.queryPage(1, 'sex', pagingTestVM.sex);
         });
 
         avalon.scan(document.getElementById('pagingTest'), pagingTestVM);

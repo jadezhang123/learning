@@ -419,7 +419,18 @@ $.extend({
                 }
             });
         }
+    },
+
+    //配置处于debug模式
+    inDebug:false,
+
+    debugInfo:function (msg, obj) {
+        if (this.inDebug){
+            msg && console.log(msg+':');
+            obj && console.log(obj);
+        }
     }
+
 });
 
 //兼容不支持placeholder

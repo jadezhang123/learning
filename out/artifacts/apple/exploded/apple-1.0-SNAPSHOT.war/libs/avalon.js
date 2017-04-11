@@ -2704,7 +2704,7 @@ var keywords = [
     "throw,true,try,typeof,var,void,while,with", /* 关键字*/
     "abstract,boolean,byte,char,class,const,double,enum,export,extends",
     "final,float,goto,implements,import,int,interface,long,native",
-    "package,private,protected,public,short,static,super,synchronized",
+    "quartz,private,protected,public,short,static,super,synchronized",
     "throws,transient,volatile", /*保留字*/
     "arguments,let,yield,undefined" /* ECMA 5 - use strict*/].join(",")
 var rrexpstr = /\/\*[\w\W]*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|"(?:[^"\\]|\\[\w\W])*"|'(?:[^'\\]|\\[\w\W])*'|[\s\t\n]*\.[\s\t\n]*[$\w\.]+/g

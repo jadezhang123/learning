@@ -21,6 +21,7 @@ import own.jadezhang.learning.apple.domain.base.UserEx;
 import own.jadezhang.learning.apple.service.base.IArticleService;
 import own.jadezhang.learning.apple.service.base.ITaskService;
 import own.jadezhang.learning.apple.service.base.IUserService;
+import own.jadezhang.learning.apple.service.jms.QueueMsgSender;
 import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
 import java.util.HashMap;
@@ -40,6 +41,8 @@ public class UserController {
     private IArticleService articleService;
     @Autowired
     private ITaskService taskService;
+    @Autowired
+    private QueueMsgSender queueMsgSender;
 
     @ResponseBody
     @RequestMapping(value = "/pagingUsers")
@@ -72,11 +75,8 @@ public class UserController {
     @RequestMapping("/add")
     @ResponseBody
     public ResultDTO addUser(User user) {
-        //userService.add(user);
-        //scheduleJobManager.addJob(QuartzJob.class, "testJob");
-        //taskService.addLogTask();
-        //taskService.triggerLogTask();
-        taskService.scheduleLogTask();
+        userService.add(user);
+        queueMsgSender.send("test.queue", "this is a quent message");
         return new ResultDTO(true, ReturnCodeEnum.ADD_COMPLETE.getMessage());
     }
 

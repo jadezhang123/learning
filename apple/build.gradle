@@ -26,6 +26,9 @@ dependencies {
     compile 'org.springframework:spring-webmvc:4.2.5.RELEASE'
     compile 'org.springframework:spring-websocket:4.2.5.RELEASE'
     compile 'org.springframework:spring-messaging:4.2.5.RELEASE'
+    compile 'org.springframework:spring-jms:4.2.5.RELEASE'
+
+    compile group: 'org.apache.activemq', name: 'activemq-all', version: '5.10.0'
 
 
     compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'

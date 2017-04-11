@@ -2,3 +2,7 @@ a{display: block;}
 .header{position:fixed;width:100%; z-index:100; overflow:hidden; margin:0; left:0;top:0;background:#04acf7;text-align: center;height: 50px;}
 .content{width:100%; height:auto;margin:14px auto 0; padding-top:16px;}
 .footer{width:100%; background:#fff; padding:14px 0;}
+.a_chk{background:url(../imgs/chk_icon.png) 0 center no-repeat; width:14px; height:14px;display:inline-block;vertical-align:middle; margin-bottom:2px;}
+.a_chk.a_chked,.a_chk:hover{background-position:-14px 0;}
+.a_chk.dis_chk{background-position:-28px 0; cursor:default}
+.mar_r5{ margin-right:5px !important;}
