@@ -104,6 +104,7 @@ define(function (require) {
     }
 
     var setOptionForChart = function (chartId, option) {
+        console.log(JSON.stringify(option));
         if (charts[chartId]) {
             charts[chartId].hideLoading();
             charts[chartId].setOption(option);
@@ -121,8 +122,23 @@ define(function (require) {
         updateChartByType(chartId, optionData, merge, 'line');
     };
 
+    //绑定监听到series的click事件
+    var onSeries = function (chartId, callback) {
+        var chart = charts[chartId];
+        if (chart) {
+            chart.on('click', function (params) {
+                // 点击到了 series 上
+                if (params.componentType === 'series') {
+                    callback && callback(params, chart);
+                }
+            });
+        }
+    };
+
     return {
         initChart: initChart,
+        setOptionForChart: setOptionForChart,
+        onSeries: onSeries,
         dispatchActionForChart: function (chartId, param) {
             if (charts[chartId]) {
                 charts[chartId].dispatchAction(param);
