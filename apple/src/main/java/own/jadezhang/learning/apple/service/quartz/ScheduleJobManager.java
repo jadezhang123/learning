@@ -7,8 +7,20 @@ import org.quartz.*;
  */
 public interface ScheduleJobManager {
 
+    /**
+     * 检验任务是否存在
+     * @param jobName
+     * @param group
+     * @return
+     * @throws SchedulerException
+     */
     boolean checkExist(String jobName, String group) throws SchedulerException;
 
+    /**
+     * 添加任务
+     * @param job
+     * @return
+     */
     boolean addJob(JobDetail job);
 
     /**
@@ -60,7 +72,6 @@ public interface ScheduleJobManager {
 
     /**
      * 触发该任务立即执行（只触发一次），与{@link #addJob(JobDetail)}及其重载方法配合使用
-     * 一般此类任务为有状态，不能并行执行
      * @param jobName
      * @param group
      * @param data

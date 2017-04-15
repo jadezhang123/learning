@@ -31,7 +31,7 @@ public class QuartzController {
     public ResultDTO scheduleJob() {
         try {
             Trigger trigger = TriggerBuilder.newTrigger()
-                    .withIdentity("trigger2","test")
+                    .withIdentity("trigger2", "test")
                     .withSchedule(CronScheduleBuilder.cronSchedule("0/30 * * * * ? "))
                     .startNow()
                     .build();
@@ -99,17 +99,17 @@ public class QuartzController {
         try {
             scheduleJobManager.addJob(SendMailJob.class, "sendMail", "test");
             JobDataMap dataMap = new JobDataMap();
-            dataMap.put("sender","jack");
-            dataMap.put("receiver","lucy");
-            dataMap.put("content","i love you");
+            dataMap.put("sender", "jack");
+            dataMap.put("receiver", "lucy");
+            dataMap.put("content", "i love you");
             scheduleJobManager.triggerJob("sendMail", "test", dataMap);
 
             Thread.sleep(2000);
 
             JobDataMap dataMap1 = new JobDataMap();
-            dataMap1.put("sender","lucy");
-            dataMap1.put("receiver","jack");
-            dataMap1.put("content","i love you too");
+            dataMap1.put("sender", "lucy");
+            dataMap1.put("receiver", "jack");
+            dataMap1.put("content", "i love you too");
             scheduleJobManager.triggerJob("sendMail", "test", dataMap1);
         } catch (Exception e) {
             e.printStackTrace();

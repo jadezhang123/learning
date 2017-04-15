@@ -1,8 +1,10 @@
 package own.jadezhang.learning.apple.controller.websocket;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 import own.jadezhang.learning.apple.domain.base.Article;
 import own.jadezhang.learning.apple.domain.base.User;
@@ -31,5 +33,12 @@ public class GreetingController {
         return JSON.toJSONString(article);
     }
 
+    @MessageExceptionHandler
+    @SendToUser(destinations="/queue/errors", broadcast=false)
+    public String handleException(Throwable exception) {
+        Article article = new Article();
+
+        return JSON.toJSONString(article);
+    }
 
 }

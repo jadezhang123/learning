@@ -40,9 +40,11 @@
     <!--Full-Featured Broker 用于集群或配合消息中间件（ 如RabbitMQ, ActiveMQ等），
         将会把消息转发给这些消息中间件，并将从这些消息中间件收到的消息通过WebSocket session转发给客户端，作为两者间的转播者-->
     <websocket:message-broker application-destination-prefix="/app">
+
         <websocket:stomp-endpoint path="/learning" allowed-origins="*">
             <websocket:sockjs/>
         </websocket:stomp-endpoint>
-        <websocket:stomp-broker-relay prefix="/topic,/queue" relay-host="stomp://localhost" relay-port="61613" />
+        <websocket:stomp-broker-relay prefix="/topic,/queue" relay-host="127.0.0.1" relay-port="61613"
+                                      client-login="system" client-passcode="manager" system-login="system" system-passcode="manager"/>
     </websocket:message-broker>
 </beans>
