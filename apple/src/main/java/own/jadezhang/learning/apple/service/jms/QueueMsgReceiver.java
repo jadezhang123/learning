@@ -19,6 +19,7 @@ public class QueueMsgReceiver implements MessageListener {
     @Override
     public void onMessage(Message message) {
         TextMessage msg = (TextMessage) message;
+        System.out.println(msg);
         try {
             logger.debug("QueueMsgReceiver receive a message:" + msg.getText());
         } catch (JMSException e) {

@@ -6,6 +6,9 @@
 
     <bean id="amqConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
         <property name="brokerURL" value="tcp://localhost:61616"/>
+        <!--<property name="brokerURL" value="amqp://0.0.0.0:5672"/>-->
+        <!--<property name="brokerURL" value="stomp://0.0.0.0:61613"/>-->
+        <!--<property name="brokerURL" value="ws://0.0.0.0:61614"/>-->
     </bean>
 
     <!-- Spring Caching连接工厂 -->

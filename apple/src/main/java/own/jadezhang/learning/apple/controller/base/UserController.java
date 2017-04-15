@@ -22,6 +22,7 @@ import own.jadezhang.learning.apple.service.base.IArticleService;
 import own.jadezhang.learning.apple.service.base.ITaskService;
 import own.jadezhang.learning.apple.service.base.IUserService;
 import own.jadezhang.learning.apple.service.jms.QueueMsgSender;
+import own.jadezhang.learning.apple.service.jms.TopicMsgSender;
 import own.jadezhang.learning.apple.view.base.DetailExcelView;
 
 import java.util.HashMap;
@@ -43,7 +44,8 @@ public class UserController {
     private ITaskService taskService;
     @Autowired
     private QueueMsgSender queueMsgSender;
-
+    @Autowired
+    private TopicMsgSender topicMsgSender;
     @ResponseBody
     @RequestMapping(value = "/pagingUsers")
     public BizData4Page<User> pagingUsers(int sex, @RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
@@ -77,6 +79,7 @@ public class UserController {
     public ResultDTO addUser(User user) {
         userService.add(user);
         queueMsgSender.send("test.queue", "this is a quent message");
+        topicMsgSender.send("test.topic", user);
         return new ResultDTO(true, ReturnCodeEnum.ADD_COMPLETE.getMessage());
     }
 
