@@ -24,5 +24,7 @@ public class JobProcessListener extends JobListenerAdapter {
         logger.debug("job was executed with the result;", result);
         //发送消息
         simpMessagingTemplate.convertAndSend("/topic/task", result);
+
+        //simpMessagingTemplate.convertAndSendToUser("testUser", "/queue/music-updates", result);
     }
 }
