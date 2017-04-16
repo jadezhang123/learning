@@ -5,7 +5,6 @@ import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.annotation.SendToUser;
-import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.stereotype.Controller;
 import own.jadezhang.learning.apple.domain.base.Article;
 import own.jadezhang.learning.apple.domain.base.User;
@@ -17,21 +16,12 @@ import own.jadezhang.learning.apple.domain.base.User;
 public class GreetingController {
 
     @MessageMapping("/hello")
-    @SendTo("/topic/greetings")
+    @SendTo("/topic/task")
     public Article hello(User user) {
         Article article = new Article();
         article.setName("learning" + user.getName());
         article.setComment("this is a good article");
         return article;
-    }
-
-    @MessageMapping("/hello1")
-    @SendTo("/topic/task")
-    public String hello1(User user) {
-        Article article = new Article();
-        article.setName("learning" + user.getName());
-        article.setComment("this is a good article");
-        return JSON.toJSONString(article);
     }
 
     /**
@@ -41,7 +31,7 @@ public class GreetingController {
      * @param user
      * @return
      */
-    @SubscribeMapping("/music")
+    @MessageMapping("/music")
     @SendToUser("/queue/music-updates")
     public Article subscribeToUserDestination(User user) {
         Article article = new Article();
@@ -51,7 +41,7 @@ public class GreetingController {
     }
 
     @MessageExceptionHandler
-    @SendToUser(destinations="/queue/errors", broadcast=false)
+    @SendToUser(destinations = "/queue/errors", broadcast = false)
     public String handleException(Throwable exception) {
         Article article = new Article();
 

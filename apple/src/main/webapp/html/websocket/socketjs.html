@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../../libs/websocket/sockjs.js"></script>
+    <script src="../../libs/websocket/sockjs-cmd.js"></script>
     <script src="../../libs/websocket/stomp.js"></script>
     <script src="../../libs/jquery.min.js"></script>
 </head>
 <body>
 <button onclick="sendMsg();">发送</button>
-<button onclick="sendMsg1();">发送1</button>
 <input type="button" id="sendEmail" value="sendEmail" onclick="sendEmail();">
+<input type="button" id="updateMusic" value="updateMusic" onclick="updateMusic();">
 <script>
     var socket = new SockJS("/learning");
     var stompClient = Stomp.over(socket);
 
     stompClient.connect({}, function (frame) {
 
-        stompClient.subscribe('/topic/greetings', function (greeting) {
-            console.log(JSON.parse(greeting.body));
-        });
-
         stompClient.subscribe('/topic/task', function (taskResult) {
             console.log(JSON.parse(taskResult.body));
         });
+
+        //订阅专用通道
+        stompClient.subscribe('/user/queue/music-updates', function (taskResult) {
+            console.log(JSON.parse(taskResult.body));
+        });
+
+        //订阅专用通道
+        stompClient.subscribe('/user/queue/errors', function (taskResult) {
+            console.log(JSON.parse(taskResult.body));
+        });
+
     });
 
     function sendMsg() {
-        stompClient.send('/app/hello',{}, JSON.stringify({name: 'jack', sex: 1}));
-    }
-
-    function sendMsg1() {
-        stompClient.send('/app/hello1',{}, JSON.stringify({name: 'bob', sex: 1}));
+        stompClient.send('/app/hello', {}, JSON.stringify({name: 'jack', sex: 1}));
     }
 
     function sendEmail() {
+        //发起sendMail请求，后台quartz任务启动，任务执行成功后发送消息通知前台
         $.ajax({
-            url:'/apple/quartz/test/sendMail',
-            success:function (result) {
+            url: '/apple/quartz/test/sendMail',
+            success: function (result) {
                 console.log(result);
             }
         });
+    }
+
+    function updateMusic() {
+        stompClient.send('/app/music', {}, JSON.stringify({name: 'jade', sex: 1}));
     }
 
 </script>

@@ -16,8 +16,6 @@ public class SendMailJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
 
-        setDataFromExecutionContext(context);
-
         System.out.println(sender + " send a mail to " + receiver + "; the content is " + content);
         try {
             Thread.sleep(5000);
@@ -26,13 +24,6 @@ public class SendMailJob extends QuartzJobBean {
         }
         System.out.println(receiver + " received a mail from " + sender + "; the content is " + content);
         context.setResult("send email successfully");
-    }
-
-    private void setDataFromExecutionContext(JobExecutionContext context){
-        JobDataMap mergedJobDataMap = context.getMergedJobDataMap();
-        setSender(mergedJobDataMap.getString("sender"));
-        setReceiver(mergedJobDataMap.getString("receiver"));
-        setContent(mergedJobDataMap.getString("content"));
     }
 
     public void setSender(String sender) {
