@@ -1,6 +1,7 @@
 package own.jadezhang.learning.apple.controller.base;
 
 import com.alibaba.fastjson.JSON;
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,6 +72,7 @@ public class UserController {
     public List<UserEx> findUsers(String userName) {
         Map<String, Object> condition = new HashMap<String, Object>();
         condition.put("name", userName);
+        logger.debug("findAll users");
         return userService.getUserWithArticles(condition);
     }
 
@@ -88,6 +90,7 @@ public class UserController {
     @ResponseBody
     public ResultDTO addUsers(@RequestBody List<User> users) {
         userService.batchAdd(users);
+        logger.debug("addUsers users");
         return new ResultDTO(true, ReturnCodeEnum.ADD_COMPLETE.getMessage());
     }
 
@@ -150,6 +153,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/addArticle")
     public ResultDTO addArticle(Article article) {
+        logger.debug("addArticle");
         try {
             int count = articleService.add(article);
             if (count >0){
@@ -161,5 +165,11 @@ public class UserController {
         return new ResultDTO(false, ReturnCodeEnum.ACTION_FAILURE.getMessage());
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/logMsg")
+    public void logMsg(String msg) {
+        logger.debug("this is a test for log4j2 with debug msg:" + msg);
+        logger.info("this is a test for log4j2 with info msg:" + msg);
+    }
 
 }
