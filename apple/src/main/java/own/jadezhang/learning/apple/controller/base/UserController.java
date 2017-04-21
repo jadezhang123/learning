@@ -170,6 +170,7 @@ public class UserController {
     public void logMsg(String msg) {
         logger.debug("this is a test for log4j2 with debug msg:" + msg);
         logger.info("this is a test for log4j2 with info msg:" + msg);
+        userService.updateCount("c");
     }
 
 }

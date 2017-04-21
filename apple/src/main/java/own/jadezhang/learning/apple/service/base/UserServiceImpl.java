@@ -1,6 +1,7 @@
 package own.jadezhang.learning.apple.service.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
@@ -27,7 +28,8 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
     private TransactionTemplate transactionTemplate;
     @Resource
     private IRedisRepository<String, String> redisRepository;
-
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
     @Autowired
     private IUserDAO userDAO;
     @Autowired
@@ -61,6 +63,18 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
     @Override
     public String getCachedUser(String userCode) {
         return redisRepository.get(userCode);
+    }
+
+    @Override
+    public boolean updateCount(String code) {
+        redisTemplate.watch(code);
+        redisTemplate.multi();
+        redisRepository.incr(code, 1);
+        List<Object> execResult = redisTemplate.exec();
+        if (execResult == null || execResult.size() == 0){
+            System.out.println("事务执行失败");
+        }
+        return false;
     }
 
 

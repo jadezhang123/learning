@@ -25,4 +25,11 @@ public interface IUserService<D extends IBaseDAO, T extends BaseDomain> extends 
     void cacheUser(String userCode, String userName);
 
     String getCachedUser(String userCode);
+
+    /**
+     * 使用redis监听控制事务执行
+     * @param code
+     * @return
+     */
+    boolean updateCount(String code);
 }
