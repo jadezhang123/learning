@@ -5,7 +5,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
 
     <bean id="amqConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
-        <property name="brokerURL" value="tcp://localhost:61616"/>
+        <!--activemq单节点-->
+        <!--<property name="brokerURL" value="tcp://192.168.230.128:61616" />-->
+        <!--activemq集群（ zookeeper(集群) + levelDB）-->
+        <property name="brokerURL" value="failover:(tcp://192.168.230.128:53511,tcp://192.168.230.128:53512,tcp://192.168.230.128:53513)?randomize=false" />
+        <property name="userName" value="system"/>
+        <property name="password" value="manager"/>
         <!--<property name="brokerURL" value="amqp://0.0.0.0:5672"/>-->
         <!--<property name="brokerURL" value="stomp://0.0.0.0:61613"/>-->
         <!--<property name="brokerURL" value="ws://0.0.0.0:61614"/>-->

@@ -24,6 +24,7 @@
          <websocket:sockjs/>
      </websocket:handlers>
      <bean id="websocketMessageHandler"
+
            class="own.jadezhang.learning.apple.controller.websocket.WebsocketMessageHandler"/>-->
 
 
@@ -43,7 +44,7 @@
         <websocket:stomp-endpoint path="/learning" allowed-origins="*">
             <websocket:sockjs/>
         </websocket:stomp-endpoint>
-        <websocket:stomp-broker-relay prefix="/topic,/queue" relay-host="127.0.0.1" relay-port="61613"
+        <websocket:stomp-broker-relay prefix="/topic,/queue" relay-host="192.168.230.128" relay-port="61613"
                                       client-login="system" client-passcode="manager" system-login="system" system-passcode="manager"/>
     </websocket:message-broker>
 </beans>

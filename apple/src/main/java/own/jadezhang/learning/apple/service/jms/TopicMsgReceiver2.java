@@ -1,5 +1,7 @@
 package own.jadezhang.learning.apple.service.jms;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import own.jadezhang.learning.apple.domain.base.User;
 
@@ -13,12 +15,13 @@ import javax.jms.ObjectMessage;
  */
 @Component("topicMsgReceiver2")
 public class TopicMsgReceiver2 implements MessageListener{
+    private static final Logger logger = LoggerFactory.getLogger(TopicMsgReceiver2.class);
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage){
             try {
                 User user = (User) ((ObjectMessage) message).getObject();
-                System.out.println("topicMsgReceiver2 receive : "+user);
+                logger.debug("topicMsgReceiver2 receive : "+user);
             } catch (JMSException e) {
                 e.printStackTrace();
             }

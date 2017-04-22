@@ -10,11 +10,11 @@
 
     <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
         <!--redis server Host at home -->
-        <!--<property name="hostName" value="192.168.17.29"></property>-->
+        <property name="hostName" value="192.168.230.128"></property>
         <!--redis server Host at work -->
-        <property name="hostName" value="192.168.17.45"></property>
+       <!-- <property name="hostName" value="192.168.17.45"></property>-->
         <property name="port" value="6379"></property>
-        <property name="password" value="04093x"></property>
+        <!--<property name="password" value="04093x"></property>-->
         <property name="poolConfig" ref="poolConfig"></property>
     </bean>
 

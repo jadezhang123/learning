@@ -69,6 +69,12 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
     public boolean updateCount(String code) {
         redisTemplate.watch(code);
         redisTemplate.multi();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //在此期间如果code的值改变则事物执行失败
         redisRepository.incr(code, 1);
         List<Object> execResult = redisTemplate.exec();
         if (execResult == null || execResult.size() == 0){
