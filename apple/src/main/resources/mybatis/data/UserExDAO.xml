@@ -29,4 +29,25 @@
             </if>
         </trim>
     </select>
+
+    <select id="getTopByArticles" resultType="own.jadezhang.learning.apple.domain.base.UserEx">
+        SELECT
+        USER.*,
+        @curr_cnt := cnt AS articleCount,
+        @rank :=IF(@prev_cnt &lt;&gt; @curr_cnt,@rank + 1,@rank) AS rank,
+        @prev_cnt := @curr_cnt AS dummy
+        FROM
+        (
+            SELECT
+            u.*, COUNT(*) cnt
+            FROM
+            article a
+            INNER JOIN USER u ON u.id = a.uid,(SELECT @curr_cnt :=0,@prev_cnt :=0,@rank := 0) r
+            GROUP BY
+            uid
+            ORDER BY cnt DESC
+            LIMIT ${limit}
+        ) AS USER;
+    </select>
+
 </mapper>

@@ -7,7 +7,7 @@
 </head>
 <body>
 <img style="width: 100px;height: 100px;">
-<input type="button" id="findAll" value="findAll">
+<input type="button" id="findTop10" value="findTop10">
 <input type="button" id="findUsers" value="findUsers">
 <input type="button" id="addUser" value="addUser">
 <input type="button" id="cacheUser" value="cacheUser">
@@ -26,9 +26,9 @@
 		//$('img').attr('src', '/file/upload/image?file='+ encodeURIComponent('E:\\12.jpg'));
 		//$('img').attr('src', '/file/upload/image?file='+ encodeURIComponent('E:\\13.gif'));
 
-		$('#findAll').click(function () {
+		$('#findTop10').click(function () {
 			$.ajax({
-				url:'/apple/base/user/findAll',
+				url:'/apple/base/user/findTop10',
 				type:'get',
 				success:function (result) {
 					console.log(result);

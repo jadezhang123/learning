@@ -1,7 +1,6 @@
 package own.jadezhang.learning.apple.controller.base;
 
 import com.alibaba.fastjson.JSON;
-import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,11 +59,10 @@ public class UserController {
         return BizData4Page.page(list, records, pageNo, pageSize);
     }
 
-    @RequestMapping("/findAll")
+    @RequestMapping("/findTop10")
     @ResponseBody
-    public List<UserEx> findAll() {
-        logger.info("findAll users");
-        return userService.findAll();
+    public List<UserEx> findTop10() {
+        return userService.getTop10ByArticles();
     }
 
     @RequestMapping(value = "/findUsers")

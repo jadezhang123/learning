@@ -26,4 +26,6 @@ public @interface ExcelColProAnnotation {
      * @return
      */
     boolean isUnique() default false;
+
+    int order() default 0;
 }

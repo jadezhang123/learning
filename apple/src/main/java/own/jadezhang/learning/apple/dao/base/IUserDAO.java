@@ -3,7 +3,6 @@ package own.jadezhang.learning.apple.dao.base;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import own.jadezhang.common.dao.IBaseDAO;
-import own.jadezhang.learning.apple.domain.base.Article;
 import own.jadezhang.learning.apple.domain.base.User;
 import own.jadezhang.learning.apple.domain.base.UserEx;
 
@@ -21,4 +20,6 @@ public interface IUserDAO extends IBaseDAO<User> {
      * @return
      */
     List<UserEx> getUserWithArticles(@Param("condition") Map<String, Object> condition);
+
+    List<UserEx> getTopByArticles(@Param("limit") int limit);
 }

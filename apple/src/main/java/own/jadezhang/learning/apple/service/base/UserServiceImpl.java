@@ -88,4 +88,9 @@ public class UserServiceImpl extends AbstractServiceImpl<IUserDAO, User> impleme
     public List<UserEx> getUserWithArticles(Map<String, Object> condition) {
         return userDAO.getUserWithArticles(condition);
     }
+
+    @Override
+    public List<UserEx> getTop10ByArticles() {
+        return userDAO.getTopByArticles(10);
+    }
 }

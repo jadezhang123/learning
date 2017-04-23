@@ -32,4 +32,6 @@ public interface IUserService<D extends IBaseDAO, T extends BaseDomain> extends 
      * @return
      */
     boolean updateCount(String code);
+
+    List<UserEx> getTop10ByArticles();
 }

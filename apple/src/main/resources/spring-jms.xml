@@ -6,9 +6,12 @@
 
     <bean id="amqConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
         <!--activemq单节点-->
+        <property name="brokerURL" value="tcp://localhost:61616" />
+        <!--activemq单节点-->
         <!--<property name="brokerURL" value="tcp://192.168.230.128:61616" />-->
         <!--activemq集群（ zookeeper(集群) + levelDB）-->
-        <property name="brokerURL" value="failover:(tcp://192.168.230.128:53511,tcp://192.168.230.128:53512,tcp://192.168.230.128:53513)?randomize=false" />
+        <!--<property name="brokerURL"
+            value="failover:(tcp://192.168.230.128:53511,tcp://192.168.230.128:53512,tcp://192.168.230.128:53513)?randomize=false" />-->
         <property name="userName" value="system"/>
         <property name="password" value="manager"/>
         <!--<property name="brokerURL" value="amqp://0.0.0.0:5672"/>-->

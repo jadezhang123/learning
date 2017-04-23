@@ -18,7 +18,7 @@ public class ActiveMqTester {
     @Test
     public void testActiveMQCluster() throws Exception {
         //一千万条消息以每隔0.3秒频率发送
-        long count = 100000000;
+        long count = 10000000;
         for (int i = 0; i < count; i++) {
             queueMsgSender.send("test.queue", "[" + i + "] this is a quent message");
             Thread.sleep(300);
