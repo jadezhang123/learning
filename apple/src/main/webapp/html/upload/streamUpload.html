@@ -16,6 +16,7 @@
     <input type="button" value="save" id="save">
     <input type="button" value="deleteTemp" id="deleteTemp">
     <input type="button" value="delete" id="delete">
+    <input type="button" value="download" id="download">
     <img id="savedImg" style="width: 100px; height: 50px;;">
 </div>
 <script>
@@ -70,6 +71,10 @@
         $.post('/file/upload/deleteOne', {token: token}, function (result) {
             console.log(result);
         });
+    });
+
+    $('#deleteTemp').click(function () {
+        window.open('/file/upload/download');
     });
 
 

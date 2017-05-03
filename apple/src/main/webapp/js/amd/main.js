@@ -4,13 +4,14 @@
 requirejs.config({
     baseUrl: '/js',
     paths: {
-        lib: '/libs',
-        app: '../app'
+        lib:'/libs',
+        app: '../app',
+        jquery:'/libs/jquery-cmd'
     }
 });
-define(['lib/jquery', 'lib/avalon1.5.8'], function ($, avalon) {
-    console.log(window.avalon);
-    console.log(avalon);
+define(['jquery','lib/qtips/jquery.qtip'], function ($) {
+    console.log($);
+    console.log($.qtip);
     $(function () {
         $('#btn').click(function () {
             console.log('btn');

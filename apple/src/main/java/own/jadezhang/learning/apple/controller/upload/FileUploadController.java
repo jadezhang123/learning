@@ -26,6 +26,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -319,6 +320,12 @@ public class FileUploadController {
     @ResponseBody
     @RequestMapping(value = "/download")
     public void download(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        File file = new File("E:\\中文.png");
+        response.setContentType(Files.probeContentType(file.toPath()));
+        response.setHeader("Content-disposition", "attachment;filename=" + new String(file.getName().getBytes("gbk"), "ISO8859-1"));
+        //response.setHeader("Content-disposition", "attachment;filename=" + new String(file.getName().getBytes("utf-8"), "ISO8859-1"));
+        //response.setHeader("Content-disposition", "attachment;filename=" + new String(file.getName().getBytes("gbk"), "ISO8859-1"));
+        Files.copy(file.toPath(), response.getOutputStream());
         //DownloadUtil.download(request, response, "");
        /* File file = new File("F:\\document\\杂件\\社保名单汇总-张俊伟.xlsx");
         DownloadUtil.download(request, response, file, new DownloadUtil.FilenameGenerator() {
@@ -332,7 +339,7 @@ public class FileUploadController {
                 new File("D:\\chart.xls"),
                 new File("D:\\学生体质健康记录卡.doc"),
                 new File("D:\\十九楼平面布置图1027.pdf")};*/
-        File[] files = new File[]{};
+        /*File[] files = new File[]{};
         DownloadUtil.downloadAfterCompress(request, response, files, new DownloadUtil.FilenameGenerator() {
             @Override
             public String generateFilename(File file) {
@@ -343,7 +350,7 @@ public class FileUploadController {
             public String generateFilename(File file, int index) {
                 return "打包子文件（" + index + "）." + FilenameUtils.getExtension(file.getName());
             }
-        });
+        });*/
     }
 
     /**

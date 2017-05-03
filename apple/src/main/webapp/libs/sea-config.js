@@ -10,6 +10,7 @@ seajs.config({
         "avalon": "/libs/avalon2.js",
         "layer": "/libs/layer/layer_all.js",
         "header":"/js/sea/common/header.js",
+        "qtips":"/libs/qtips/jquery.qtip.min.js",
         "layer_mobile": "/libs/layer_mobile/layer_mobile.min.js",
         "json": "/libs/json2.js",
         "echarts":"/libs/echarts/echarts-cmd.js"

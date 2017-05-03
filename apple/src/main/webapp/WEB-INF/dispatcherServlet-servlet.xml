@@ -12,6 +12,8 @@
     <context:component-scan base-package="own.jadezhang.learning.apple.controller" use-default-filters="false">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"></context:include-filter>
+        <context:include-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.RestController"></context:include-filter>
     </context:component-scan>
 
     <!--使 @RequestMapping, @ExceptionHandler等其他注解（有关数据格式转换的）起作用-->

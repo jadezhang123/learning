@@ -20,6 +20,10 @@
 	"use strict";
 	if(typeof define === 'function' && define.amd) {
 		define(['jquery'], factory);
+	}else if (typeof define === 'function' && define.cmd){
+		define(function (r) {
+			factory(r('jquery'));
+		});
 	}
 	else if(jQuery && !jQuery.fn.qtip) {
 		factory(jQuery);

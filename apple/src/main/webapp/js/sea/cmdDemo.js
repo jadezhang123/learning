@@ -4,6 +4,8 @@
 
 define(function (require) {
     var $ = require('jquery');
+    require('qtips');
+    console.log($.qtip);
     var avalon = require('avalon');
     require('./ms-autoComplete');
     var headerVM = require('header');
